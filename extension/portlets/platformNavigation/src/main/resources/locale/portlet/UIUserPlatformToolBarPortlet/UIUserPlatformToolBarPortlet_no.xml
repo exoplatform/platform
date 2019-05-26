@@ -11,7 +11,6 @@
 <account>Account</account>
 <language>Bytt språk</language>
 <logout>Logg ut</logout>
-        <dashboard>Mitt dashboard</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

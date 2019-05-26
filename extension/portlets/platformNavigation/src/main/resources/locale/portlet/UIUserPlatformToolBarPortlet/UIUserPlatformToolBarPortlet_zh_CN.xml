@@ -11,7 +11,6 @@
 <account>账号</account>
 <language>更改语言</language>
 <logout>退出</logout>
-        <dashboard>我的仪表板</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

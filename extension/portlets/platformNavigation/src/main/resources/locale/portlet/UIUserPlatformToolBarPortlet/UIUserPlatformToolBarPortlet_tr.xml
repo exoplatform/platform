@@ -11,7 +11,6 @@
 <account>Hesap</account>
 <language>Dili Değiştir</language>
 <logout>Oturumu Kapat</logout>
-        <dashboard>Panelim</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

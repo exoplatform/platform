@@ -28,7 +28,6 @@
     import org.exoplatform.web.url.PortalURL;
     import org.exoplatform.portal.mop.SiteType;
     import org.exoplatform.web.url.navigation.NavigationResource;
-    import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
     import org.gatein.common.text.EntityEncoder;
     import org.exoplatform.commons.utils.CommonsUtils;
     import org.apache.commons.lang.StringUtils;
@@ -51,7 +50,6 @@
     def labellanguage = _ctx.appRes("UIUserPlatformToolBarPortlet.label.language");
     def labellogout = _ctx.appRes("UIUserPlatformToolBarPortlet.label.logout");
     def labelWiki = _ctx.appRes("UIUserPlatformToolBarPortlet.label.wiki");
-    def labelDashboard = _ctx.appRes("UIUserPlatformToolBarPortlet.label.dashboard");
     def labelNotifications = _ctx.appRes("UIUserPlatformToolBarPortlet.label.NotificationSettingsPortlet");
     def remoteUser = Util.getPortalRequestContext().getRemoteUser();
     def activitiesLink = NavigationURLUtils.getURLInCurrentPortal("activities") + "/" + remoteUser;
@@ -62,9 +60,7 @@
     def directoryLink = NavigationURLUtils.getURLInCurrentPortal("people");
     def changeLanguageAction = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));";
     def accountSetting = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true));"
-//String createDashboardLink = nodeURL.setResource(new NavigationResource(SiteType.USER, remoteUser, null)).toString();
     String clazz = "";
-    String createDashboardLink = uicomponent.getUserDashBoardURI();
 %>
 <div class="uiUserToolBarPortlet uiDropdownWithIcon dropdown pull-right" id="$uicomponent.id">
     
@@ -91,9 +87,6 @@
             </li>
             <li>
               <a href="$wikiLink"><i class="uiIconWikiMyWiki"></i>$labelWiki</a>
-            </li>
-            <li>
-              <a href="<%=createDashboardLink%>"><i class="uiIconPLFDashboard"></i>$labelDashboard</a>
             </li>
 	            <% if (CommonsUtils.isFeatureActive("notification")) {  %>
 		            <li>

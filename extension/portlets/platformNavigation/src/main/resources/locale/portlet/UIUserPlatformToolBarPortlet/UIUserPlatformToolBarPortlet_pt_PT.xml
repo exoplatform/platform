@@ -11,7 +11,6 @@
 <account>A minha conta</account>
 <language>Mudar idioma</language>
 <logout>Sair</logout>
-        <dashboard>O meu painel</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

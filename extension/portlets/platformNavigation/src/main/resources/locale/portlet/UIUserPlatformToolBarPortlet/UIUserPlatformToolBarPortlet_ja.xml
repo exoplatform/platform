@@ -11,7 +11,6 @@
 <account>アカウント</account>
 <language>言語を変更</language>
 <logout>ログアウト</logout>
-        <dashboard>ダッシュボード</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>
