@@ -4,7 +4,7 @@
     <parent>
         <artifactId>platform-extension-portlets</artifactId>
         <groupId>org.exoplatform.platform</groupId>
-        <version>5.2.x-acc222-SNAPSHOT</version>
+        <version>5.2.1-acc222-01</version>
     </parent>
     <artifactId>platform-extension-portlets-notification</artifactId>
     <packaging>jar</packaging>
