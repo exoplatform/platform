@@ -1132,11 +1132,11 @@
                 breadCrumbContent += '&nbsp;<i class="uiIconArrowRight"></i>&nbsp;';
                 breadCrumbContentTooltip += " > ";
               }
-              breadCrumbContent += '<a href="' + folderPath + '" onclick="event.stopPropagation();window.location.href=this.href">' +
-                                       + XSSUtils.escapeHtml(folderName) +
-                                    '</a>';
-              breadCrumbContentTooltip += folderName;
-              folderIndex++;
+              breadCrumbContent += '<a href="' + folderPath + '" onclick="event.stopPropagation();window.location.href=this.href">';
+               breadCrumbContent += XSSUtils.escapeHtml(folderName);
+               breadCrumbContent += '</a>';
+               breadCrumbContentTooltip += folderName;
+               folderIndex++;
           }
         }
         breadCrumbContent += '</div></div>';
