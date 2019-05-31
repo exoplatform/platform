@@ -143,15 +143,17 @@
      });
      var $tab = $('.uiProfileMenu .userNavigation');
      var $selectedTab = $tab.find('.active');
-     var left = $selectedTab.position().left;
-     var screenWidth = $(window).width();
+     if($selectedTab && $selectedTab.length) {
+       var left = $selectedTab.position().left;
+       var screenWidth = $(window).width();
 
-     if (left > (screenWidth / 2) && left < ($tab[0].scrollWidth - screenWidth / 2)) {
-       console.log('center left:' + left + " screenwidth/2: " + (screenWidth / 2));
-       $tab.scrollLeft(left - screenWidth / 2);
-     } else if (left > $tab.width() - screenWidth / 2) {
-       console.log('left:' + left + " screenwidth/2: " + (screenWidth / 2));
-       $tab.scrollLeft(left);
+       if (left > (screenWidth / 2) && left < ($tab[0].scrollWidth - screenWidth / 2)) {
+         console.log('center left:' + left + " screenwidth/2: " + (screenWidth / 2));
+         $tab.scrollLeft(left - screenWidth / 2);
+       } else if (left > $tab.width() - screenWidth / 2) {
+         console.log('left:' + left + " screenwidth/2: " + (screenWidth / 2));
+         $tab.scrollLeft(left);
+       }
      }
   	},
 
