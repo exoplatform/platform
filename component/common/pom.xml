@@ -151,10 +151,6 @@
       <artifactId>calendar-webservice</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.shindig</groupId>
-      <artifactId>shindig-social-api</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social-component-service</artifactId>
     </dependency>

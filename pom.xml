@@ -59,7 +59,6 @@
     <org.exoplatform.gatein.pc.version>5.3.x-SNAPSHOT</org.exoplatform.gatein.pc.version>
     <org.exoplatform.gatein.sso.version>5.3.x-SNAPSHOT</org.exoplatform.gatein.sso.version>
 
-    <org.apache.shindig.version>2.5.2</org.apache.shindig.version>
     <org.gatein.common.version>2.2.2.Final</org.gatein.common.version>
   </properties>
   <dependencyManagement>
@@ -550,26 +549,6 @@
         <artifactId>exo.portal.component.web.server</artifactId>
         <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
-      <!-- DON'T REMOVE : used for packaging -->
-      <dependency>
-        <groupId>org.exoplatform.gatein.portal</groupId>
-        <artifactId>exo.portal.eXoGadgets</artifactId>
-        <version>${org.exoplatform.gatein.portal.version}</version>
-        <type>war</type>
-      </dependency>
-      <!-- DON'T REMOVE : needed for product packaging -->
-      <dependency>
-        <groupId>org.exoplatform.gatein.portal</groupId>
-        <artifactId>exo.portal.gadgets-core</artifactId>
-        <version>${org.exoplatform.gatein.portal.version}</version>
-      </dependency>
-      <!-- DON'T REMOVE : needed for product packaging -->
-      <dependency>
-        <groupId>org.exoplatform.gatein.portal</groupId>
-        <artifactId>exo.portal.gadgets-server</artifactId>
-        <version>${org.exoplatform.gatein.portal.version}</version>
-        <type>war</type>
-      </dependency>
       <!-- To be replaced by an import of GateIn Portal parent POM -->
       <!-- CAN'T be replaced for now by an import of GateIn Portal parent POM -->
       <!-- due to exclusion inheritance on ehcache-core required by the gadget-server -->
@@ -658,17 +637,7 @@
         <artifactId>gatein-cdi-contexts</artifactId>
         <version>${org.exoplatform.gatein.portal.version}</version>
       </dependency>
-      <!-- To be replaced by an import of GateIn Shinding parent POM -->
-      <dependency>
-        <groupId>org.apache.shindig</groupId>
-        <artifactId>shindig-gadgets</artifactId>
-        <version>${org.apache.shindig.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.shindig</groupId>
-        <artifactId>shindig-social-api</artifactId>
-        <version>${org.apache.shindig.version}</version>
-      </dependency>
+
       <!-- SSO -->
       <dependency>
         <groupId>org.exoplatform.gatein.sso</groupId>
