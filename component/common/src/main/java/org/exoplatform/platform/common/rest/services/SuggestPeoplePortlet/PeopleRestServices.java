@@ -27,9 +27,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.RuntimeDelegate;
-import java.net.URI;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -298,24 +296,9 @@ public class PeopleRestServices implements ResourceContainer {
   private String getUserId(SecurityContext sc, UriInfo uriInfo) {
     try {
       return sc.getUserPrincipal().getName();
-    } catch (NullPointerException e) {
-      return getViewerId(uriInfo);
     } catch (Exception e) {
       return null;
     }
-  }
-
-  private String getViewerId(UriInfo uriInfo) {
-    URI uri = uriInfo.getRequestUri();
-    String requestString = uri.getQuery();
-    if (requestString == null) return null;
-    String[] queryParts = requestString.split("&");
-    for (String queryPart : queryParts) {
-      if (queryPart.startsWith("opensocial_viewer_id")) {
-        return queryPart.substring(queryPart.indexOf("=") + 1, queryPart.length());
-      }
-    }
-    return null;
   }
 
 }

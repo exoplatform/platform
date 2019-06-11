@@ -32,7 +32,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.*;
-import java.net.URI;
 
 /**
  * @author <a href="fbradai@exoplatform.com">Fbradai</a>
@@ -187,23 +186,8 @@ public class DeleteGadgetService implements ResourceContainer {
     private String getUserId(SecurityContext sc, UriInfo uriInfo) {
         try {
             return sc.getUserPrincipal().getName();
-        } catch (NullPointerException e) {
-            return getViewerId(uriInfo);
         } catch (Exception e) {
             return null;
         }
-    }
-
-    private String getViewerId(UriInfo uriInfo) {
-        URI uri = uriInfo.getRequestUri();
-        String requestString = uri.getQuery();
-        if (requestString == null) return null;
-        String[] queryParts = requestString.split("&");
-        for (String queryPart : queryParts) {
-            if (queryPart.startsWith("opensocial_viewer_id")) {
-                return queryPart.substring(queryPart.indexOf("=") + 1, queryPart.length());
-            }
-        }
-        return null;
     }
 }
