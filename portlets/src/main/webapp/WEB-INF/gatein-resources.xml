@@ -21,5 +21,24 @@
             </depends>
         </module>
     </portlet>
+    <portlet>
+        <name>LoginHistoryPortlet</name>
+        <module>
+            <script>
+                <minify>false</minify>
+                <path>/js/loginHistory.bundle.js</path>
+            </script>
+            <depends>
+                <module>vue</module>
+            </depends>
+            <depends>
+                <module>eXoVueI18n</module>
+            </depends>
+            <depends>
+                <module>jquery</module>
+                <as>$</as>
+            </depends>
+        </module>
+    </portlet>
 
 </gatein-resources>

@@ -6,7 +6,8 @@ let config = {
   // set the entry point of the application
   // can use multiple entry
   entry: {
-    bookmark: './src/main/webapp/bookmark/main.js'
+    bookmark: './src/main/webapp/bookmark/main.js',
+    loginHistory: './src/main/webapp/login-history/main.js'
   },
   module: {
     rules: [

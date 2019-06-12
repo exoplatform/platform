@@ -368,6 +368,21 @@
                       </field>
                     </object>
                   </value>
+                  <value>
+                    <object type="org.exoplatform.application.registry.Application">
+                      <field name="applicationName"><string>LoginHistory</string></field>
+                      <field name="categoryName"><string>tools</string></field>
+                      <field name="displayName"><string>Login History</string></field>
+                      <field name="description"><string>Login History</string></field>
+                      <field name="type"><string>portlet</string></field>
+                      <field name="contentId"><string>portlets/LoginHistory</string></field>
+                      <field name="accessPermissions">
+                        <collection type="java.util.ArrayList" item-type="java.lang.String">
+                          <value><string>*:/platform/administrators</string></value>
+                        </collection>
+                      </field>
+                    </object>
+                  </value>
                 </collection>
               </field>
             </object>

@@ -18,4 +18,21 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 	    <title>Bookmark</title>
 	  </portlet-info>
   </portlet>
+  <portlet>
+	<portlet-name>LoginHistory</portlet-name>
+	<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+    <init-param>
+	  <name>portlet-view-dispatched-file-path</name>
+	  <value>/login-history/index.html</value>
+    </init-param>
+	<supports>
+      <mime-type>text/html</mime-type>
+	</supports>
+	<supported-locale>en</supported-locale>
+	<supported-locale>fr</supported-locale>
+	<resource-bundle>locale.portlet.login.history.LoginHistory</resource-bundle>
+	<portlet-info>
+      <title>LoginHistory</title>
+	</portlet-info>
+  </portlet>
 </portlet-app>
