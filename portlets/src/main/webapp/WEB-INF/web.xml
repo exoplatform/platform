@@ -25,7 +25,12 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
   <display-name>portlets</display-name>
-
+  <jsp-config>
+    <taglib>
+      <taglib-uri>http://java.sun.com/portlet_2_0</taglib-uri>
+      <taglib-location>/WEB-INF/portlet_2_0.tld</taglib-location>
+    </taglib>
+  </jsp-config>
   <listener>
     <listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
   </listener>

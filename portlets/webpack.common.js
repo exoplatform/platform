@@ -7,7 +7,8 @@ let config = {
   // can use multiple entry
   entry: {
     bookmark: './src/main/webapp/bookmark/main.js',
-    loginHistory: './src/main/webapp/login-history/main.js'
+    loginHistory: './src/main/webapp/login-history/main.js',
+    featuredPoll: './src/main/webapp/featured-poll/main.js'
   },
   module: {
     rules: [

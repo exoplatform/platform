@@ -19,6 +19,9 @@
               <module>jquery</module>
               <as>$</as>
             </depends>
+            <depends>
+                <module>extensionRegistry</module>
+            </depends>
         </module>
     </portlet>
     <portlet>
@@ -37,6 +40,31 @@
             <depends>
                 <module>jquery</module>
                 <as>$</as>
+            </depends>
+            <depends>
+                <module>extensionRegistry</module>
+            </depends>
+        </module>
+    </portlet>
+    <portlet>
+        <name>FeaturedPoll</name>
+        <module>
+            <script>
+                <minify>false</minify>
+                <path>/js/featuredPoll.bundle.js</path>
+            </script>
+            <depends>
+                <module>vue</module>
+            </depends>
+            <depends>
+                <module>eXoVueI18n</module>
+            </depends>
+            <depends>
+                <module>jquery</module>
+                <as>$</as>
+            </depends>
+            <depends>
+                <module>extensionRegistry</module>
             </depends>
         </module>
     </portlet>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+   <taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+ 	    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 	    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+ 	    version="2.0">
+
+   <description>Portlet 2.0 Tag Library</description>
+   <display-name>Portlet 2.0 Tags</display-name>
+   <tlib-version>2.0</tlib-version>
+   <short-name>portlet</short-name>
+   <uri>http://java.sun.com/portlet_2_0</uri>
+
+   <tag>
+
+      <name>param</name>
+      <tag-class>org.gatein.pc.portlet.impl.jsr286.taglib.URLParameter286Tag</tag-class>
+      <body-content>empty</body-content>
+
+      <attribute>
+         <name>name</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>value</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+
+   </tag>
+   <tag>
+
+      <name>property</name>
+      <tag-class>org.gatein.pc.portlet.impl.jsr286.taglib.URLProperty286Tag</tag-class>
+      <body-content>empty</body-content>
+
+      <attribute>
+         <name>name</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>value</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+
+   </tag>
+   <tag>
+
+      <name>renderURL</name>
+      <tag-class>org.gatein.pc.portlet.impl.jsr286.taglib.RenderURL286Tag</tag-class>
+      <tei-class>org.gatein.pc.portlet.impl.jsr286.taglib.GenerateURL286TagTEI</tei-class>
+      <body-content>JSP</body-content>
+
+      <attribute>
+         <name>portletMode</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>secure</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>var</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>windowState</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>escapeXml</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>copyCurrentRenderParameters</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+
+   </tag>
+   <tag>
+
+      <name>defineObjects</name>
+      <tag-class>org.gatein.pc.portlet.impl.jsr286.taglib.DefineObjects286Tag</tag-class>
+      <tei-class>org.gatein.pc.portlet.impl.jsr286.taglib.DefineObjects286TagTEI</tei-class>
+      <body-content>empty</body-content>
+
+   </tag>
+   <tag>
+
+      <name>actionURL</name>
+      <tag-class>org.gatein.pc.portlet.impl.jsr286.taglib.ActionURL286Tag</tag-class>
+      <tei-class>org.gatein.pc.portlet.impl.jsr286.taglib.GenerateURL286TagTEI</tei-class>
+      <body-content>JSP</body-content>
+
+      <attribute>
+         <name>portletMode</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>secure</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>var</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>windowState</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>escapeXml</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>copyCurrentRenderParameters</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>name</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+
+
+   </tag>
+   <tag>
+
+      <name>resourceURL</name>
+      <tag-class>org.gatein.pc.portlet.impl.jsr286.taglib.ResourceURL286Tag</tag-class>
+      <tei-class>org.gatein.pc.portlet.impl.jsr286.taglib.ResourceURL286TagTEI</tei-class>
+      <body-content>JSP</body-content>
+
+      <attribute>
+         <name>secure</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>var</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>escapeXml</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>cacheability</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+      <attribute>
+         <name>id</name>
+         <rtexprvalue>true</rtexprvalue>
+
+      </attribute>
+
+   </tag>
+   <tag>
+
+      <name>namespace</name>
+      <tag-class>org.gatein.pc.portlet.impl.jsr286.taglib.Namespace286Tag</tag-class>
+      <body-content>empty</body-content>
+
+   </tag>
+
+</taglib>
