@@ -57,4 +57,27 @@
 	    </preference>
 	  </portlet-preferences>
   </portlet>
+  <portlet>
+	<portlet-name>RSSReader</portlet-name>
+	<portlet-class>org.exoplatform.platform.portlet.rss.RSSReaderPortlet</portlet-class>
+	<supports>
+	  <mime-type>text/html</mime-type>
+	</supports>
+    <supported-locale>en</supported-locale>
+    <supported-locale>fr</supported-locale>
+    <resource-bundle>locale.portlet.rss.RSSReader</resource-bundle>
+    <portlet-info>
+	  <title>RSS Reader</title>
+    </portlet-info>
+    <portlet-preferences>
+      <preference>
+	    <name>RSS_URL</name>
+	    <value>http://feeds.feedburner.com/gatein</value>
+      </preference>
+      <preference>
+	    <name>LIMIT_ENTRIES</name>
+	    <value>10</value>
+      </preference>
+    </portlet-preferences>
+  </portlet>
 </portlet-app>
