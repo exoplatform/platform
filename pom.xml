@@ -17,7 +17,6 @@
     <module>component</module>
     <module>extension</module>
     <module>samples</module>
-    <module>exo-gadget-pack</module>
     <module>welcome-screens</module>
     <module>registration</module>
     <module>portlets</module>
@@ -204,23 +203,6 @@
       <dependency>
         <groupId>org.exoplatform.platform</groupId>
         <artifactId>platform-component-webui</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
-        <version>${project.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-exo-gadget-pack-gadget-pack</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.platform</groupId>
-        <artifactId>platform-exo-gadget-pack-gadget-pack-services</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
