@@ -100,7 +100,7 @@
 		""" ;
     }
 
-    String title = _ctx.appRes("UICompanyNavigationPortlet.CompanyBar");
+    String title = uicomponent.getCompanyName();
 %>
 <div class="uiCompanyNavigationPortlet">
     <h5 class="title accordionBar clearfix">

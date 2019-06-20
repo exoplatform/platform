@@ -19,6 +19,9 @@
 
 package org.exoplatform.platform.component;
 
+import org.exoplatform.commons.utils.CommonsUtils;
+import org.exoplatform.platform.common.branding.BrandingService;
+import org.exoplatform.platform.common.branding.BrandingServiceImpl;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.mop.SiteKey;
@@ -49,6 +52,7 @@ public class UICompanyNavigationPortlet extends UIPortletApplication {
 
     private UserACL userACL = null;
     private UserNodeFilterConfig userFilterConfig;
+    private BrandingService brandingService;
 
     public UICompanyNavigationPortlet() throws Exception {
         UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
@@ -118,5 +122,15 @@ public class UICompanyNavigationPortlet extends UIPortletApplication {
         }
 
     }
+    
+    public String getCompanyName() {
+      return getBrandingService().getCompanyName();
+    }
 
+    private BrandingService getBrandingService() {
+      if (brandingService == null) {
+        brandingService = CommonsUtils.getService(BrandingServiceImpl.class);
+      }
+      return brandingService;
+    }
 }

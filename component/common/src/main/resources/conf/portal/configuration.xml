@@ -54,6 +54,23 @@
             </value-param>
         </init-params>
     </component>
+    <component profiles="all">
+    <key>org.exoplatform.platform.common.branding.BrandingService</key>
+    <type>org.exoplatform.platform.common.branding.BrandingServiceImpl</type>
+    <init-params>
+    <value-param>
+      <name>exo.company.name</name>
+      <value>${exo.company.name:}</value>
+     </value-param>
+     <value-param>
+      <name>exo.branding.company.logo</name>
+      <value>${exo.branding.company.logo:}</value>
+     </value-param>
+    </init-params>
+  </component>
+  <component profiles="all">
+     <type>org.exoplatform.platform.common.branding.BrandingRestResourcesV1</type>
+  </component>
     <!-- Defines the builtin Modules -->
     <component>
         <type>org.exoplatform.platform.common.module.ModuleRegistry</type>
@@ -437,5 +454,50 @@
             </init-params>
         </component-plugin>
     </external-component-plugins>
-
+    <external-component-plugins>
+        <target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
+        <component-plugin profiles="all">
+            <name>BrandingUpgradePlugin</name>
+            <set-method>addUpgradePlugin</set-method>
+            <type>org.exoplatform.platform.common.branding.BrandingUpgradePlugin</type>
+            <description>Upgrade plugin for branding from jcr to jpa</description>
+            <init-params>
+                <value-param>
+                    <name>product.group.id</name>
+                    <description>The groupId of the product</description>
+                    <value>org.exoplatform.platform</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.execution.order</name>
+                    <description>The plugin execution order</description>
+                    <value>1</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.upgrade.target.version</name>
+                    <description>Target version of the plugin</description>
+                    <value>5.3.0</value>
+                </value-param>
+                <value-param>
+                    <name>plugin.upgrade.async.execution</name>
+                    <description>Execute the upgrade plugin asynchronously</description>
+                    <value>false</value>
+                </value-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
+   <external-component-plugins>
+    <target-component>org.exoplatform.commons.file.services.NameSpaceService</target-component>
+    <component-plugin>
+      <name>BrandingNameSpacePlugin</name>
+      <set-method>addNameSpacePlugin</set-method>
+      <type>org.exoplatform.commons.file.services.NameSpacePlugin</type>
+      <init-params>
+        <properties-param>
+          <name>fileNameSpace.params</name>
+          <property name="name" value="CompanyBranding"/>
+          <property name="description" value="Branding files storage"/>
+        </properties-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
 </configuration>

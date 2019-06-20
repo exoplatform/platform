@@ -1,17 +1,19 @@
 <%
         import org.exoplatform.platform.webui.NavigationURLUtils;
-        import org.exoplatform.platform.common.navigation.NavigationServiceHandler;
         import org.exoplatform.container.ExoContainerContext;
         import org.exoplatform.container.ExoContainer;
+        import org.exoplatform.platform.common.branding.BrandingService;
+        import org.apache.commons.lang3.StringUtils;
+        
 
 
         String imgSrc = "/eXoSkin/skin/images/themes/default/platform/skin/ToolbarContainer/HomeIcon.png";
         ExoContainer container = ExoContainerContext.getCurrentContainer() ;
-        NavigationServiceHandler navigationServiceHandler = (NavigationServiceHandler)container.getComponentInstanceOfType(NavigationServiceHandler.class);
-        String path = navigationServiceHandler.getHomePageLogoURI();
-        if(path != null)
-        imgSrc = "/portal/rest/jcr/repository/collaboration" + path;
-
+        BrandingService brandingService = (BrandingService)container.getComponentInstanceOfType(BrandingService.class);
+        Long logo = brandingService.getLogoId();
+        if(logo != null) {
+          imgSrc = "/rest/v1/platform/branding/logo";
+        }
 %>
 
 <div id="<%=uicomponent.id%>">
