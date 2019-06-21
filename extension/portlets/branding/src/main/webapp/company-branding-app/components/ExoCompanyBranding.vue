@@ -37,7 +37,7 @@
         <div class="pull-left">
           <div id="PreviewImgDiv" class="previewLogo">
             <img id="ajaxUploading1" alt="" :src="loader" style="display:none">
-            <img id="PreviewImg" :src="image" alt="">
+            <img id="PreviewImg" :src="branding.logo.data" alt="">
           </div>
         </div>
       </div>
@@ -93,7 +93,6 @@ export default {
           size: 0,
         }
       },
-      image: '',
       companyName: '',
       loader: brandingConstants.LOADER,
       styleNavigation: ''
@@ -122,18 +121,20 @@ export default {
   methods: {
     onFileChange(e) {
       const files = e.target.files || e.dataTransfer.files;
-      if (!files.length)
-      {return;}
-      this.createImage(files[0]);
-      this.uploadFile(files[0]);
-      this.branding.logo.size = files[0].size;
-    },
-    createImage(file) {
+      if (!files.length) {
+        return;
+      }
+
       const reader = new FileReader();
       reader.onload = (e) => {
-        this.image = e.target.result;
+        this.branding.logo.data = e.target.result;
       };
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(files[0]);
+
+      this.branding.logo.name = files[0].name;
+      this.branding.logo.size = files[0].size;
+
+      this.uploadFile(files[0]);
     },
     changePreviewStyle() {
       document.querySelector('#StylePreview #UIToolbarContainer').setAttribute('class', `UIContainer UIToolbarContainer  UIToolbarContainer${  this.styleNavigation}`);
@@ -143,7 +144,7 @@ export default {
       if(this.branding.logo.uploadId === null ) {
         this.saveAll();
       } else {
-        const verificationPng = this.branding.logo.data.name.split('.');
+        const verificationPng = this.branding.logo.name.split('.');
         if(verificationPng[1] !== 'png') {
           document.getElementById('mustpng').style.display = 'block';
           this.branding.logo.data = [];
@@ -156,7 +157,6 @@ export default {
     saveAll(){
       this.branding.companyName = this.companyName;
       this.branding.topBarTheme = this.styleNavigation;
-      this.branding.file = this.image;
       this.cleanMessage();
       this.changePreviewStyle();
       this.updateTopBarNavigation();
