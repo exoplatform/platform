@@ -77,7 +77,6 @@
 <script>
 import { brandingConstants }  from '../companyBrandingConstants';
 import * as  brandingServices  from '../companyBrandingServices';
-import axios from 'axios';
 
 export default {
   data(){
@@ -177,12 +176,11 @@ export default {
       const uploadId = Math.round(Math.random() * MAX_RANDOM_NUMBER); 
       this.branding.logo.uploadId = uploadId;
       this.branding.logo.data = data;
-      return axios.post(`/portal/upload?uploadId=${uploadId}&action=upload`, formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        });
+      return fetch(`/portal/upload?uploadId=${uploadId}&action=upload`, {
+        method: 'POST',
+        credentials: 'include',
+        body: formData
+      });
     }
   }
 };
