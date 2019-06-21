@@ -15,7 +15,7 @@
     <div class="logoForm boxContent">
       <h4>{{ $t('companyName.label') }}</h4>
       <div>
-        <input v-model="companyName" :placeholder="$t('companyName.placeholder=')" type="text" name="formOp" value="">
+        <input v-model="branding.companyName" :placeholder="$t('companyName.placeholder=')" type="text" name="formOp" value="">
       </div> 
       <h4>
         {{ $t('selectlogo.label') }}
@@ -49,10 +49,10 @@
         <div id="navigationStyle" class="btn-group uiDropdownWithIcon">
           <div class="control-group">
             <label class="uiRadio">
-              <input v-model="styleNavigation" class="radio" type="radio" value="Dark" @change="changePreviewStyle"> <span>{{ $t('style.dark.label') }}</span>
+              <input v-model="branding.topBarTheme" class="radio" type="radio" value="Dark" @change="changePreviewStyle"> <span>{{ $t('style.dark.label') }}</span>
             </label>
             <label class="uiRadio">
-              <input v-model="styleNavigation" class="radio" type="radio" value="Light" @change="changePreviewStyle"> <span>{{ $t('style.light.label') }}</span>
+              <input v-model="branding.topBarTheme" class="radio" type="radio" value="Light" @change="changePreviewStyle"> <span>{{ $t('style.light.label') }}</span>
             </label>
           </div>
         </div>
@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import * as  brandingConstants  from '../companyBrandingConstants';
+import { brandingConstants }  from '../companyBrandingConstants';
 import * as  brandingServices  from '../companyBrandingServices';
 import axios from 'axios';
 
@@ -93,29 +93,20 @@ export default {
           size: 0,
         }
       },
-      companyName: '',
-      loader: brandingConstants.LOADER,
-      styleNavigation: ''
+      loader: brandingConstants.LOADER
     };
   },
   created() {
-    this.getBrandingInformation();
+    this.initBrandingInformation();
   },
   mounted() {
     $('#PlatformAdminToolbarContainer').clone().attr('id', 'PlatformAdminToolbarContainer-preview').appendTo($('#StylePreview'));
-    $('#StylePreview #PlatformAdminToolbarContainer-preview').bind({
-      hover : function(e) {
+    const toolbarPreview = $('#StylePreview #PlatformAdminToolbarContainer-preview');
+    ['hover', 'click', 'blur'].forEach(evt => {
+      toolbarPreview.bind(evt, (e) => {
         e.stopPropagation();
         e.preventDefault();
-      },
-      click : function(e) {
-        e.stopPropagation();
-        e.preventDefault();
-      },
-      blur : function(e) {
-        e.stopPropagation();
-        e.preventDefault();
-      }
+      });
     });
   },
   methods: {
@@ -137,40 +128,34 @@ export default {
       this.uploadFile(files[0]);
     },
     changePreviewStyle() {
-      document.querySelector('#StylePreview #UIToolbarContainer').setAttribute('class', `UIContainer UIToolbarContainer  UIToolbarContainer${  this.styleNavigation}`);
+      document.querySelector('#StylePreview #UIToolbarContainer').setAttribute('class', `UIContainer UIToolbarContainer  UIToolbarContainer${this.topBarTheme}`);
     },
     save(){
       this.cleanMessage();
-      if(this.branding.logo.uploadId === null ) {
-        this.saveAll();
-      } else {
-        const verificationPng = this.branding.logo.name.split('.');
-        if(verificationPng[1] !== 'png') {
+      if(this.branding.logo.uploadId !== null) {
+        const logoName = this.branding.logo.name;
+        const logoNameExtension = logoName.substring(logoName.lastIndexOf('.')+1, logoName.length) || logoName;
+        if(logoNameExtension !== 'png') {
           document.getElementById('mustpng').style.display = 'block';
           this.branding.logo.data = [];
           this.branding.logo.uploadId = null;
-        } else {
-          this.saveAll();
+          return;
         }
       }
-    },
-    saveAll(){
-      this.branding.companyName = this.companyName;
-      this.branding.topBarTheme = this.styleNavigation;
-      this.cleanMessage();
+
       this.changePreviewStyle();
       this.updateTopBarNavigation();
       brandingServices.updateBrandingInformation(this.branding).then(() => document.location.reload(true));
     },
     cancel(){
-      this.getBrandingInformation();
+      this.initBrandingInformation();
       this.cleanMessage();
       document.getElementById('cancelinfo').style.display = 'block';
     },
-    getBrandingInformation() {
+    initBrandingInformation() {
       brandingServices.getBrandingInformation().then(data =>{
-        this.companyName = data.companyName;
-        this.styleNavigation = data.topBarTheme;
+        this.branding.companyName = data.companyName;
+        this.branding.topBarTheme = data.topBarTheme;
       });
     },
     cleanMessage() {
@@ -183,7 +168,7 @@ export default {
       $('#PlatformAdminToolbarContainer #UIToolbarContainer:first')
         .removeAttr('class');
       $('#PlatformAdminToolbarContainer #UIToolbarContainer:first').addClass(
-        `UIContainer UIToolbarContainer  UIToolbarContainer${  this.styleNavigation}`);
+        `UIContainer UIToolbarContainer  UIToolbarContainer${  this.branding.topBarTheme}`);
     },
     uploadFile(data){
       const formData = new FormData();               
