@@ -12,7 +12,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 	  <mime-type>text/html</mime-type>
 	</supports>
 	  <supported-locale>en</supported-locale>
-	  <resource-bundle>locale.portlet.platform.branding</resource-bundle>
+	  <resource-bundle>locale.portlet.branding.branding</resource-bundle>
 	  <portlet-info>
 	    <title>Company Branding</title>
 	  </portlet-info>

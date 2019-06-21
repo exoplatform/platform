@@ -6,7 +6,7 @@ import * as companyBrandingDirectives from './companyBrandingDirectives.js';
 const lang = typeof eXo !== 'undefined' ? eXo.env.portal.language : 'en';
 
 // should expose the locale ressources as REST API 
-const url = `${brandingConstants.PORTAL}/${brandingConstants.PORTAL_REST}/i18n/bundle/locale.portlet.platform.branding-${lang}.json`;
+const url = `${brandingConstants.PORTAL}/${brandingConstants.PORTAL_REST}/i18n/bundle/locale.portlet.branding.branding-${lang}.json`;
 
 Vue.directive('exo-tooltip', companyBrandingDirectives.tooltip);
 
