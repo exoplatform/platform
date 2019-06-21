@@ -21,12 +21,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import javax.annotation.security.RolesAllowed;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.*;
 import javax.ws.rs.core.CacheControl;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.EntityTag;
@@ -71,13 +66,13 @@ public class BrandingRestResourcesV1 implements ResourceContainer {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   @RolesAllowed("users")
-  @ApiOperation(value = "Get Company Branding Informations",
+  @ApiOperation(value = "Get Branding information",
   httpMethod = "GET",
   response = Response.class)
   @ApiResponses(value = {
       @ApiResponse (code = 200, message = "successful company name recovery"),
       @ApiResponse (code = 500, message = "Can not retrieve  company name") })
-  public Response brandingInformations() {
+  public Response getBrandingInformation() {
     try {
       return Response.ok(brandingService.getBrandingInformation()).build();
     } catch (Exception e) {
@@ -86,17 +81,17 @@ public class BrandingRestResourcesV1 implements ResourceContainer {
     }
   }
   
-  @POST
+  @PUT
   @RolesAllowed("administrators")
   @Consumes(MediaType.APPLICATION_JSON)
-  @ApiOperation(value = "Update informations", httpMethod = "POST", response = Response.class)
+  @ApiOperation(value = "Update Branding information", httpMethod = "POST", response = Response.class)
   @ApiResponses(value = { @ApiResponse(code = 200, message = "Update company branding done"),
       @ApiResponse(code = 404, message = "Resource not found"), @ApiResponse(code = 500, message = "Can not save ") })
   public Response updateBrandingInformation(Branding branding) {
     try {
       brandingService.updateBranding(branding);
     } catch (Exception e) {
-      LOG.error("Error when update company branding informations", e);
+      LOG.error("Error when updating company branding information", e);
       return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
     }
     return Response.status(Response.Status.ACCEPTED).entity("Update company branding informations").build();
@@ -105,7 +100,7 @@ public class BrandingRestResourcesV1 implements ResourceContainer {
   @GET
   @Path("/logo")
   @RolesAllowed("users")
-  public Response getCompanyImage(@Context Request request) throws ParseException, FileStorageException, IOException {
+  public Response getBrandingLogo(@Context Request request) throws ParseException, FileStorageException, IOException {
     
     Long imageId = brandingService.getLogoId();
     FileItem fileItem = fileService.getFile(imageId);

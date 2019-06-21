@@ -16,11 +16,7 @@
  */
 package org.exoplatform.platform.common.branding;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Date;
 
 import org.exoplatform.commons.api.settings.SettingService;
@@ -58,12 +54,12 @@ public class BrandingServiceImpl implements BrandingService {
   
   private UploadService       uploadService;
   
-  public static String     logo_name         = "logo.png";
+  public static String LOGO_NAME = "logo.png";
   
   private String companyName  = "";
-  
+
   private String barStyle = "Dark";
-  
+
   private Long logoId = null;
 
   public BrandingServiceImpl(InitParams initParams,SettingService settingService, FileService fileService, UploadService uploadService) throws Exception {
@@ -110,11 +106,18 @@ public class BrandingServiceImpl implements BrandingService {
    */
   @Override
   public void updateBranding(Branding branding) throws Exception {
-    String name = branding.getCompanyName() != null ? branding.getCompanyName() : this.companyName;
-    updateCompanyName(name);
-    String style = branding.getTopBarTheme() != null ? branding.getTopBarTheme() : this.barStyle;
-    updateBarStyle(style);
-    uploadLogo(branding.getLogo());
+    if(branding.getCompanyName() != null) {
+      updateCompanyName(branding.getCompanyName());
+    }
+
+    if(branding.getTopBarTheme() != null) {
+      updateBarStyle(branding.getTopBarTheme());
+    }
+
+    Logo logo = branding.getLogo();
+    if(logo != null && (logo.getData() != null && logo.getData().length > 0 || StringUtils.isNotBlank(logo.getUploadId()))) {
+      uploadLogo(branding.getLogo());
+    }
   }
   
   /** 
@@ -164,16 +167,31 @@ public class BrandingServiceImpl implements BrandingService {
     settingService.set(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY, SettingValue.create(style));   
     this.barStyle = style;
   }
-  
 
+
+  /**
+   * Update branding logo.
+   * If the logo object contains the image data, they are used,
+   * otherwise the uploadId is used to retrieve the uploaded resource
+   * @param logo The logo object
+   * @throws IOException
+   * @throws Exception
+   */
   @Override
-  public void uploadLogo(Logo logo) throws IOException, Exception {
+  public void uploadLogo(Logo logo) throws Exception {
+    InputStream inputStream;
+    if(logo.getData() != null && logo.getData().length > 0) {
+      inputStream = new ByteArrayInputStream(logo.getData());
+    } else if(StringUtils.isNoneBlank(logo.getUploadId())) {
+      inputStream = getUploadDataAsStream(logo.getUploadId());
+    } else {
+      throw new IllegalArgumentException("Cannot update branding logo, the logo object must contain the image data or an upload id");
+    }
     String currentUserId = getCurrentUserId();
-    InputStream inputStream = getUploadDataAsStream(logo.getUploadId());
-    FileItem fileItem = null;
+    FileItem fileItem;
     if (this.logoId == null) {
       fileItem = new FileItem(null,
-                              logo_name,
+                              LOGO_NAME,
                               "image/png",
                               FILE_API_NAME_SPACE,
                               logo.getSize(),
@@ -185,7 +203,7 @@ public class BrandingServiceImpl implements BrandingService {
       settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_COMPANY_ID, SettingValue.create(fileItem.getFileInfo().getId()));
     } else {
       fileItem = new FileItem(this.logoId,
-                              logo_name,
+                              LOGO_NAME,
                               "image/png",
                               FILE_API_NAME_SPACE,
                               logo.getSize(),

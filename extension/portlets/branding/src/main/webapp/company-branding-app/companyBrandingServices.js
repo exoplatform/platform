@@ -1,7 +1,7 @@
 
 export function updateBrandingInformation(branding){
   return fetch('/rest/v1/platform/branding', {
-    method: 'POST',
+    method: 'PUT',
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
