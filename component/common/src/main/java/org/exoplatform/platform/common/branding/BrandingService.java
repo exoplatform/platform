@@ -4,19 +4,19 @@ import java.io.IOException;
 
 public interface BrandingService {
 
-  void updateBranding(Branding branding) throws Exception;
-
   Branding getBrandingInformation();
+
+  void updateBrandingInformation(Branding branding) throws Exception;
 
   String getCompanyName();
 
   void updateCompanyName(String companyName);
 
-  String getBarStyle();
+  String getTopbarTheme();
 
   Long getLogoId();
 
-  void updateBarStyle(String style);
+  void updateTopbarTheme(String style);
 
   void uploadLogo(Logo logo) throws IOException, Exception;
 

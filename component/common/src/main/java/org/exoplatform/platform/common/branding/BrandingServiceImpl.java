@@ -37,81 +37,78 @@ import org.exoplatform.upload.UploadService;
 
 public class BrandingServiceImpl implements BrandingService {
   private static final Log LOG               = ExoLogger.getExoLogger(BrandingServiceImpl.class);
-  
+
+  private static final String BRANDING_COMPANY_NAME_INIT_PARAM = "exo.company.name";
+
   private static final String BRANDING_COMPANY_NAME_SETTING_KEY = "exo.company.name";
-  
-  private static final String BRANDING_COMPANY_NAME_PARAM = "exo.company.name";
-  
-  private static final String BAR_NAVIGATION_STYLE_KEY = "bar_navigation_style";
-  
+
+  private static final String BRANDING_TOPBAR_THEME_SETTING_KEY = "bar_navigation_style";
+
+  private static final String BRANDING_LOGO_ID_SETTING_KEY = "exo.branding.company.id";
+
   private static final String FILE_API_NAME_SPACE = "CompanyBranding";
+
+  private SettingService settingService;
   
-  private static final String BRANDING_COMPANY_ID = "exo.branding.company.id";
+  private FileService fileService;
   
-  private SettingService        settingService;
-  
-  private FileService         fileService;
-  
-  private UploadService       uploadService;
+  private UploadService uploadService;
   
   public static String LOGO_NAME = "logo.png";
   
-  private String companyName  = "";
+  private String defaultCompanyName  = "";
 
-  private String barStyle = "Dark";
+  private String defaultTopbarTheme = "Dark";
 
-  private Long logoId = null;
-
-  public BrandingServiceImpl(InitParams initParams,SettingService settingService, FileService fileService, UploadService uploadService) throws Exception {
+  public BrandingServiceImpl(InitParams initParams,SettingService settingService, FileService fileService, UploadService uploadService) {
     this.settingService = settingService;
     this.fileService = fileService;
     this.uploadService = uploadService;
-    loadSettings(initParams);
+
+    this.loadInitParams(initParams);
   }
   
-  
   /**
-   * Load Branding Company Settings
+   * Load init params
    * @param initParams
 
    * @throws Exception 
    */
-  private void loadSettings(InitParams initParams) throws Exception {
-    SettingValue<String> brandingCompanyName = (SettingValue<String>) settingService.get(Context.GLOBAL, Scope.GLOBAL, BRANDING_COMPANY_NAME_SETTING_KEY);
-    if(brandingCompanyName != null && !StringUtils.isBlank(brandingCompanyName.getValue())) {
-      String companyNameValue = brandingCompanyName.getValue();
-      this.companyName = companyNameValue;
-    } else if (initParams != null) {
-      ValueParam spacesAdministratorsParam = initParams.getValueParam(BRANDING_COMPANY_NAME_PARAM);
-      String companyNameValue = spacesAdministratorsParam.getValue();
-      this.companyName = companyNameValue;
+  private void loadInitParams(InitParams initParams) {
+    if (initParams != null) {
+      ValueParam companyNameParam = initParams.getValueParam(BRANDING_COMPANY_NAME_INIT_PARAM);
+      if(companyNameParam != null) {
+        this.defaultCompanyName = companyNameParam.getValue();
+      }
     }
-    
-    SettingValue<String> barNavigationStyle = (SettingValue<String>) settingService.get(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY);
-    if (barNavigationStyle != null && !StringUtils.isBlank(barNavigationStyle.getValue())) {
-      String barNavigationStyleValue = barNavigationStyle.getValue();
-      this.barStyle = barNavigationStyleValue;
-    }
-    
-    SettingValue<String> companyId = (SettingValue<String>) settingService.get(Context.GLOBAL, Scope.GLOBAL, BRANDING_COMPANY_ID);
-    if (companyId != null && !StringUtils.isBlank(companyId.getValue())) {
-      this.logoId = Long.parseLong(companyId.getValue());
-    }
-    
   }
 
-
   /**
-   *  update company branding informations
+   * Get all the branding information
+   * @return The branding object containing all information
    */
   @Override
-  public void updateBranding(Branding branding) throws Exception {
+  public Branding getBrandingInformation() {
+    Branding branding = new Branding();
+    branding.setCompanyName(getCompanyName());
+    branding.setTopBarTheme(getTopbarTheme());
+    return branding;
+  }
+
+  /**
+   * Update the branding information
+   * Missing information in the branding object are not updated.
+   * @param branding The new branding information
+   * @throws Exception
+   */
+  @Override
+  public void updateBrandingInformation(Branding branding) throws Exception {
     if(branding.getCompanyName() != null) {
       updateCompanyName(branding.getCompanyName());
     }
 
     if(branding.getTopBarTheme() != null) {
-      updateBarStyle(branding.getTopBarTheme());
+      updateTopbarTheme(branding.getTopBarTheme());
     }
 
     Logo logo = branding.getLogo();
@@ -119,23 +116,15 @@ public class BrandingServiceImpl implements BrandingService {
       uploadLogo(branding.getLogo());
     }
   }
-  
-  /** 
-   * retrieve company branding informations
-   */
-  @Override
-  public Branding getBrandingInformation() {
-    Branding brandng = new Branding();
-    brandng.setCompanyName(getCompanyName());
-    brandng.setTopBarTheme(getBarStyle());
-    return brandng;
-    
-  }
-
 
   @Override
   public String getCompanyName() {
-    return companyName;
+    SettingValue<String> brandingCompanyName = (SettingValue<String>) settingService.get(Context.GLOBAL, Scope.GLOBAL, BRANDING_COMPANY_NAME_SETTING_KEY);
+    if(brandingCompanyName != null && StringUtils.isNotBlank(brandingCompanyName.getValue())) {
+      return brandingCompanyName.getValue();
+    } else {
+      return defaultCompanyName;
+    }
   }
   
   @Override
@@ -144,30 +133,36 @@ public class BrandingServiceImpl implements BrandingService {
       throw new IllegalArgumentException("Company Name couldn't be null");
     }
     settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_COMPANY_NAME_SETTING_KEY, SettingValue.create(companyName));  
-    this.companyName = companyName;
   }
   
 
   @Override
-  public String getBarStyle() {
-    return barStyle;
+  public String getTopbarTheme() {
+    SettingValue<String> topbarTheme = (SettingValue<String>) settingService.get(Context.GLOBAL, Scope.GLOBAL, BRANDING_TOPBAR_THEME_SETTING_KEY);
+    if(topbarTheme != null && StringUtils.isNotBlank(topbarTheme.getValue())) {
+      return topbarTheme.getValue();
+    } else {
+      return defaultTopbarTheme;
+    }
   }
   
   @Override
   public Long getLogoId() {
-    return this.logoId;
+    SettingValue<String> logoId = (SettingValue<String>) settingService.get(Context.GLOBAL, Scope.GLOBAL, BRANDING_LOGO_ID_SETTING_KEY);
+    if(logoId != null && logoId.getValue() != null) {
+      return Long.parseLong(logoId.getValue());
+    } else {
+      return null;
+    }
   }
-  
 
   @Override
-  public void updateBarStyle(String style) {
-    if(style == null) {
-      throw new IllegalArgumentException("style couldn't be null");
+  public void updateTopbarTheme(String topbarTheme) {
+    if(topbarTheme == null) {
+      throw new IllegalArgumentException("topbarTheme couldn't be null");
     }
-    settingService.set(Context.GLOBAL, Scope.GLOBAL, BAR_NAVIGATION_STYLE_KEY, SettingValue.create(style));   
-    this.barStyle = style;
+    settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_TOPBAR_THEME_SETTING_KEY, SettingValue.create(topbarTheme));
   }
-
 
   /**
    * Update branding logo.
@@ -189,7 +184,8 @@ public class BrandingServiceImpl implements BrandingService {
     }
     String currentUserId = getCurrentUserId();
     FileItem fileItem;
-    if (this.logoId == null) {
+    Long logoId = this.getLogoId();
+    if (logoId == null) {
       fileItem = new FileItem(null,
                               LOGO_NAME,
                               "image/png",
@@ -200,9 +196,9 @@ public class BrandingServiceImpl implements BrandingService {
                               false,
                               inputStream);
       fileItem = fileService.writeFile(fileItem);     
-      settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_COMPANY_ID, SettingValue.create(fileItem.getFileInfo().getId()));
+      settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_LOGO_ID_SETTING_KEY, SettingValue.create(fileItem.getFileInfo().getId()));
     } else {
-      fileItem = new FileItem(this.logoId,
+      fileItem = new FileItem(logoId,
                               LOGO_NAME,
                               "image/png",
                               FILE_API_NAME_SPACE,
@@ -220,7 +216,7 @@ public class BrandingServiceImpl implements BrandingService {
     if (uploadResource == null) {
       return null;
     } else {
-      try { // NOSONAR
+      try {
         return new FileInputStream(new File(uploadResource.getStoreLocation()));
       } finally {
         uploadService.removeUploadResource(uploadId);
@@ -228,13 +224,10 @@ public class BrandingServiceImpl implements BrandingService {
     }
   }
 
-  /**
-   * 
-   * @return
-   */
-  public static final String getCurrentUserId() {
-    if (ConversationState.getCurrent() != null && ConversationState.getCurrent().getIdentity() != null) {
-      return  ConversationState.getCurrent().getIdentity().getUserId();
+  private String getCurrentUserId() {
+    ConversationState conversationState = ConversationState.getCurrent();
+    if (conversationState != null && conversationState.getIdentity() != null) {
+      return  conversationState.getIdentity().getUserId();
     }
     return null;
   }

@@ -89,7 +89,7 @@ public class BrandingRestResourcesV1 implements ResourceContainer {
       @ApiResponse(code = 404, message = "Resource not found"), @ApiResponse(code = 500, message = "Can not save ") })
   public Response updateBrandingInformation(Branding branding) {
     try {
-      brandingService.updateBranding(branding);
+      brandingService.updateBrandingInformation(branding);
     } catch (Exception e) {
       LOG.error("Error when updating company branding information", e);
       return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
