@@ -127,7 +127,7 @@ export default {
       this.uploadFile(files[0]);
     },
     changePreviewStyle() {
-      document.querySelector('#StylePreview #UIToolbarContainer').setAttribute('class', `UIContainer UIToolbarContainer  UIToolbarContainer${this.topBarTheme}`);
+      document.querySelector('#StylePreview #UIToolbarContainer').setAttribute('class', `UIContainer UIToolbarContainer  UIToolbarContainer${this.branding.topBarTheme}`);
     },
     save(){
       this.cleanMessage();
