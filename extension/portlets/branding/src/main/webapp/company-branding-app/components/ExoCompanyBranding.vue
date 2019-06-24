@@ -15,7 +15,7 @@
     <div class="logoForm boxContent">
       <h4>{{ $t('companyName.label') }}</h4>
       <div>
-        <input v-model="branding.companyName" :placeholder="$t('companyName.placeholder=')" type="text" name="formOp" value="">
+        <input v-model="branding.companyName" :placeholder="$t('companyName.placeholder')" type="text" name="formOp" value="">
       </div> 
       <h4>
         {{ $t('selectlogo.label') }}
@@ -129,7 +129,7 @@ export default {
     changePreviewStyle() {
       document.querySelector('#StylePreview #UIToolbarContainer').setAttribute('class', `UIContainer UIToolbarContainer  UIToolbarContainer${this.branding.topBarTheme}`);
     },
-    save(){
+    save() {
       this.cleanMessage();
       if(this.branding.logo.uploadId !== null) {
         const logoName = this.branding.logo.name;
@@ -146,7 +146,7 @@ export default {
       this.updateTopBarNavigation();
       brandingServices.updateBrandingInformation(this.branding).then(() => document.location.reload(true));
     },
-    cancel(){
+    cancel() {
       this.initBrandingInformation();
       this.cleanMessage();
       document.getElementById('cancelinfo').style.display = 'block';
@@ -185,7 +185,3 @@ export default {
   }
 };
 </script>
-
-
-
-

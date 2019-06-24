@@ -1,19 +1,15 @@
 <%
-        import org.exoplatform.platform.webui.NavigationURLUtils;
-        import org.exoplatform.container.ExoContainerContext;
-        import org.exoplatform.container.ExoContainer;
-        import org.exoplatform.platform.common.branding.BrandingService;
-        import org.apache.commons.lang3.StringUtils;
-        
+    import org.exoplatform.platform.webui.NavigationURLUtils;
+    import org.exoplatform.container.ExoContainerContext;
+    import org.exoplatform.platform.common.branding.BrandingService;
+    
+    String imgSrc = "/eXoSkin/skin/images/themes/default/platform/skin/ToolbarContainer/HomeIcon.png";
 
-
-        String imgSrc = "/eXoSkin/skin/images/themes/default/platform/skin/ToolbarContainer/HomeIcon.png";
-        ExoContainer container = ExoContainerContext.getCurrentContainer() ;
-        BrandingService brandingService = (BrandingService)container.getComponentInstanceOfType(BrandingService.class);
-        Long logo = brandingService.getLogoId();
-        if(logo != null) {
-          imgSrc = "/rest/v1/platform/branding/logo";
-        }
+    BrandingService brandingService = ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(BrandingService.class);
+    Long logo = brandingService.getLogoId();
+    if(logo != null) {
+      imgSrc = "/rest/v1/platform/branding/logo";
+    }
 %>
 
 <div id="<%=uicomponent.id%>">

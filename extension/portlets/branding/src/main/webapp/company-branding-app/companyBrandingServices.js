@@ -1,6 +1,5 @@
-
 export function updateBrandingInformation(branding){
-  return fetch('/rest/v1/platform/branding', {
+  return fetch(`/${eXo.env.portal.rest}/v1/platform/branding`, {
     method: 'PUT',
     credentials: 'include',
     headers: {
@@ -14,9 +13,8 @@ export function updateBrandingInformation(branding){
   });
 }
 
-
 export function getBrandingInformation() {
-  return fetch('/rest/v1/platform/branding', {
+  return fetch(`/${eXo.env.portal.rest}/v1/platform/branding`, {
     method: 'GET',
     credentials: 'include',
   }).then(resp => resp.json());
@@ -41,8 +39,3 @@ export function getMessageFromServerError(error, defaultMessage) {
   }
   return error.message;
 }
-
-
-
-
-

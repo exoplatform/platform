@@ -1,5 +1,5 @@
 /**
- * Copyright ( C ) 2012 eXo Platform SAS.
+ * Copyright ( C ) 2019 eXo Platform SAS.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -19,9 +19,7 @@
 
 package org.exoplatform.platform.component;
 
-import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.platform.common.branding.BrandingService;
-import org.exoplatform.platform.common.branding.BrandingServiceImpl;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.mop.SiteKey;
@@ -48,89 +46,81 @@ import java.util.List;
  */
 @ComponentConfig(lifecycle = UIApplicationLifecycle.class, template = "app:/groovy/platformNavigation/portlet/UICompanyNavigationPortlet/UICompanyNavigationPortlet.gtmpl")
 public class UICompanyNavigationPortlet extends UIPortletApplication {
-    private static final Log LOG = ExoLogger.getExoLogger(UICompanyNavigationPortlet.class);
+  private static final Log     LOG     = ExoLogger.getExoLogger(UICompanyNavigationPortlet.class);
 
-    private UserACL userACL = null;
-    private UserNodeFilterConfig userFilterConfig;
-    private BrandingService brandingService;
+  private UserNodeFilterConfig userFilterConfig;
 
-    public UICompanyNavigationPortlet() throws Exception {
-        UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
-        builder.withReadWriteCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL).withTemporalCheck();
-        userFilterConfig = builder.build();
-        userACL = getApplicationComponent(UserACL.class);
+  private BrandingService      brandingService;
 
-    }
+  public UICompanyNavigationPortlet() throws Exception {
+    UserNodeFilterConfig.Builder builder = UserNodeFilterConfig.builder();
+    builder.withReadWriteCheck().withVisibility(Visibility.DISPLAYED, Visibility.TEMPORAL).withTemporalCheck();
+    userFilterConfig = builder.build();
+    brandingService = getApplicationComponent(BrandingService.class);
+  }
 
-    public UserNavigation getCurrentPortalNavigation() throws Exception {
-        return getNavigation(SiteKey.portal(getCurrentPortal()));
-    }
+  public UserNavigation getCurrentPortalNavigation() {
+    return getNavigation(SiteKey.portal(getCurrentPortal()));
+  }
 
-    private UserNavigation getNavigation(SiteKey userKey) {
-        UserPortal userPortal = getUserPortal();
-        return userPortal.getNavigation(userKey);
-    }
+  private UserNavigation getNavigation(SiteKey userKey) {
+    UserPortal userPortal = getUserPortal();
+    return userPortal.getNavigation(userKey);
+  }
 
-    private UserPortal getUserPortal() {
-        PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
-        return portalRequestContext.getUserPortal();
-    }
+  private UserPortal getUserPortal() {
+    PortalRequestContext portalRequestContext = Util.getPortalRequestContext();
+    return portalRequestContext.getUserPortal();
+  }
 
-    public String getCurrentPortal() {
-        return Util.getPortalRequestContext().getPortalOwner();
-    }
+  public String getCurrentPortal() {
+    return Util.getPortalRequestContext().getPortalOwner();
+  }
 
-    public Collection<UserNode> getUserNodes(UserNavigation nav) {
-        UserPortal userPortall = getUserPortal();
-        if (nav != null) {
-            try {
-                UserNode rootNode = userPortall.getNode(nav, Scope.ALL, userFilterConfig, null);
-                return rootNode.getChildren();
-            } catch (Exception exp) {
-                LOG.warn(nav.getKey().getName() + " has been deleted");
-            }
-        }
-        return Collections.emptyList();
-    }
-
-    public UserNode getSelectedPageNode() throws Exception {
-        return Util.getUIPortal().getSelectedUserNode();
-    }
-
-    public Boolean isSelectedPageNode(UserNode node) throws Exception {
-
-        UserNode selectedNode = Util.getUIPortal().getSelectedUserNode();
-        if (selectedNode != null) {
-            if (node.getURI().equals(selectedNode.getURI())) {
-                return true;
-            }
-            List<String> uris = new ArrayList<String>();
-            for (UserNode child : node.getChildren()) {
-                uris.add(child.getURI());
-            }
-            if (uris != null && !uris.isEmpty()) {
-                if (uris.contains(selectedNode.getURI())) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-
-    }
-    
-    public String getCompanyName() {
-      return getBrandingService().getCompanyName();
-    }
-
-    private BrandingService getBrandingService() {
-      if (brandingService == null) {
-        brandingService = CommonsUtils.getService(BrandingServiceImpl.class);
+  public Collection<UserNode> getUserNodes(UserNavigation nav) {
+    UserPortal userPortall = getUserPortal();
+    if (nav != null) {
+      try {
+        UserNode rootNode = userPortall.getNode(nav, Scope.ALL, userFilterConfig, null);
+        return rootNode.getChildren();
+      } catch (Exception exp) {
+        LOG.warn(nav.getKey().getName() + " has been deleted");
       }
-      return brandingService;
     }
+    return Collections.emptyList();
+  }
+
+  public UserNode getSelectedPageNode() throws Exception {
+    return Util.getUIPortal().getSelectedUserNode();
+  }
+
+  public Boolean isSelectedPageNode(UserNode node) throws Exception {
+
+    UserNode selectedNode = Util.getUIPortal().getSelectedUserNode();
+    if (selectedNode != null) {
+      if (node.getURI().equals(selectedNode.getURI())) {
+        return true;
+      }
+      List<String> uris = new ArrayList<>();
+      for (UserNode child : node.getChildren()) {
+        uris.add(child.getURI());
+      }
+      if (uris != null && !uris.isEmpty()) {
+        if (uris.contains(selectedNode.getURI())) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+
+  }
+
+  public String getCompanyName() {
+    return brandingService.getCompanyName();
+  }
 }
