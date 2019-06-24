@@ -17,8 +17,6 @@
 package org.exoplatform.platform.common.branding;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
@@ -107,7 +105,7 @@ public class BrandingRestResourcesV1 implements ResourceContainer {
           @ApiResponse(code = 200, message = "Branding logo retrieved"),
           @ApiResponse(code = 404, message = "Branding logo not found"),
           @ApiResponse(code = 500, message = "Server error when retrieving branding logo") })
-  public Response getBrandingLogo(@Context Request request) throws ParseException, FileStorageException, IOException {
+  public Response getBrandingLogo(@Context Request request) throws FileStorageException, IOException {
     
     Long imageId = brandingService.getLogoId();
     FileItem fileItem = fileService.getFile(imageId);
@@ -115,7 +113,7 @@ public class BrandingRestResourcesV1 implements ResourceContainer {
       throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
     //
-    long lastUpdated = (new SimpleDateFormat("yyyy-MM-dd")).parse(fileItem.getFileInfo().getUpdatedDate().toString()).getTime();
+    long lastUpdated = fileItem.getFileInfo().getUpdatedDate().getTime();
     EntityTag eTag = new EntityTag(String.valueOf(lastUpdated));
     //
     Response.ResponseBuilder builder = request.evaluatePreconditions(eTag);
