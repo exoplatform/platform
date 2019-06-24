@@ -2,7 +2,7 @@
     import org.exoplatform.platform.webui.NavigationURLUtils;
     import org.exoplatform.container.ExoContainerContext;
     import org.exoplatform.platform.common.branding.BrandingService;
-    
+
     String imgSrc = "/eXoSkin/skin/images/themes/default/platform/skin/ToolbarContainer/HomeIcon.png";
 
     BrandingService brandingService = ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(BrandingService.class);

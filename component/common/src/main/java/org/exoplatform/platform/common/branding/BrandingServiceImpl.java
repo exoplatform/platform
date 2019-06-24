@@ -38,15 +38,15 @@ import org.exoplatform.upload.UploadService;
 public class BrandingServiceImpl implements BrandingService {
   private static final Log LOG               = ExoLogger.getExoLogger(BrandingServiceImpl.class);
 
-  private static final String BRANDING_COMPANY_NAME_INIT_PARAM = "exo.company.name";
+  public static final String BRANDING_COMPANY_NAME_INIT_PARAM = "exo.company.name";
 
-  private static final String BRANDING_COMPANY_NAME_SETTING_KEY = "exo.company.name";
+  public static final String BRANDING_COMPANY_NAME_SETTING_KEY = "exo.company.name";
 
-  private static final String BRANDING_TOPBAR_THEME_SETTING_KEY = "bar_navigation_style";
+  public static final String BRANDING_TOPBAR_THEME_SETTING_KEY = "bar_navigation_style";
 
-  private static final String BRANDING_LOGO_ID_SETTING_KEY = "exo.branding.company.id";
+  public static final String BRANDING_LOGO_ID_SETTING_KEY = "exo.branding.company.id";
 
-  private static final String FILE_API_NAME_SPACE = "CompanyBranding";
+  public static final String FILE_API_NAME_SPACE = "CompanyBranding";
 
   private SettingService settingService;
   
@@ -91,7 +91,7 @@ public class BrandingServiceImpl implements BrandingService {
   public Branding getBrandingInformation() {
     Branding branding = new Branding();
     branding.setCompanyName(getCompanyName());
-    branding.setTopBarTheme(getTopbarTheme());
+    branding.setTopBarTheme(getTopBarTheme());
     return branding;
   }
 
@@ -108,7 +108,7 @@ public class BrandingServiceImpl implements BrandingService {
     }
 
     if(branding.getTopBarTheme() != null) {
-      updateTopbarTheme(branding.getTopBarTheme());
+      updateTopBarTheme(branding.getTopBarTheme());
     }
 
     Logo logo = branding.getLogo();
@@ -137,10 +137,10 @@ public class BrandingServiceImpl implements BrandingService {
   
 
   @Override
-  public String getTopbarTheme() {
-    SettingValue<String> topbarTheme = (SettingValue<String>) settingService.get(Context.GLOBAL, Scope.GLOBAL, BRANDING_TOPBAR_THEME_SETTING_KEY);
-    if(topbarTheme != null && StringUtils.isNotBlank(topbarTheme.getValue())) {
-      return topbarTheme.getValue();
+  public String getTopBarTheme() {
+    SettingValue<String> topBarTheme = (SettingValue<String>) settingService.get(Context.GLOBAL, Scope.GLOBAL, BRANDING_TOPBAR_THEME_SETTING_KEY);
+    if(topBarTheme != null && StringUtils.isNotBlank(topBarTheme.getValue())) {
+      return topBarTheme.getValue();
     } else {
       return defaultTopbarTheme;
     }
@@ -157,11 +157,11 @@ public class BrandingServiceImpl implements BrandingService {
   }
 
   @Override
-  public void updateTopbarTheme(String topbarTheme) {
-    if(topbarTheme == null) {
-      throw new IllegalArgumentException("topbarTheme couldn't be null");
+  public void updateTopBarTheme(String topBarTheme) {
+    if(topBarTheme == null) {
+      throw new IllegalArgumentException("topBarTheme couldn't be null");
     }
-    settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_TOPBAR_THEME_SETTING_KEY, SettingValue.create(topbarTheme));
+    settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_TOPBAR_THEME_SETTING_KEY, SettingValue.create(topBarTheme));
   }
 
   /**

@@ -12,11 +12,11 @@ public interface BrandingService {
 
   void updateCompanyName(String companyName);
 
-  String getTopbarTheme();
+  String getTopBarTheme();
 
   Long getLogoId();
 
-  void updateTopbarTheme(String style);
+  void updateTopBarTheme(String style);
 
   void uploadLogo(Logo logo) throws IOException, Exception;
 

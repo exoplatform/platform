@@ -15,7 +15,7 @@
     <div class="logoForm boxContent">
       <h4>{{ $t('companyName.label') }}</h4>
       <div>
-        <input v-model="branding.companyName" :placeholder="$t('companyName.placeholder')" type="text" name="formOp" value="">
+        <input id="companyNameInput" v-model="branding.companyName" :placeholder="$t('companyName.placeholder')" type="text" name="formOp" value="">
       </div> 
       <h4>
         {{ $t('selectlogo.label') }}
@@ -36,7 +36,7 @@
         </div>
         <div class="pull-left">
           <div id="PreviewImgDiv" class="previewLogo">
-            <img id="ajaxUploading1" alt="" :src="loader" style="display:none">
+            <img id="ajaxUploading1" :src="loader" alt="" style="display:none">
             <img id="PreviewImg" :src="branding.logo.data" alt="">
           </div>
         </div>
@@ -59,7 +59,7 @@
       </div>    
       <div class="preview boxContent">
         <div id="StylePreview">
-          <img id="ajaxUploading2" alt="" :src="loader" style="display:none">
+          <img id="ajaxUploading2" :src="loader" alt="" style="display:none">
         </div>
       </div>
       <div class="uiAction boxContent">
@@ -127,7 +127,10 @@ export default {
       this.uploadFile(files[0]);
     },
     changePreviewStyle() {
-      document.querySelector('#StylePreview #UIToolbarContainer').setAttribute('class', `UIContainer UIToolbarContainer  UIToolbarContainer${this.branding.topBarTheme}`);
+      const topBarPreviewContainer = document.querySelector('#StylePreview #UIToolbarContainer');
+      if(topBarPreviewContainer) {
+        topBarPreviewContainer.setAttribute('class', `UIContainer UIToolbarContainer UIToolbarContainer${this.branding.topBarTheme}`);
+      }
     },
     save() {
       this.cleanMessage();
@@ -135,7 +138,7 @@ export default {
         const logoName = this.branding.logo.name;
         const logoNameExtension = logoName.substring(logoName.lastIndexOf('.')+1, logoName.length) || logoName;
         if(logoNameExtension !== 'png') {
-          document.getElementById('mustpng').style.display = 'block';
+          this.$el.querySelector('#mustpng').style.display = 'block';
           this.branding.logo.data = [];
           this.branding.logo.uploadId = null;
           return;
@@ -143,33 +146,26 @@ export default {
       }
 
       this.changePreviewStyle();
-      this.updateTopBarNavigation();
       brandingServices.updateBrandingInformation(this.branding).then(() => document.location.reload(true));
     },
     cancel() {
       this.initBrandingInformation();
       this.cleanMessage();
-      document.getElementById('cancelinfo').style.display = 'block';
+      this.$el.querySelector('#cancelinfo').style.display = 'block';
     },
     initBrandingInformation() {
-      brandingServices.getBrandingInformation().then(data =>{
+      brandingServices.getBrandingInformation().then(data => {
         this.branding.companyName = data.companyName;
         this.branding.topBarTheme = data.topBarTheme;
       });
     },
     cleanMessage() {
-      document.getElementById('savenotok').style.display = 'none';
-      document.getElementById('saveinfo').style.display = 'none';
-      document.getElementById('cancelinfo').style.display = 'none';
-      document.getElementById('mustpng').style.display = 'none';
+      this.$el.querySelector('#savenotok').style.display = 'none';
+      this.$el.querySelector('#saveinfo').style.display = 'none';
+      this.$el.querySelector('#cancelinfo').style.display = 'none';
+      this.$el.querySelector('#mustpng').style.display = 'none';
     },
-    updateTopBarNavigation() {
-      $('#PlatformAdminToolbarContainer #UIToolbarContainer:first')
-        .removeAttr('class');
-      $('#PlatformAdminToolbarContainer #UIToolbarContainer:first').addClass(
-        `UIContainer UIToolbarContainer  UIToolbarContainer${  this.branding.topBarTheme}`);
-    },
-    uploadFile(data){
+    uploadFile(data) {
       const formData = new FormData();               
       formData.append('file', data);
       const MAX_RANDOM_NUMBER = 100000;
