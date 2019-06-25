@@ -37,7 +37,7 @@
         <div class="pull-left">
           <div id="PreviewImgDiv" class="previewLogo">
             <img id="ajaxUploading1" :src="loader" alt="" style="display:none">
-            <img id="PreviewImg" :src="branding.logo.data" alt="">
+            <img id="PreviewImg" :src="logoPreview" alt="">
           </div>
         </div>
       </div>
@@ -88,12 +88,25 @@ export default {
         logo: {
           uploadId: null,
           data: [],
-          src: null,
           size: 0,
         }
       },
+      informationLoaded: false,
       loader: brandingConstants.LOADER
     };
+  },
+  computed: {
+    logoPreview: function() {
+      if(this.informationLoaded) {
+        if(this.branding.logo.data == null || !this.branding.logo.data.length) {
+          return '/eXoSkin/skin/images/themes/default/platform/skin/ToolbarContainer/HomeIcon.png';
+        } else if(Array.isArray(this.branding.logo.data)) {
+          return this.convertImageDataAsSrc(this.branding.logo.data);
+        } else {
+          return this.branding.logo.data;
+        }
+      }
+    }
   },
   created() {
     this.initBrandingInformation();
@@ -109,6 +122,12 @@ export default {
     });
   },
   methods: {
+    convertImageDataAsSrc(imageData) {
+      let binary = '';
+      const bytes = new Uint8Array(imageData);
+      bytes.forEach(byte => binary += String.fromCharCode(byte));
+      return `data:image/png;base64,${btoa(binary)}`;
+    },
     onFileChange(e) {
       const files = e.target.files || e.dataTransfer.files;
       if (!files.length) {
@@ -154,9 +173,14 @@ export default {
       this.$el.querySelector('#cancelinfo').style.display = 'block';
     },
     initBrandingInformation() {
+      this.informationLoaded = false;
       brandingServices.getBrandingInformation().then(data => {
         this.branding.companyName = data.companyName;
         this.branding.topBarTheme = data.topBarTheme;
+        if(data.logo) {
+          this.branding.logo = data.logo;
+        }
+        this.informationLoaded = true;
       });
     },
     cleanMessage() {

@@ -1,23 +1,15 @@
 package org.exoplatform.platform.common.branding;
 
-public class Logo {
-  private String logoURL;
+import java.util.Date;
 
+public class Logo {
   private String uploadId;
 
   private long   size;
 
-  private String src;
-
   private byte[] data;
 
-  public String getLogoURL() {
-    return logoURL;
-  }
-
-  public void setLogoURL(String logoURL) {
-    this.logoURL = logoURL;
-  }
+  private Date updatedDate;
 
   public String getUploadId() {
     return uploadId;
@@ -35,14 +27,6 @@ public class Logo {
     this.size = size;
   }
 
-  public String getSrc() {
-    return src;
-  }
-
-  public void setSrc(String src) {
-    this.src = src;
-  }
-
   public byte[] getData() {
     return data;
   }
@@ -51,4 +35,11 @@ public class Logo {
     this.data = data;
   }
 
+  public Date getUpdatedDate() {
+    return updatedDate;
+  }
+
+  public void setUpdatedDate(Date updatedDate) {
+    this.updatedDate = updatedDate;
+  }
 }

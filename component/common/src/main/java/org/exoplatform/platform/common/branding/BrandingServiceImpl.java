@@ -24,6 +24,7 @@ import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
 import org.exoplatform.commons.api.settings.data.Scope;
 import org.exoplatform.commons.file.services.FileService;
+import org.exoplatform.commons.file.services.FileStorageException;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.commons.file.model.FileItem;
@@ -92,6 +93,7 @@ public class BrandingServiceImpl implements BrandingService {
     Branding branding = new Branding();
     branding.setCompanyName(getCompanyName());
     branding.setTopBarTheme(getTopBarTheme());
+    branding.setLogo(getLogo());
     return branding;
   }
 
@@ -154,6 +156,28 @@ public class BrandingServiceImpl implements BrandingService {
     } else {
       return null;
     }
+  }
+
+  @Override
+  public Logo getLogo() {
+    Long imageId = getLogoId();
+    if(imageId != null) {
+      try {
+        FileItem fileItem = fileService.getFile(imageId);
+        if (fileItem != null) {
+          Logo logo = new Logo();
+          logo.setData(fileItem.getAsByte());
+          logo.setSize(fileItem.getFileInfo().getSize());
+          logo.setUpdatedDate(fileItem.getFileInfo().getUpdatedDate());
+
+          return logo;
+        }
+      } catch (FileStorageException e) {
+        LOG.error("Error while retrieving branding logo", e);
+      }
+    }
+
+    return null;
   }
 
   @Override

@@ -11,7 +11,11 @@ describe('ExoCompanyBranding.test.js', () => {
   beforeEach(() => {
     fetchMock.get('/rest/v1/platform/branding', {
       'companyName': 'Default Company Name',
-      'topBarTheme': 'Dark'
+      'topBarTheme': 'Dark',
+      'logo': {
+        'data': [],
+        'size': 123
+      }
     });
     fetchMock.put('/rest/v1/platform/branding', 200);
 

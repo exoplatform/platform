@@ -16,6 +16,8 @@ public interface BrandingService {
 
   Long getLogoId();
 
+  Logo getLogo();
+
   void updateTopBarTheme(String style);
 
   void uploadLogo(Logo logo) throws IOException, Exception;

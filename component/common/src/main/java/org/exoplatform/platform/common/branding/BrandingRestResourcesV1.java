@@ -15,7 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 package org.exoplatform.platform.common.branding;
-import java.io.IOException;
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 import javax.annotation.security.RolesAllowed;
@@ -27,9 +27,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 
-import org.exoplatform.commons.file.model.FileItem;
-import org.exoplatform.commons.file.services.FileService;
-import org.exoplatform.commons.file.services.FileStorageException;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
@@ -49,11 +46,8 @@ public class BrandingRestResourcesV1 implements ResourceContainer {
   
   private BrandingService brandingService;
 
-  private FileService fileService;
-
-  public BrandingRestResourcesV1(BrandingService brandingService, FileService fileService) {
+  public BrandingRestResourcesV1(BrandingService brandingService) {
     this.brandingService = brandingService;
-    this.fileService = fileService;
   }
   
   
@@ -105,21 +99,19 @@ public class BrandingRestResourcesV1 implements ResourceContainer {
           @ApiResponse(code = 200, message = "Branding logo retrieved"),
           @ApiResponse(code = 404, message = "Branding logo not found"),
           @ApiResponse(code = 500, message = "Server error when retrieving branding logo") })
-  public Response getBrandingLogo(@Context Request request) throws FileStorageException, IOException {
+  public Response getBrandingLogo(@Context Request request) {
     
-    Long imageId = brandingService.getLogoId();
-    FileItem fileItem = fileService.getFile(imageId);
-    if (fileItem == null) {
+    Logo logo = brandingService.getLogo();
+    if (logo == null) {
       throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
     //
-    long lastUpdated = fileItem.getFileInfo().getUpdatedDate().getTime();
+    long lastUpdated = logo.getUpdatedDate().getTime();
     EntityTag eTag = new EntityTag(String.valueOf(lastUpdated));
     //
     Response.ResponseBuilder builder = request.evaluatePreconditions(eTag);
     if (builder == null) {
-      fileItem = fileService.getFile(imageId);
-      InputStream stream = fileItem.getAsStream();
+      InputStream stream = new ByteArrayInputStream(logo.getData());
       builder = Response.ok(stream, "image/png");
       builder.tag(eTag);
     }
