@@ -47,6 +47,17 @@ describe('ExoCompanyBranding.test.js', () => {
     expect(topBarThemeDarkInput.element.checked).toBe(false);
   });
 
+  it('should disable Save button when Company name field is empty', () => {
+    // Given
+    cmp.vm.branding.companyName = ' ';
+
+    // When
+    const saveButton = cmp.find('#save');
+
+    // Then
+    expect(saveButton.element.disabled).toBe(true);
+  });
+
   it('should reset form value when clicking on Cancel button', done => {
     // Given
     cmp.vm.branding.companyName = 'My Company';
@@ -71,6 +82,7 @@ describe('ExoCompanyBranding.test.js', () => {
     // Given
     document.location.reload = jest.fn();
 
+    cmp.vm.branding.companyName = 'Company';
     cmp.vm.branding.logo.uploadId = 123456;
     cmp.vm.branding.logo.name = 'logo.jpg';
 

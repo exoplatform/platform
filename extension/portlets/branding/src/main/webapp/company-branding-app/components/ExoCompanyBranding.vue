@@ -61,7 +61,7 @@
         </div>
       </div>
       <div class="uiAction boxContent">
-        <button id="save" class="btn btn-primate" type="button" @click="save">
+        <button id="save" :disabled="!branding.companyName || !branding.companyName.trim()" class="btn btn-primate" type="button" @click="save">
           {{ $t('save.label') }}
         </button>
         <button id="cancel" class="btn" type="button" @click="cancel">
