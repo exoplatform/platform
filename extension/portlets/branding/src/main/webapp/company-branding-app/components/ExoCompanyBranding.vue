@@ -26,7 +26,7 @@
             {{ $t('noteselectlogo.label') }}
           </div>
           <div class="fileDrop">
-            <div class="dropZone">
+            <div ref="dropFileBox" class="dropZone">
               <label class="dropMsg" for="attachLogo">
                 <i class="uiIcon attachFileIcon"></i> {{ $t('attachment') }}
               </label>
@@ -109,6 +109,7 @@ export default {
     this.initBrandingInformation();
   },
   mounted() {
+    // init top bar preview
     $('#PlatformAdminToolbarContainer').clone().attr('id', 'PlatformAdminToolbarContainer-preview').appendTo($('#StylePreview'));
     const toolbarPreview = $('#StylePreview #PlatformAdminToolbarContainer-preview');
     ['hover', 'click', 'blur'].forEach(evt => {
@@ -117,6 +118,18 @@ export default {
         e.preventDefault();
       });
     });
+
+    // init file drop zone
+    ['drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop'].forEach( function( evt ) {
+      this.$refs.dropFileBox.addEventListener(evt, function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }.bind(this), false);
+    }.bind(this));
+
+    this.$refs.dropFileBox.addEventListener('drop', function(e) {
+      this.onFileChange(e);
+    }.bind(this));
   },
   methods: {
     convertImageDataAsSrc(imageData) {
