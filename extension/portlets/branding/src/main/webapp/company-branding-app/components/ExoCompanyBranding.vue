@@ -36,7 +36,6 @@
         </div>
         <div class="pull-left">
           <div id="PreviewImgDiv" class="previewLogo">
-            <img id="ajaxUploading1" :src="loader" alt="" style="display:none">
             <img id="PreviewImg" :src="logoPreview" alt="">
           </div>
         </div>
@@ -59,7 +58,6 @@
       </div>    
       <div class="preview boxContent">
         <div id="StylePreview">
-          <img id="ajaxUploading2" :src="loader" alt="" style="display:none">
         </div>
       </div>
       <div class="uiAction boxContent">
@@ -91,15 +89,14 @@ export default {
           size: 0,
         }
       },
-      informationLoaded: false,
-      loader: brandingConstants.LOADER
+      informationLoaded: false
     };
   },
   computed: {
     logoPreview: function() {
       if(this.informationLoaded) {
         if(this.branding.logo.data == null || !this.branding.logo.data.length) {
-          return '/eXoSkin/skin/images/themes/default/platform/skin/ToolbarContainer/HomeIcon.png';
+          return `${brandingConstants.HOMEICON}`;
         } else if(Array.isArray(this.branding.logo.data)) {
           return this.convertImageDataAsSrc(this.branding.logo.data);
         } else {
@@ -196,7 +193,7 @@ export default {
       const uploadId = Math.round(Math.random() * MAX_RANDOM_NUMBER); 
       this.branding.logo.uploadId = uploadId;
       this.branding.logo.data = data;
-      return fetch(`/portal/upload?uploadId=${uploadId}&action=upload`, {
+      return fetch(`${brandingConstants.PORTAL}/upload?uploadId=${uploadId}&action=upload`, {
         method: 'POST',
         credentials: 'include',
         body: formData
