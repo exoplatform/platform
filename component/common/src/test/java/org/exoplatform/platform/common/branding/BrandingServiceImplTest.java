@@ -161,7 +161,7 @@ public class BrandingServiceImplTest {
     assertEquals(Context.GLOBAL, contexts.get(0));
     assertEquals(Scope.GLOBAL, scopes.get(0));
     assertEquals(BrandingServiceImpl.BRANDING_LOGO_ID_SETTING_KEY, keys.get(0));
-    assertEquals(1L, values.get(0).getValue());
+    assertEquals("1", values.get(0).getValue());
     List<FileItem> fileItems = fileItemArgumentCaptor.getAllValues();
     assertEquals("myLogo", new String(fileItems.get(0).getAsByte()));
   }
@@ -215,7 +215,7 @@ public class BrandingServiceImplTest {
     assertEquals(Context.GLOBAL, contexts.get(0));
     assertEquals(Scope.GLOBAL, scopes.get(0));
     assertEquals(BrandingServiceImpl.BRANDING_LOGO_ID_SETTING_KEY, keys.get(0));
-    assertEquals(2L, values.get(0).getValue());
+    assertEquals("2", values.get(0).getValue());
     List<FileItem> fileItems = fileItemArgumentCaptor.getAllValues();
     assertTrue(Arrays.equals(IOUtils.toByteArray(resource), fileItems.get(0).getAsByte()));
   }

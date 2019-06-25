@@ -220,7 +220,7 @@ public class BrandingServiceImpl implements BrandingService {
                               false,
                               inputStream);
       fileItem = fileService.writeFile(fileItem);     
-      settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_LOGO_ID_SETTING_KEY, SettingValue.create(fileItem.getFileInfo().getId()));
+      settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_LOGO_ID_SETTING_KEY, SettingValue.create(String.valueOf(fileItem.getFileInfo().getId())));
     } else {
       fileItem = new FileItem(logoId,
                               LOGO_NAME,
