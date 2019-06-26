@@ -60,7 +60,7 @@ public class BrandingUpgradePlugin extends UpgradeProductPlugin {
               byte[] logoData = IOUtils.toByteArray(data.getStream());
               logo.setData(logoData);
               logo.setSize(logoData.length);
-              brandingService.uploadLogo(logo);
+              brandingService.updateLogo(logo);
             }
             logoNode.remove();
             session.save();

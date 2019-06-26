@@ -105,18 +105,9 @@ public class BrandingServiceImpl implements BrandingService {
    */
   @Override
   public void updateBrandingInformation(Branding branding) throws Exception {
-    if(branding.getCompanyName() != null) {
-      updateCompanyName(branding.getCompanyName());
-    }
-
-    if(branding.getTopBarTheme() != null) {
-      updateTopBarTheme(branding.getTopBarTheme());
-    }
-
-    Logo logo = branding.getLogo();
-    if(logo != null && (logo.getData() != null && logo.getData().length > 0 || StringUtils.isNotBlank(logo.getUploadId()))) {
-      uploadLogo(branding.getLogo());
-    }
+    updateCompanyName(branding.getCompanyName());
+    updateTopBarTheme(branding.getTopBarTheme());
+    updateLogo(branding.getLogo());
   }
 
   @Override
@@ -131,10 +122,11 @@ public class BrandingServiceImpl implements BrandingService {
   
   @Override
   public void updateCompanyName(String companyName) {
-    if(companyName == null) {
-      throw new IllegalArgumentException("Company Name couldn't be null");
+    if(StringUtils.isEmpty(companyName)) {
+      settingService.remove(Context.GLOBAL, Scope.GLOBAL, BRANDING_COMPANY_NAME_SETTING_KEY);
+    } else {
+      settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_COMPANY_NAME_SETTING_KEY, SettingValue.create(companyName));
     }
-    settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_COMPANY_NAME_SETTING_KEY, SettingValue.create(companyName));  
   }
   
 
@@ -182,56 +174,65 @@ public class BrandingServiceImpl implements BrandingService {
 
   @Override
   public void updateTopBarTheme(String topBarTheme) {
-    if(topBarTheme == null) {
-      throw new IllegalArgumentException("topBarTheme couldn't be null");
+    if(StringUtils.isBlank(topBarTheme)) {
+      settingService.remove(Context.GLOBAL, Scope.GLOBAL, BRANDING_TOPBAR_THEME_SETTING_KEY);
+    } else {
+      settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_TOPBAR_THEME_SETTING_KEY, SettingValue.create(topBarTheme));
     }
-    settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_TOPBAR_THEME_SETTING_KEY, SettingValue.create(topBarTheme));
   }
 
   /**
    * Update branding logo.
    * If the logo object contains the image data, they are used,
-   * otherwise the uploadId is used to retrieve the uploaded resource
+   * otherwise if the uploadId exists it is used to retrieve the uploaded resource.
+   * If there is no data, nor uploadId, the logo is deleted.
    * @param logo The logo object
-   * @throws IOException
    * @throws Exception
    */
   @Override
-  public void uploadLogo(Logo logo) throws Exception {
-    InputStream inputStream;
-    if(logo.getData() != null && logo.getData().length > 0) {
-      inputStream = new ByteArrayInputStream(logo.getData());
-    } else if(StringUtils.isNoneBlank(logo.getUploadId())) {
-      inputStream = getUploadDataAsStream(logo.getUploadId());
+  public void updateLogo(Logo logo) throws Exception {
+    if(logo == null || ((logo.getData() == null || logo.getData().length <= 0) && StringUtils.isBlank(logo.getUploadId()))) {
+      Long logoId = this.getLogoId();
+      if(logoId != null) {
+        fileService.deleteFile(logoId);
+        settingService.remove(Context.GLOBAL, Scope.GLOBAL, BRANDING_LOGO_ID_SETTING_KEY);
+      }
     } else {
-      throw new IllegalArgumentException("Cannot update branding logo, the logo object must contain the image data or an upload id");
-    }
-    String currentUserId = getCurrentUserId();
-    FileItem fileItem;
-    Long logoId = this.getLogoId();
-    if (logoId == null) {
-      fileItem = new FileItem(null,
-                              LOGO_NAME,
-                              "image/png",
-                              FILE_API_NAME_SPACE,
-                              logo.getSize(),
-                              new Date(),
-                              currentUserId,
-                              false,
-                              inputStream);
-      fileItem = fileService.writeFile(fileItem);     
-      settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_LOGO_ID_SETTING_KEY, SettingValue.create(String.valueOf(fileItem.getFileInfo().getId())));
-    } else {
-      fileItem = new FileItem(logoId,
-                              LOGO_NAME,
-                              "image/png",
-                              FILE_API_NAME_SPACE,
-                              logo.getSize(),
-                              new Date(),
-                              currentUserId,
-                              false,
-                              inputStream);
-      fileService.updateFile(fileItem);
+      InputStream inputStream;
+      if (logo.getData() != null && logo.getData().length > 0) {
+        inputStream = new ByteArrayInputStream(logo.getData());
+      } else if (StringUtils.isNoneBlank(logo.getUploadId())) {
+        inputStream = getUploadDataAsStream(logo.getUploadId());
+      } else {
+        throw new IllegalArgumentException("Cannot update branding logo, the logo object must contain the image data or an upload id");
+      }
+      String currentUserId = getCurrentUserId();
+      FileItem fileItem;
+      Long logoId = this.getLogoId();
+      if (logoId == null) {
+        fileItem = new FileItem(null,
+                LOGO_NAME,
+                "image/png",
+                FILE_API_NAME_SPACE,
+                logo.getSize(),
+                new Date(),
+                currentUserId,
+                false,
+                inputStream);
+        fileItem = fileService.writeFile(fileItem);
+        settingService.set(Context.GLOBAL, Scope.GLOBAL, BRANDING_LOGO_ID_SETTING_KEY, SettingValue.create(String.valueOf(fileItem.getFileInfo().getId())));
+      } else {
+        fileItem = new FileItem(logoId,
+                LOGO_NAME,
+                "image/png",
+                FILE_API_NAME_SPACE,
+                logo.getSize(),
+                new Date(),
+                currentUserId,
+                false,
+                inputStream);
+        fileService.updateFile(fileItem);
+      }
     }
   }
 

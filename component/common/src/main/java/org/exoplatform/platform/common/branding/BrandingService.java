@@ -20,6 +20,6 @@ public interface BrandingService {
 
   void updateTopBarTheme(String style);
 
-  void uploadLogo(Logo logo) throws IOException, Exception;
+  void updateLogo(Logo logo) throws IOException, Exception;
 
 }

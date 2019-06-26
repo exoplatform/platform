@@ -35,8 +35,9 @@
           </div>                      
         </div>
         <div class="pull-left">
-          <div id="PreviewImgDiv" class="previewLogo">
-            <img id="PreviewImg" :src="logoPreview" alt="">
+          <div id="previewLogo" class="previewLogo">
+            <a v-if="removeLogoButtonDisplayed" class="removeButton" @click="removeLogo"><i class="uiIconRemove"></i></a>
+            <img id="previewLogoImg" :src="logoPreview" alt="">
           </div>
         </div>
       </div>
@@ -103,6 +104,9 @@ export default {
           return this.branding.logo.data;
         }
       }
+    },
+    removeLogoButtonDisplayed: function() {
+      return this.branding.logo.uploadId || this.branding.logo.data != null && this.branding.logo.data.length > 0;
     }
   },
   created() {
@@ -211,6 +215,11 @@ export default {
         credentials: 'include',
         body: formData
       });
+    },
+    removeLogo() {
+      this.branding.logo.uploadId = null;
+      this.branding.logo.data = [];
+      this.branding.logo.size = 0;
     }
   }
 };
