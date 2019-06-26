@@ -1,7 +1,8 @@
 package org.exoplatform.platform.common.branding;
 
-import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Logo {
   private String uploadId;
 
@@ -9,7 +10,7 @@ public class Logo {
 
   private byte[] data;
 
-  private Date updatedDate;
+  private long updatedDate;
 
   public String getUploadId() {
     return uploadId;
@@ -35,11 +36,11 @@ public class Logo {
     this.data = data;
   }
 
-  public Date getUpdatedDate() {
+  public long getUpdatedDate() {
     return updatedDate;
   }
 
-  public void setUpdatedDate(Date updatedDate) {
+  public void setUpdatedDate(long updatedDate) {
     this.updatedDate = updatedDate;
   }
 }

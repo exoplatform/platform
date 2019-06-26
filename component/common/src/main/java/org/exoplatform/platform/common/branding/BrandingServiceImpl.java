@@ -160,7 +160,7 @@ public class BrandingServiceImpl implements BrandingService {
           Logo logo = new Logo();
           logo.setData(fileItem.getAsByte());
           logo.setSize(fileItem.getFileInfo().getSize());
-          logo.setUpdatedDate(fileItem.getFileInfo().getUpdatedDate());
+          logo.setUpdatedDate(fileItem.getFileInfo().getUpdatedDate().getTime());
 
           return logo;
         }

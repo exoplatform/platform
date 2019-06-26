@@ -106,7 +106,7 @@ public class BrandingRestResourcesV1 implements ResourceContainer {
       throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
     //
-    long lastUpdated = logo.getUpdatedDate().getTime();
+    long lastUpdated = logo.getUpdatedDate();
     EntityTag eTag = new EntityTag(String.valueOf(lastUpdated));
     //
     Response.ResponseBuilder builder = request.evaluatePreconditions(eTag);
