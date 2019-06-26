@@ -400,7 +400,7 @@
       <init-params>
         <object-param>
           <name>gadgets.root</name>
-          <description>Create gadget root node</description>
+          <description>Create production root node</description>
           <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig">
             <field name="workspaces">
               <collection type="java.util.ArrayList">
@@ -421,42 +421,6 @@
                     </field>
                     <field name="permissions">
                       <collection type="java.util.ArrayList">
-                      </collection>
-                    </field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">
-                    <field name="alias">
-                      <string>gadgets</string>
-                    </field>
-                    <field name="path">
-                      <string>/production/app:gadgets</string>
-                    </field>
-                    <field name="nodeType">
-                      <string>app:gadgetregistry</string>
-                    </field>
-                    <field name="permissions">
-                      <collection type="java.util.ArrayList">
-                        <value>
-                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">
-                            <field name="identity">
-                              <string>*:/platform/administrators</string>
-                            </field>
-                            <field name="read">
-                              <string>true</string>
-                            </field>
-                            <field name="addNode">
-                              <string>true</string>
-                            </field>
-                            <field name="setProperty">
-                              <string>true</string>
-                            </field>
-                            <field name="remove">
-                              <string>true</string>
-                            </field>
-                          </object>
-                        </value>
                       </collection>
                     </field>
                   </object>

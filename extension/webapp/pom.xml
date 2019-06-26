@@ -294,11 +294,6 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-component-gadgets</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
       <artifactId>platform-component-organization</artifactId>
       <scope>runtime</scope>
     </dependency>
