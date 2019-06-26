@@ -1,4 +1,5 @@
 const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 let config = {
@@ -52,6 +53,7 @@ let config = {
     ]
   },
   plugins: [
+    new VueLoaderPlugin(),
     // we use ExtractTextWebpackPlugin to extract the css code on a css file
     new ExtractTextWebpackPlugin('css/[name].css')
   ]
