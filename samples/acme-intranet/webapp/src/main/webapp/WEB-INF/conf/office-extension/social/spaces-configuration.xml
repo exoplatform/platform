@@ -50,6 +50,7 @@
             <field name="registration"><string>open</string></field>
             <field name="bannerPath"><string>war:/conf/social-extension/social/space-template/community/banner.png</string></field>
             <field name="permissions"><string>${exo.social.space.template.community.permissions:*:/platform/users}</string></field>
+            <field name="invitees"><string>${exo.social.space.template.community.invitees:}</string></field>
             <field name="homePageApplication">
               <object type="org.exoplatform.social.core.space.SpaceApplication">
                 <field name="portletApp"><string>social-portlet</string></field>
@@ -301,6 +302,7 @@
             <field name="registration"><string>validation</string></field>
             <field name="bannerPath"><string>war:/conf/social-extension/social/space-template/communication/banner.png</string></field>
             <field name="permissions"><string>${exo.social.space.template.communication.permissions:*:/platform/users}</string></field>
+            <field name="invitees"><string>${exo.social.space.template.communication.invitees:}</string></field>
             <field name="homePageApplication">
               <object type="org.exoplatform.social.core.space.SpaceApplication">
                 <field name="portletApp">
@@ -559,6 +561,7 @@
             <field name="registration"><string>validation</string></field>
             <field name="bannerPath"><string>war:/conf/social-extension/social/space-template/project/banner.png</string></field>
             <field name="permissions"><string>${exo.social.space.template.project.permissions:*:/platform/users}</string></field>
+            <field name="invitees"><string>${exo.social.space.template.project.invitees:}</string></field>
             <field name="homePageApplication">
               <object type="org.exoplatform.social.core.space.SpaceApplication">
                 <field name="portletApp">
@@ -817,6 +820,7 @@
             <field name="registration"><string>validation</string></field>
             <field name="bannerPath"><string>war:/conf/social-extension/social/space-template/team/banner.png</string></field>
             <field name="permissions"><string>${exo.social.space.template.team.permissions:*:/platform/users}</string></field>
+            <field name="invitees"><string>${exo.social.space.template.team.invitees:}</string></field>
             <field name="homePageApplication">
               <object type="org.exoplatform.social.core.space.SpaceApplication">
                 <field name="portletApp">
