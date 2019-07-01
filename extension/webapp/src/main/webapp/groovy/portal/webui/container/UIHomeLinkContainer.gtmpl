@@ -1,15 +1,5 @@
 <%
     import org.exoplatform.platform.webui.NavigationURLUtils;
-    import org.exoplatform.container.ExoContainerContext;
-    import org.exoplatform.platform.common.branding.BrandingService;
-
-    String imgSrc = "/eXoSkin/skin/images/themes/default/platform/skin/ToolbarContainer/HomeIcon.png";
-
-    BrandingService brandingService = ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(BrandingService.class);
-    Long logo = brandingService.getLogoId();
-    if(logo != null) {
-      imgSrc = "/rest/v1/platform/branding/logo";
-    }
 %>
 
 <div id="<%=uicomponent.id%>">
@@ -20,6 +10,6 @@
   <span></span>
 </div>
 <a href="<%=NavigationURLUtils.getCurrentPortalURL()%>" class="HomeLink">
-    <img src="$imgSrc" alt="Home" >
+    <img src="/rest/v1/platform/branding/logo" alt="Home" >
 </a>
 </div>

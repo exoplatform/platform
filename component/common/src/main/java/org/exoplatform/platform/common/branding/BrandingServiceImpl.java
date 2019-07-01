@@ -17,8 +17,11 @@
 package org.exoplatform.platform.common.branding;
 
 import java.io.*;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.util.Date;
 
+import org.apache.commons.io.IOUtils;
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.api.settings.SettingValue;
 import org.exoplatform.commons.api.settings.data.Context;
@@ -41,6 +44,8 @@ public class BrandingServiceImpl implements BrandingService {
 
   public static final String BRANDING_COMPANY_NAME_INIT_PARAM = "exo.company.name";
 
+  public static final String BRANDING_LOGO_INIT_PARAM = "exo.branding.company.logo";
+
   public static final String BRANDING_COMPANY_NAME_SETTING_KEY = "exo.company.name";
 
   public static final String BRANDING_TOPBAR_THEME_SETTING_KEY = "bar_navigation_style";
@@ -48,6 +53,8 @@ public class BrandingServiceImpl implements BrandingService {
   public static final String BRANDING_LOGO_ID_SETTING_KEY = "exo.branding.company.id";
 
   public static final String FILE_API_NAME_SPACE = "CompanyBranding";
+
+  public static final String BRANDING_DEFAULT_LOGO_PATH = "/logo/DefaultLogo.png";
 
   private SettingService settingService;
   
@@ -60,6 +67,8 @@ public class BrandingServiceImpl implements BrandingService {
   private String defaultCompanyName  = "";
 
   private String defaultTopbarTheme = "Dark";
+
+  private String defaultConfiguredLogoPath = null;
 
   public BrandingServiceImpl(InitParams initParams,SettingService settingService, FileService fileService, UploadService uploadService) {
     this.settingService = settingService;
@@ -80,6 +89,11 @@ public class BrandingServiceImpl implements BrandingService {
       ValueParam companyNameParam = initParams.getValueParam(BRANDING_COMPANY_NAME_INIT_PARAM);
       if(companyNameParam != null) {
         this.defaultCompanyName = companyNameParam.getValue();
+      }
+
+      ValueParam logoParam = initParams.getValueParam(BRANDING_LOGO_INIT_PARAM);
+      if(logoParam != null) {
+        this.defaultConfiguredLogoPath = logoParam.getValue();
       }
     }
   }
@@ -167,6 +181,31 @@ public class BrandingServiceImpl implements BrandingService {
       } catch (FileStorageException e) {
         LOG.error("Error while retrieving branding logo", e);
       }
+    }
+
+    return null;
+  }
+
+  @Override
+  public Logo getDefaultLogo() {
+    if(StringUtils.isNotBlank(defaultConfiguredLogoPath)) {
+      try {
+        File file = new File(defaultConfiguredLogoPath);
+
+        if(file.exists()) {
+          return new Logo(null, Files.readAllBytes(file.toPath()), file.length(), file.lastModified());
+        }
+      } catch (IOException e) {
+        LOG.warn("The file of the default configured logo cannot be retrieved (" + defaultConfiguredLogoPath + ")", e);
+        return null;
+      }
+    }
+
+    try {
+      byte[] bytes = IOUtils.toByteArray(this.getClass().getResourceAsStream(BRANDING_DEFAULT_LOGO_PATH));
+      return new Logo(null, bytes, bytes.length, 0);
+    } catch (IOException e) {
+      LOG.warn("The file of the default platform logo cannot be retrieved", e);
     }
 
     return null;

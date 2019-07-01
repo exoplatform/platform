@@ -27,16 +27,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 
+import io.swagger.annotations.*;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.rest.resource.ResourceContainer;
 import org.exoplatform.social.rest.api.ErrorResource;
 import org.exoplatform.social.service.rest.api.VersionResources;
-
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 
 
 @Path(VersionResources.VERSION_ONE + "/platform/branding")
@@ -99,9 +95,47 @@ public class BrandingRestResourcesV1 implements ResourceContainer {
           @ApiResponse(code = 200, message = "Branding logo retrieved"),
           @ApiResponse(code = 404, message = "Branding logo not found"),
           @ApiResponse(code = 500, message = "Server error when retrieving branding logo") })
-  public Response getBrandingLogo(@Context Request request) {
+  public Response getBrandingLogo(@Context Request request,
+                                  @ApiParam(value = "'404' to return a 404 http code when no logo has been uploaded, no value to return the logo define in the configuration or the default logo") @QueryParam("defaultLogo") String defaultLogo) {
     
     Logo logo = brandingService.getLogo();
+    if (logo == null) {
+      if("404".equals(defaultLogo)) {
+        throw new WebApplicationException(Response.Status.NOT_FOUND);
+      } else {
+        logo = brandingService.getDefaultLogo();
+        if(logo == null) {
+          throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
+      }
+    }
+    //
+    long lastUpdated = logo.getUpdatedDate();
+    EntityTag eTag = new EntityTag(String.valueOf(lastUpdated));
+    //
+    Response.ResponseBuilder builder = request.evaluatePreconditions(eTag);
+    if (builder == null) {
+      InputStream stream = new ByteArrayInputStream(logo.getData());
+      builder = Response.ok(stream, "image/png");
+      builder.tag(eTag);
+    }
+    CacheControl cc = new CacheControl();
+    cc.setMaxAge(86400);
+    builder.cacheControl(cc);
+    return builder.cacheControl(cc).build();
+  }
+
+  @GET
+  @Path("/defaultLogo")
+  @RolesAllowed("users")
+  @ApiOperation(value = "Get Branding default logo", httpMethod = "GET", response = Response.class)
+  @ApiResponses(value = {
+          @ApiResponse(code = 200, message = "Branding default logo retrieved"),
+          @ApiResponse(code = 404, message = "Branding default logo not found"),
+          @ApiResponse(code = 500, message = "Server error when retrieving branding default logo") })
+  public Response getBrandingDefaultLogo(@Context Request request) {
+
+    Logo logo = brandingService.getDefaultLogo();
     if (logo == null) {
       throw new WebApplicationException(Response.Status.NOT_FOUND);
     }

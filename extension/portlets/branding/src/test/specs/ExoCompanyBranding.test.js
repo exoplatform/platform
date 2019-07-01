@@ -18,6 +18,7 @@ describe('ExoCompanyBranding.test.js', () => {
       }
     });
     fetchMock.put('/rest/v1/platform/branding', 200);
+    fetchMock.get('/rest/v1/platform/branding/defaultLogo?defaultLogo=404', 404);
 
     Object.defineProperty(document.location, 'reload', {
       configurable: true

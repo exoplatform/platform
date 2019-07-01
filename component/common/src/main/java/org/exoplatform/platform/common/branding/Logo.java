@@ -12,6 +12,16 @@ public class Logo {
 
   private long updatedDate;
 
+  public Logo() {
+  }
+
+  public Logo(String uploadId, byte[] data, long size, long updatedDate) {
+    this.uploadId = uploadId;
+    this.size = size;
+    this.data = data;
+    this.updatedDate = updatedDate;
+  }
+
   public String getUploadId() {
     return uploadId;
   }

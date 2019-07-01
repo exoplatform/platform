@@ -20,6 +20,19 @@ export function getBrandingInformation() {
   }).then(resp => resp.json());
 }
 
+export function getBrandingDefaultLogo() {
+  return fetch(`/${eXo.env.portal.rest}/v1/platform/branding/defaultLogo?defaultLogo=404`, {
+    method: 'GET',
+    credentials: 'include',
+  }).then(resp => {
+    if(resp.ok) {
+      return resp.arrayBuffer();
+    } else {
+      return null;
+    }
+  });
+}
+
 export function throwErrorFromServerCall(serverResponse, defaultErrorMessage) {
   if (!serverResponse || !serverResponse.ok) {
     const contentType = serverResponse && serverResponse.headers && serverResponse.headers.get('content-type');

@@ -18,6 +18,8 @@ public interface BrandingService {
 
   Logo getLogo();
 
+  Logo getDefaultLogo();
+
   void updateTopBarTheme(String style);
 
   void updateLogo(Logo logo) throws IOException, Exception;

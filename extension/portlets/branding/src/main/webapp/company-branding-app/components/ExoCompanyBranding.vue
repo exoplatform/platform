@@ -90,6 +90,7 @@ export default {
           size: 0,
         }
       },
+      defaultLogo: null,
       informationLoaded: false
     };
   },
@@ -97,7 +98,11 @@ export default {
     logoPreview: function() {
       if(this.informationLoaded) {
         if(this.branding.logo.data == null || !this.branding.logo.data.length) {
-          return `${brandingConstants.HOMEICON}`;
+          if(this.defaultLogo != null) {
+            return this.convertImageDataAsSrc(this.defaultLogo);
+          } else {
+            return `${brandingConstants.HOMEICON}`;
+          }
         } else if(Array.isArray(this.branding.logo.data)) {
           return this.convertImageDataAsSrc(this.branding.logo.data);
         } else {
@@ -167,7 +172,7 @@ export default {
     },
     save() {
       this.cleanMessage();
-      if(this.branding.logo.uploadId !== null) {
+      if(this.branding.logo.uploadId) {
         const logoName = this.branding.logo.name;
         const logoNameExtension = logoName.substring(logoName.lastIndexOf('.')+1, logoName.length) || logoName;
         if(logoNameExtension !== 'png') {
@@ -188,12 +193,19 @@ export default {
     },
     initBrandingInformation() {
       this.informationLoaded = false;
-      brandingServices.getBrandingInformation().then(data => {
+      const brandingInformationPromise = brandingServices.getBrandingInformation().then(data => {
         this.branding.companyName = data.companyName;
         this.branding.topBarTheme = data.topBarTheme;
         if(data.logo) {
           this.branding.logo = data.logo;
         }
+      });
+
+      const defaultLogoPromise = brandingServices.getBrandingDefaultLogo().then(data => {
+        this.defaultLogo = data;
+      });
+
+      Promise.all([brandingInformationPromise, defaultLogoPromise]).then(() => {
         this.informationLoaded = true;
       });
     },
