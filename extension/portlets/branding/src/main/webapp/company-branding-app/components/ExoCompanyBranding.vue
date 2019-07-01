@@ -33,7 +33,7 @@
         </div>
         <div class="pull-left">
           <div id="previewLogo" class="previewLogo">
-            <a v-if="removeLogoButtonDisplayed" class="removeButton" @click="removeLogo"><i class="uiIconRemove"></i></a>
+            <a v-if="removeLogoButtonDisplayed" :title="$t('delete.label')" class="removeButton" @click="removeLogo"><i class="uiIconRemove"></i></a>
             <img id="previewLogoImg" :src="logoPreview" alt="">
           </div>
         </div>
