@@ -1,5 +1,5 @@
 <template>
-  <div class="featured-poll uiGadgetThemes uiBox">
+  <div class="featured-poll uiFeaturedPoll uiBox">
     <h6 class="gadgetTitle title left clearfix">
       {{ $t('featuredPoll.title') }}
       <a v-if="isAdmin" class="actionIcon pull-right settingBt" data-original-title="Setting" data-placement="left" data-toggle="tooltip" @click="togglePollSelection()">

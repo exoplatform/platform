@@ -1,5 +1,5 @@
 <template>
-  <div class="login-history-app uiGadgetThemes uiBox">
+  <div class="login-history-app uiLoginHistory uiBox">
     <h6 class="title">{{ $t('loginHistory.title') }}</h6>
     <div class="uiContentBox">
       <div class="gadContent">
