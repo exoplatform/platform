@@ -1,8 +1,5 @@
 <template>
   <div class="uiBrandingPortlet">
-    <div id="cancelinfo" class="alert">
-      <i class="uiIconWarning"></i>{{ $t('info.cancelok.label') }}
-    </div>
     <div id="saveinfo" class="alert alert-success">
       <i class="uiIconSuccess"></i>{{ $t('info.saveok.label') }}
     </div>
@@ -187,9 +184,7 @@ export default {
       brandingServices.updateBrandingInformation(this.branding).then(() => document.location.reload(true));
     },
     cancel() {
-      this.initBrandingInformation();
-      this.cleanMessage();
-      this.$el.querySelector('#cancelinfo').style.display = 'block';
+      document.location.href = brandingConstants.PORTAL;
     },
     initBrandingInformation() {
       this.informationLoaded = false;
@@ -212,7 +207,6 @@ export default {
     cleanMessage() {
       this.$el.querySelector('#savenotok').style.display = 'none';
       this.$el.querySelector('#saveinfo').style.display = 'none';
-      this.$el.querySelector('#cancelinfo').style.display = 'none';
       this.$el.querySelector('#mustpng').style.display = 'none';
     },
     uploadFile(data) {

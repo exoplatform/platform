@@ -59,26 +59,6 @@ describe('ExoCompanyBranding.test.js', () => {
     expect(saveButton.element.disabled).toBe(true);
   });
 
-  it('should reset form value when clicking on Cancel button', done => {
-    // Given
-    cmp.vm.branding.companyName = 'My Company';
-    cmp.vm.branding.topBarTheme = 'Light';
-
-    // When
-    cmp.find('#cancel').trigger('click');
-
-    flushPromises().then(() => {
-      // Then
-      expect(cmp.vm.branding.companyName).toBe('Default Company Name');
-      expect(cmp.vm.branding.topBarTheme).toBe('Dark');
-      expect(cmp.find('#savenotok').attributes().style).toBe('display: none;');
-      expect(cmp.find('#saveinfo').attributes().style).toBe('display: none;');
-      expect(cmp.find('#cancelinfo').attributes().style).toBe('display: block;');
-      expect(cmp.find('#mustpng').attributes().style).toBe('display: none;');
-      done();
-    });
-  });
-
   it('should display error message when saving with a non PNG image', () => {
     // Given
     document.location.reload = jest.fn();
@@ -95,10 +75,7 @@ describe('ExoCompanyBranding.test.js', () => {
     expect(cmp.vm.branding.logo.uploadId).toBe(null);
     expect(cmp.find('#savenotok').attributes().style).toBe('display: none;');
     expect(cmp.find('#saveinfo').attributes().style).toBe('display: none;');
-    expect(cmp.find('#cancelinfo').attributes().style).toBe('display: none;');
     expect(cmp.find('#mustpng').attributes().style).toBe('display: block;');
-
-    document.location.reload.mockRestore();
   });
 
   it('should save form data when clicking on Save button', done => {
@@ -117,12 +94,9 @@ describe('ExoCompanyBranding.test.js', () => {
 
       expect(cmp.find('#savenotok').attributes().style).toBe('display: none;');
       expect(cmp.find('#saveinfo').attributes().style).toBe('display: none;');
-      expect(cmp.find('#cancelinfo').attributes().style).toBe('display: none;');
       expect(cmp.find('#mustpng').attributes().style).toBe('display: none;');
 
       done();
-
-      document.location.reload.mockRestore();
     });
   });
 
