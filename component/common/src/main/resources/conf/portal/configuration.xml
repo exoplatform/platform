@@ -416,8 +416,8 @@
     <type>org.exoplatform.platform.common.branding.BrandingServiceImpl</type>
     <init-params>
       <value-param>
-        <name>exo.company.name</name>
-        <value>${exo.company.name:}</value>
+        <name>exo.branding.company.name</name>
+        <value>${exo.branding.company.name:}</value>
       </value-param>
       <value-param>
         <name>exo.branding.company.logo</name>

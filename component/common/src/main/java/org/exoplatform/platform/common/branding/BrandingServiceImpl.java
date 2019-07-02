@@ -42,11 +42,11 @@ import org.exoplatform.upload.UploadService;
 public class BrandingServiceImpl implements BrandingService {
   private static final Log LOG               = ExoLogger.getExoLogger(BrandingServiceImpl.class);
 
-  public static final String BRANDING_COMPANY_NAME_INIT_PARAM = "exo.company.name";
+  public static final String BRANDING_COMPANY_NAME_INIT_PARAM = "exo.branding.company.name";
 
   public static final String BRANDING_LOGO_INIT_PARAM = "exo.branding.company.logo";
 
-  public static final String BRANDING_COMPANY_NAME_SETTING_KEY = "exo.company.name";
+  public static final String BRANDING_COMPANY_NAME_SETTING_KEY = "exo.branding.company.name";
 
   public static final String BRANDING_TOPBAR_THEME_SETTING_KEY = "bar_navigation_style";
 
