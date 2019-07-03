@@ -172,7 +172,7 @@ export default {
       if(this.branding.logo.uploadId) {
         const logoName = this.branding.logo.name;
         const logoNameExtension = logoName.substring(logoName.lastIndexOf('.')+1, logoName.length) || logoName;
-        if(logoNameExtension !== 'png') {
+        if(logoNameExtension.toLowerCase() !== 'png') {
           this.$el.querySelector('#mustpng').style.display = 'block';
           this.branding.logo.data = [];
           this.branding.logo.uploadId = null;
