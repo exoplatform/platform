@@ -33,6 +33,9 @@
             <a v-if="removeLogoButtonDisplayed" :title="$t('delete.label')" class="removeButton" @click="removeLogo"><i class="uiIconRemove"></i></a>
             <img id="previewLogoImg" :src="logoPreview" alt="">
           </div>
+          <div v-if="uploadInProgress" :class="[uploadProgress === 100 ? 'upload-completed': '']" class="progress progress-striped pull-left">
+            <div :style="'width:' + uploadProgress + '%'" class="bar">{{ uploadProgress }}%</div>
+          </div>
         </div>
       </div>
       <div class="navigationStyle boxContent">
@@ -70,6 +73,7 @@
 <script>
 import { brandingConstants }  from '../companyBrandingConstants';
 import * as  brandingServices  from '../companyBrandingServices';
+import axios from 'axios';
 
 export default {
   data(){
@@ -85,6 +89,8 @@ export default {
         }
       },
       defaultLogo: null,
+      uploadInProgress: false,
+      uploadProgress: 0,
       informationLoaded: false
     };
   },
@@ -221,10 +227,50 @@ export default {
       const uploadId = Math.round(Math.random() * MAX_RANDOM_NUMBER); 
       this.branding.logo.uploadId = uploadId;
       this.branding.logo.data = data;
-      return fetch(`${brandingConstants.PORTAL}/upload?uploadId=${uploadId}&action=upload`, {
+
+      const maxProgress = 100;
+
+      this.uploadInProgress = true;
+
+      const self = this;
+      // Had to use axios here since progress observation is still not supported by fetch
+      axios.request({
         method: 'POST',
+        url: `${brandingConstants.PORTAL}/upload?uploadId=${uploadId}&action=upload`,
         credentials: 'include',
-        body: formData
+        data: formData,
+        onUploadProgress: (progress) => {
+          this.uploadProgress = Math.round(progress.loaded * maxProgress / progress.total);
+        }
+      }).then(() => {
+        // Check if the file has correctly been uploaded (progress=100) before refreshing the upload list
+        const progressUrl = `${brandingConstants.PORTAL}/upload?action=progress&uploadId=${uploadId}`;
+        fetch(progressUrl)
+          .then(response => response.text())
+          .then(responseText => {
+            // TODO fix malformed json from upload service
+            let responseObject;
+            try {
+              // trick to parse malformed json
+              eval(`responseObject = ${responseText}`); // eslint-disable-line no-eval
+            } catch (err) {
+              return;
+            }
+
+            if(!responseObject.upload[uploadId] || !responseObject.upload[uploadId].percent ||
+              responseObject.upload[uploadId].percent !== maxProgress.toString()) {
+              self.$el.querySelector('#savenotok').style.display = 'block';
+              self.uploadInProgress = false;
+            } else {
+              self.uploadProgress = maxProgress;
+              self.$el.querySelector('.upload-completed').addEventListener('transitionend', function(e) {
+                if(e.propertyName === 'visibility') {
+                  self.uploadInProgress = false;
+                  self.uploadProgress = 0;
+                }
+              }, true);
+            }
+          });
       });
     },
     removeLogo() {
