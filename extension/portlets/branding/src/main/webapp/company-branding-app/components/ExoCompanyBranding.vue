@@ -3,6 +3,9 @@
     <div id="mustpng" class="alert">
       <i class="uiIconWarning"></i>{{ $t('mustpng.label') }}
     </div>
+    <div id="toobigfile" class="alert">
+      <i class="uiIconWarning"></i>{{ $t('toobigfile.label') }}
+    </div>
     <div id="savenotok" class="alert">
       <i class="uiIconWarning"></i>{{ $t('info.savenotok.label') }}
     </div>
@@ -91,6 +94,7 @@ export default {
       defaultLogo: null,
       uploadInProgress: false,
       uploadProgress: 0,
+      maxFileSize: 2097152,
       informationLoaded: false
     };
   },
@@ -153,8 +157,13 @@ export default {
         return;
       }
 
-      if(!this.isLogoFileValid(files[0])) {
+      if(!this.isLogoFileExtensionValid(files[0])) {
         this.$el.querySelector('#mustpng').style.display = 'block';
+        return;
+      }
+
+      if(!this.isLogoFileSizeValid(files[0])) {
+        this.$el.querySelector('#toobigfile').style.display = 'block';
         return;
       }
 
@@ -169,14 +178,14 @@ export default {
 
       this.uploadFile(files[0]);
     },
-    isLogoFileValid(logoFile) {
+    isLogoFileExtensionValid(logoFile) {
       const logoName = logoFile.name;
       const logoNameExtension = logoName.substring(logoName.lastIndexOf('.')+1, logoName.length) || logoName;
-      if(logoNameExtension.toLowerCase() !== 'png') {
-        return false;
-      }
-
-      return true;
+      return logoNameExtension.toLowerCase() === 'png';
+    },
+    isLogoFileSizeValid(logoFile) {
+      const logoSize = logoFile.size;
+      return logoSize <= this.maxFileSize;
     },
     changePreviewStyle() {
       const topBarPreviewContainer = document.querySelector('#StylePreview #UIToolbarContainer');
@@ -186,7 +195,7 @@ export default {
     },
     save() {
       this.cleanMessage();
-      if(this.branding.logo.uploadId && !this.isLogoFileValid(this.branding.logo)) {
+      if(this.branding.logo.uploadId && !this.isLogoFileExtensionValid(this.branding.logo)) {
         this.$el.querySelector('#mustpng').style.display = 'block';
         this.branding.logo.data = [];
         this.branding.logo.uploadId = null;
@@ -219,6 +228,7 @@ export default {
     cleanMessage() {
       this.$el.querySelector('#savenotok').style.display = 'none';
       this.$el.querySelector('#mustpng').style.display = 'none';
+      this.$el.querySelector('#toobigfile').style.display = 'none';
     },
     uploadFile(data) {
       const formData = new FormData();               

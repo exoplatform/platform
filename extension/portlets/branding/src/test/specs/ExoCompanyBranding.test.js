@@ -66,6 +66,7 @@ describe('ExoCompanyBranding.test.js', () => {
     cmp.vm.branding.companyName = 'Company';
     cmp.vm.branding.logo.uploadId = 123456;
     cmp.vm.branding.logo.name = 'logo.jpg';
+    cmp.vm.branding.logo.size = 1024;
 
     // When
     cmp.find('#save').trigger('click');
@@ -75,6 +76,7 @@ describe('ExoCompanyBranding.test.js', () => {
     expect(cmp.vm.branding.logo.uploadId).toBe(null);
     expect(cmp.find('#savenotok').attributes().style).toBe('display: none;');
     expect(cmp.find('#mustpng').attributes().style).toBe('display: block;');
+    expect(cmp.find('#toobigfile').attributes().style).toBe('display: none;');
   });
 
   it('should save form data when clicking on Save button', done => {
@@ -93,6 +95,7 @@ describe('ExoCompanyBranding.test.js', () => {
 
       expect(cmp.find('#savenotok').attributes().style).toBe('display: none;');
       expect(cmp.find('#mustpng').attributes().style).toBe('display: none;');
+      expect(cmp.find('#toobigfile').attributes().style).toBe('display: none;');
 
       done();
     });
