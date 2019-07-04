@@ -150,6 +150,11 @@ export default {
         return;
       }
 
+      if(!this.isLogoFileValid(files[0])) {
+        this.$el.querySelector('#mustpng').style.display = 'block';
+        return;
+      }
+
       const reader = new FileReader();
       reader.onload = (e) => {
         this.branding.logo.data = e.target.result;
@@ -161,6 +166,15 @@ export default {
 
       this.uploadFile(files[0]);
     },
+    isLogoFileValid(logoFile) {
+      const logoName = logoFile.name;
+      const logoNameExtension = logoName.substring(logoName.lastIndexOf('.')+1, logoName.length) || logoName;
+      if(logoNameExtension.toLowerCase() !== 'png') {
+        return false;
+      }
+
+      return true;
+    },
     changePreviewStyle() {
       const topBarPreviewContainer = document.querySelector('#StylePreview #UIToolbarContainer');
       if(topBarPreviewContainer) {
@@ -169,17 +183,12 @@ export default {
     },
     save() {
       this.cleanMessage();
-      if(this.branding.logo.uploadId) {
-        const logoName = this.branding.logo.name;
-        const logoNameExtension = logoName.substring(logoName.lastIndexOf('.')+1, logoName.length) || logoName;
-        if(logoNameExtension.toLowerCase() !== 'png') {
-          this.$el.querySelector('#mustpng').style.display = 'block';
-          this.branding.logo.data = [];
-          this.branding.logo.uploadId = null;
-          return;
-        }
+      if(this.branding.logo.uploadId && !this.isLogoFileValid(this.branding.logo)) {
+        this.$el.querySelector('#mustpng').style.display = 'block';
+        this.branding.logo.data = [];
+        this.branding.logo.uploadId = null;
+        return;
       }
-
       this.changePreviewStyle();
       brandingServices.updateBrandingInformation(this.branding).then(() => document.location.reload(true));
     },
