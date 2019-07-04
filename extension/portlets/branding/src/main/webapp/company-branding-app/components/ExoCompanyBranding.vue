@@ -1,8 +1,5 @@
 <template>
   <div class="uiBrandingPortlet">
-    <div id="saveinfo" class="alert alert-success">
-      <i class="uiIconSuccess"></i>{{ $t('info.saveok.label') }}
-    </div>
     <div id="mustpng" class="alert">
       <i class="uiIconWarning"></i>{{ $t('mustpng.label') }}
     </div>
@@ -215,7 +212,6 @@ export default {
     },
     cleanMessage() {
       this.$el.querySelector('#savenotok').style.display = 'none';
-      this.$el.querySelector('#saveinfo').style.display = 'none';
       this.$el.querySelector('#mustpng').style.display = 'none';
     },
     uploadFile(data) {

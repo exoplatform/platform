@@ -74,7 +74,6 @@ describe('ExoCompanyBranding.test.js', () => {
     expect(document.location.reload).not.toHaveBeenCalled();
     expect(cmp.vm.branding.logo.uploadId).toBe(null);
     expect(cmp.find('#savenotok').attributes().style).toBe('display: none;');
-    expect(cmp.find('#saveinfo').attributes().style).toBe('display: none;');
     expect(cmp.find('#mustpng').attributes().style).toBe('display: block;');
   });
 
@@ -93,7 +92,6 @@ describe('ExoCompanyBranding.test.js', () => {
       expect(document.location.reload).toHaveBeenCalled();
 
       expect(cmp.find('#savenotok').attributes().style).toBe('display: none;');
-      expect(cmp.find('#saveinfo').attributes().style).toBe('display: none;');
       expect(cmp.find('#mustpng').attributes().style).toBe('display: none;');
 
       done();
