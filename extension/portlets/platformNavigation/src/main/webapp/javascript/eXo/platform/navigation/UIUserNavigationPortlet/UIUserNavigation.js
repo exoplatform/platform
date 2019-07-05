@@ -18,7 +18,7 @@
 
       //
       function autoMoveApps(){
-        var _w = $(window).outerWidth();
+        var _w = $(window).width();
         if ( _w  < 1025) {
           var tabContainer = $('ul.userNavigation');
           tabContainer.css('visibility', 'visible')
@@ -31,7 +31,7 @@
         if ($container.hasClass('sticky')) {
           var $avt = $('.uiProfileMenu .userAvt');
           var $navHeader = $('.uiProfileMenu .profileMenuNav');
-          delta = $avt.outerWidth() + $navHeader.outerWidth() + 20;
+          delta = $avt.width() + $navHeader.width() + 20;
         }
 
         var index = calculateIndex(ul, delta);
@@ -47,7 +47,7 @@
 
         var w = 0, index = 0;
         for (var i = 0; i < liElements.length; ++i) {
-          var wElm = liElements.eq(i).outerWidth();
+          var wElm = liElements.eq(i).width();
           if((w + wElm) < maxWith) {
             w += wElm;
             index++;

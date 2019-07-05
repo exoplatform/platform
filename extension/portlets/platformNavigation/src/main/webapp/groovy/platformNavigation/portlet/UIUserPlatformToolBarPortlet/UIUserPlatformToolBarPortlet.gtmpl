@@ -101,6 +101,14 @@
 		            </li>
 	            <% } %>
             <% } %>
+            <% if (CommonsUtils.isFeatureActive("wallet", remoteUser)) {
+              def walletLink = NavigationURLUtils.getURLInCurrentPortal("wallet");
+              def labelWallet = _ctx.appRes("UIUserPlatformToolBarPortlet.label.wallet");
+            %>
+              <li>
+                <a href="$walletLink"><i class="uiIconWalletMyWallet"></i>$labelWallet</a>
+              </li>
+            <% } %>
             <li class="divider">&nbsp;</li>
             <li>
               <a href="javascript:void(0);" onclick="$accountSetting"><i class="uiIconSetting"></i>$labelaccount</a>

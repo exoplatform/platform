@@ -115,7 +115,7 @@ for (node in uicomponent.getUserNodes()) {
     }
     %>
 
-    <% if  ((nodeName.equals(uicomponent.DASHBOARD_URI) || nodeName.equals(uicomponent.NOTIFICATION_SETTINGS))&&(!isOwner))  continue;
+    <% if  ((nodeName.equals(uicomponent.WALLET_URI) || nodeName.equals(uicomponent.DASHBOARD_URI) || nodeName.equals(uicomponent.NOTIFICATION_SETTINGS))&&(!isOwner))  continue;
     nodeLabel = _ctx.appRes(str);
     %>
 

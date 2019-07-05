@@ -204,6 +204,9 @@
       <module>bts_dropdown</module>
     </depends>
     <depends>
+      <module>bts_popover</module>
+    </depends>
+    <depends>
       <module>bannerUploader</module>
     </depends>
   </module>

@@ -23,6 +23,9 @@
     import org.exoplatform.portal.mop.user.UserNode;
     import org.gatein.common.text.EntityEncoder;
     import org.exoplatform.platform.webui.NavigationURLUtils;
+    import org.exoplatform.portal.webui.util.Util;
+    import org.apache.commons.lang3.StringUtils;
+    import org.exoplatform.commons.utils.CommonsUtils;
     def rcontext = _ctx.getRequestContext();
     rcontext.getJavascriptManager().require("SHARED/jquery", "jq")
                .require("SHARED/bts_tooltip").addScripts("jq('*[rel=\"tooltip\"]').tooltip();");
@@ -33,7 +36,11 @@
         print """
 			<ul class="uiCompanyNavigations" >
 		""";
+        def remoteUser = Util.getPortalRequestContext().getRemoteUser();
         for(UserNode node in nodes) {
+            if (StringUtils.equals(node.getName(), 'perkstore') && !CommonsUtils.isFeatureActive("perkstore", remoteUser)) {
+              continue;
+            }
             renderPageNode(node);
         }
         print """

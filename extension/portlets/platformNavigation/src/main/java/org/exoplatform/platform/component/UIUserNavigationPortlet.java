@@ -72,6 +72,8 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     public static final String PROFILE_URI= "profile";
     public static final String CONNEXIONS_URI= "connections";
     public static final String WIKI_URI= "wiki";
+    public static final String WALLET_FEATURE_NAME = "wallet";
+    public static final String WALLET_URI = "wallet";
     public static final String DASHBOARD_URI= "dashboard";
     private static final String INVISIBLE = "invisible";
     private UserNodeFilterConfig toolbarFilterConfig;
@@ -209,6 +211,9 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
             userNodes.put(ACTIVITIES_URI, getactivitesURL());
             userNodes.put(CONNEXIONS_URI, getrelationURL());
             userNodes.put(WIKI_URI, getWikiURL());
+            if (CommonsUtils.isFeatureActive(WALLET_FEATURE_NAME, Utils.getViewerRemoteId())) {
+              userNodes.put(WALLET_URI, getWalletURL());
+            }
             userNodes.put(DASHBOARD_URI, DashboardUtils.getDashboardURL());
             if (CommonsUtils.isFeatureActive(NotificationUtils.FEATURE_NAME)) {
                 userNodes.put(NOTIFICATION_SETTINGS, getNotificationsURL());
@@ -235,6 +240,10 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         return LinkProvider.getUserConnectionsYoursUri(getOwnerRemoteId());
     }
 
+    public String getWalletURL() {
+        return NavigationURLUtils.getURLInCurrentPortal(WALLET_URI);
+    }
+    
     public String getWikiURL() {
         return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF)+USER +getOwnerRemoteId()+WIKI_HOME;
     }
