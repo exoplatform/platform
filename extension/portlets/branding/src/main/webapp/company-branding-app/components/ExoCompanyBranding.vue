@@ -13,15 +13,13 @@
       <h4>{{ $t('companyName.label') }}</h4>
       <div>
         <input id="companyNameInput" v-model="branding.companyName" :placeholder="$t('companyName.placeholder')" type="text" name="formOp" value="">
+        <div class="info">{{ $t('companyName.input.hint') }}</div>
       </div> 
       <h4>
         {{ $t('selectlogo.label') }}
       </h4>
       <div class="clearfix">
         <div class="pull-left">
-          <div class="info">
-            {{ $t('noteselectlogo.label') }}
-          </div>
           <div class="fileDrop">
             <div ref="dropFileBox" class="dropZone">
               <label class="dropMsg" for="attachLogo">
@@ -29,7 +27,8 @@
               </label>
               <input id="attachLogo" type="file" class="attachFile" name="file" @change="onFileChange">
             </div>
-          </div>                      
+          </div>
+          <div class="info">{{ $t('noteselectlogo.label') }}</div>
         </div>
         <div class="pull-left">
           <div id="previewLogo" class="previewLogo">
