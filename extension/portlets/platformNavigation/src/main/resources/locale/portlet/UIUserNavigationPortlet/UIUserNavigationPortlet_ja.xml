@@ -4,12 +4,13 @@
       <label>
          <activities>アクテビティ</activities>
          <profile>プロフィール</profile>
-         <connections>コネクション</connections>
+         <connections>コネクト</connections>
          <wiki>Wiki</wiki>
          <Myactivities>アクティビティ</Myactivities>
          <Myprofile>マイプロフィール</Myprofile>
-         <Myconnections>マイ コネクション</Myconnections>
+         <Myconnections>マイ・コネクト</Myconnections>
          <Mywiki>Wiki</Mywiki>
+         <Mywallet>マイ・ウォレット</Mywallet>
          <Mydashboard>マイダッシュ ボード</Mydashboard>
          <NotificationSettingsPortlet>通知</NotificationSettingsPortlet>
          <More>詳細</More>
@@ -18,7 +19,7 @@
          <offline>オフライン</offline>
          <away>離席中</away>
          <donotdisturb>サイレントモード</donotdisturb>
-         <invisible>非表示</invisible>
+         <invisible>非公開</invisible>
          <bannerSizeHint>少なくとも 高さ130 ピクセルのイメージを選択してください。</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
@@ -34,7 +35,7 @@
    </UIPopupBannerUploader>
    <UIRelationshipAction>
       <action>
-         <AcceptRequest>許可する</AcceptRequest>
+         <AcceptRequest>承諾</AcceptRequest>
          <Deny>拒否</Deny>
          <RemoveConnection>コネクション解除</RemoveConnection>
          <CancelRequest>リクエストを取り消す</CancelRequest>

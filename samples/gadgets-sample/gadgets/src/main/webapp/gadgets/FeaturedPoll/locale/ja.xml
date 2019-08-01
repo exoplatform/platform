@@ -30,6 +30,6 @@
   <msg name="voter">投票者</msg>
   <msg name="total">合計</msg>
   <msg name="discuss">フォーラムで議論する</msg>
-  <msg name="nopoll">まだ投票がありません</msg>  
+  <msg name="nopoll">まだアンケートがありません</msg>  
   <msg name="createPoll">アンケートを作成する</msg>    
 </messagebundle>

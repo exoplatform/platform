@@ -23,7 +23,7 @@
 -->
 <messagebundle>
   <msg name="forums.statistic.title">フォーラムの統計情報</msg>
-  <msg name="forums.statistic.total.topic">総トピック数:</msg>
+  <msg name="forums.statistic.total.topic">全トピック数:</msg>
   <msg name="forums.statistic.total.post">合計投稿数</msg>
   <msg name="forums.statistic.total.member">合計メンバー数：</msg>
   <msg name="forums.statistic.active.member">最近のアクティブなメンバー:</msg>

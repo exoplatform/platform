@@ -13,7 +13,7 @@
    <UICreateList>
       <label>
          <topic>ディスカッション</topic>
-         <poll>ポール</poll>
+         <poll>アンケート</poll>
          <CreateANew>新規 {1}:</CreateANew>
          <NoForum>申し訳ありませんが、{1} を作成するために必要となるフォーラムがまだ存在していません。まず、スペースを作成してください。</NoForum>
          <RequireSelectForum>フォーラムを選択してください</RequireSelectForum>
@@ -26,7 +26,7 @@
    <UICreateTopic>
       <label>
          <SelectAForum>フォーラムを選択</SelectAForum>
-         <location>ロケーションに</location>
+         <location>場所</location>
          <forumId>フォーラム</forumId>
          <FilterForums>フォーラムでフィルター</FilterForums>
       </label>
@@ -34,7 +34,7 @@
    <UICreatePoll>
       <label>
          <SelectAForum>フォーラムを選択</SelectAForum>
-         <location>ロケーションに</location>
+         <location>場所</location>
          <forumId>フォーラム</forumId>
          <FilterForums>フォーラムでフィルター</FilterForums>
       </label>
@@ -42,7 +42,7 @@
    <UICreateWiki>
       <label>
          <title>新しい Wiki ページを作成</title>
-         <location>ロケーション</location>
+         <location>場所</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>

@@ -2,7 +2,7 @@
 <bundle>
  <UISpaceNavigationPortlet>
      <label>
-         <Spaces>マイスペース</Spaces>
+         <Spaces>マイ・スペース</Spaces>
          <Join>スペースに参加</Join>
          <see>さらに {0} スペースを表示</see>
      </label>

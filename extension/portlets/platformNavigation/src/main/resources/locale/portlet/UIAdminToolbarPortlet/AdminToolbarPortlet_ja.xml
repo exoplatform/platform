@@ -27,7 +27,7 @@
       <language>言語:</language>
       <robots>ロボット:</robots>
       <sitemap>サイトマップ：</sitemap>
-      <sitemapvisible>サイトマップで参照可能</sitemapvisible>
+      <sitemapvisible>サイトマップで公開</sitemapvisible>
   <isInherited>親ページから継承</isInherited>
       <priority>優先順位：</priority>
       <frequency>頻度:</frequency>
