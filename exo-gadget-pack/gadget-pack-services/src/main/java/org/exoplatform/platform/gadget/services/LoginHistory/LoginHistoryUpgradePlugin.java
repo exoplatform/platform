@@ -55,7 +55,7 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
     } else {
       LOG.info("== Start migration of Login History data from JCR to RDBMS");
 
-      migrationErrors = migrateAndDeleteLoginHistory();
+      migrationErrors = migrateLoginHistory();
 
       if (migrationErrors == 0) {
         allUsersCountersDeletionErrors = deleteAllUsersLoginHistoryCounters();
@@ -132,10 +132,10 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
   /**
    * iterates on all present Login History nodes by a given page size, for each
    * returned page of Login History nodes it iterates on each node in order to add
-   * it to the JPAStorage and then removes it and by the end returns the number of
+   * it to the JPAStorage and by the end returns the number of
    * errors occurred during the process
    */
-  private int migrateAndDeleteLoginHistory() {
+  private int migrateLoginHistory() {
     SessionProvider sProvider = SessionProvider.createSystemProvider();
     entityManagerService.startRequest(ExoContainerContext.getCurrentContainer());
 
@@ -176,8 +176,6 @@ public class LoginHistoryUpgradePlugin extends UpgradeProductPlugin {
             path = loginHistoryNode.getPath();
             LOG.debug("==    Login History migration - Migrate Login History Entry of user {} at {}", userId, instantLoginTime);
             jpaLoginHistoryStorage.addLoginHistoryEntry(userId, loginTime);
-            LOG.debug("Removing Login History Node : " + path);
-            jcrLoginHistoryStorage.removeLoginHistoryNode(sProvider, loginHistoryNode);
             migrated++;
           } catch (Exception e) {
             LOG.error("==    Login History migration - Error while migrating Login History Entry of user {} at {} ",
