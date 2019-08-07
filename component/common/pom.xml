@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
   <name>eXo PLF:: Platform - Common</name>
   <properties>
-    <exo.test.coverage.ratio>0.10</exo.test.coverage.ratio>
+    <exo.test.coverage.ratio>0.12</exo.test.coverage.ratio>
   </properties>
   <dependencies>
     <dependency>
@@ -56,6 +56,10 @@
     <dependency>
       <groupId>org.exoplatform.commons</groupId>
       <artifactId>commons-component-product</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-file-storage</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.core</groupId>
@@ -149,6 +153,14 @@
     <dependency>
       <groupId>org.apache.shindig</groupId>
       <artifactId>shindig-social-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.social</groupId>
+      <artifactId>social-component-service</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.commons</groupId>

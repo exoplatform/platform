@@ -100,7 +100,7 @@
 		""" ;
     }
 
-    String title = _ctx.appRes("UICompanyNavigationPortlet.CompanyBar");
+    String title = uicomponent.getCompanyName();
 %>
 <div class="uiCompanyNavigationPortlet">
     <h5 class="title accordionBar clearfix">
@@ -109,7 +109,7 @@
         <span></span>
         <span></span>
       </div>
-      <span>$title</span> <i class="uiIconArrowRight pull-right"></i>
+      <span class="titleText" data-placement="bottom" rel="tooltip" data-toggle="tooltip" data-original-title="$title">$title</span> <i class="uiIconArrowRight pull-right"></i>
     </h5>
 	<div class="accordionCont">
     <%
