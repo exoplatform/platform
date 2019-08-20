@@ -66,10 +66,6 @@
       <artifactId>social-component-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.social</groupId>
-      <artifactId>social-component-service</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.exoplatform.gatein.portal</groupId>
       <artifactId>exo.portal.component.web.api</artifactId>
     </dependency>
