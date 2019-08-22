@@ -51,7 +51,8 @@
   },
   "dependencies": {
     "Datejs": "github:datejs/Datejs",
-    "vue-google-charts": "^0.3.2"
+    "echarts": "^4.2.1",
+    "vue-echarts": "^4.0.3"
   },
   "jest": {
     "projects": [

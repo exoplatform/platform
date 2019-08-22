@@ -9,11 +9,8 @@
           <button class="btn" data-placement="bottom" rel="tooltip" title="Next" @click="next()">&nbsp;<i class="uiIconArrowRight"></i>&nbsp;</button>
         </div>
       </div>
-      <div v-if="chartData.length > 0" class="chart">
-        <GChart
-          :data="chartData"
-          :options="chartOptions"
-          type="ColumnChart"/>
+      <div class="chart">
+        <v-chart :options="chartOptions"/>
         <div class="uiContentBox">
           {{ $t('loginHistory.avgLoginPerDay') }}: {{ averageLogin }}
         </div>
@@ -23,10 +20,12 @@
 </template>
 <script>
 import loginHistoryService from '../loginHistoryService';
-import { GChart } from 'vue-google-charts';
+import ECharts from 'vue-echarts';
+import 'echarts/lib/chart/bar';
+
 export default {
   components: {
-    GChart
+    'v-chart': ECharts
   },
   props: {
     user: {
@@ -41,13 +40,32 @@ export default {
       averageLogin: -1,
       chartData: [],
       chartOptions: {
-        chartArea: {
-          left: 20,
-          right: 10
+        xAxis: {
+          data: []
         },
-        legend: {
-          position: 'none'
-        }
+        yAxis: {
+          type: 'value',
+          minInterval: 1
+        },
+        grid: {
+          left: '3%',
+          right: '3%'
+        },
+        series: [
+          {
+            type: 'bar',
+            label: {
+              show: true,
+              position: 'insideTop'
+            },
+            itemStyle: {
+              color: '#3398DB',
+              opacity: 0.8
+            },
+            animationDurationUpdate: 0,
+            data: []
+          }
+        ]
       }
     };
   },
@@ -88,23 +106,24 @@ export default {
       this.averageLogin = loginCount > 0 ? (totalLogin/loginCount).toFixed(TWO) : 0;
 
       // Draw chart
-      this.chartData = data[1].map(item => {
-        return [
-          new Date(item.loginDate).toString('ddd'),
-          item.loginCount > -1 ? item.loginCount : 0,
-          item.loginCount > 0 ? item.loginCount : null,
-          new Date(item.loginDate).toString('MMM dd, yyyy')
-        ];
-      });
-
-      // Unshift the axes
-      this.chartData.unshift(['Day', 'Value', { role: 'annotation' }, {role: 'tooltip'}]);
+      this.chartOptions.xAxis.data = [];
+      this.chartOptions.series[0].data = [];
+      const stats = data[1];
+      for(let i=0; i<stats.length; i++) {
+        this.chartOptions.xAxis.data.push(new Date(stats[i].loginDate).toString('MMM dd, yyyy'));
+        this.chartOptions.series[0].data.push(stats[i].loginCount > 0 ? stats[i].loginCount : null);
+      }
     },
   }
 };
 </script>
 <style scoped>
-  .chart{
+  .chart {
     width: 100%;
+    height: 200px;
+  }
+  .echarts {
+    width: 100%;
+    height: 90%;
   }
 </style>
