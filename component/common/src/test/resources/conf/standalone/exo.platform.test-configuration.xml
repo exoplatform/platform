@@ -124,6 +124,10 @@
    </component>
 
    <component>
+      <type>org.exoplatform.platform.gadget.services.LoginHistory.storage.JCRLoginHistoryStorageImpl</type>
+   </component>
+
+   <component>
       <key>org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage</key>
       <type>org.exoplatform.platform.gadget.services.LoginHistory.storage.JPALoginHistoryStorageImpl</type>
    </component>
@@ -197,6 +201,7 @@
                <description>Node types configuration file</description>
                <value>classpath:/conf/jcr/test-nodetypes-config.xml</value>
                <value>classpath:/conf/jcr/test-forum-nodetypes.xml</value>
+               <value>jar:/conf/portal/jcr/loginHistory-nodetypes.xml</value>
                <value>classpath:/conf/portal/jcr/forumStatistics-nodetypes.xml</value>
             </values-param>
          </init-params>

@@ -431,6 +431,14 @@
   <component>
     <type>org.exoplatform.commons.persistence.impl.EntityManagerService</type>
   </component>
+  <component>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.storage.JCRLoginHistoryStorageImpl</type>
+  </component>
+
+  <component profiles="all">
+    <key>org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage</key>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.storage.JPALoginHistoryStorageImpl</type>
+  </component>
 
   <component profiles="all">
     <type>org.exoplatform.platform.gadget.services.LoginHistory.jpa.dao.LoginHistoryDAO</type>
@@ -572,6 +580,7 @@
         <values-param>
           <name>autoCreatedInNewRepository</name>
           <description>Node types configuration file</description>
+          <value>jar:/conf/portal/jcr/loginHistory-nodetypes.xml</value>
           <value>jar:/conf/portal/jcr/forumStatistics-nodetypes.xml</value>
         </values-param>
       </init-params>
@@ -603,6 +612,38 @@
           <property name="org.chromattic.api.Option.root_node.path" value="/exo:applications"/>
           <property name="org.chromattic.api.Option.root_node.create" value="true"/>
         </properties-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
+    <component-plugin profiles="all">
+      <name>LoginHistoryUpgradePlugin</name>
+      <set-method>addUpgradePlugin</set-method>
+      <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryUpgradePlugin</type>
+      <description>Upgrade plugin for login history data storage from jcr to jpa</description>
+      <init-params>
+        <value-param>
+          <name>product.group.id</name>
+          <description>The groupId of the product</description>
+          <value>org.exoplatform.platform</value>
+        </value-param>
+        <value-param>
+          <name>plugin.execution.order</name>
+          <description>The plugin execution order</description>
+          <value>1</value>
+        </value-param>
+        <value-param>
+          <name>plugin.upgrade.target.version</name>
+          <description>Target version of the plugin</description>
+          <value>5.2.0</value>
+        </value-param>
+        <value-param>
+          <name>plugin.upgrade.async.execution</name>
+          <description>Execute the upgrade plugin asynchronously</description>
+          <value>true</value>
+        </value-param>
       </init-params>
     </component-plugin>
   </external-component-plugins>
