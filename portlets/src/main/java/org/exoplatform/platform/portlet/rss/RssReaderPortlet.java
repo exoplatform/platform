@@ -1,26 +1,5 @@
-/**
- * Copyright ( C ) 2012 eXo Platform SAS.
- *
- * This is free software; you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License as
- * published by the Free Software Foundation; either version 2.1 of
- * the License, or (at your option) any later version.
- *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software; if not, write to the Free
- * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
- * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
- */
-
 package org.exoplatform.platform.portlet.rss;
 
-import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.log.Log;
 import com.google.common.base.Strings;
 import com.sun.syndication.feed.synd.SyndContent;
 import com.sun.syndication.feed.synd.SyndEntry;
@@ -29,39 +8,34 @@ import com.sun.syndication.feed.synd.SyndLink;
 import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
-import juzu.Path;
-import juzu.Response;
-import juzu.View;
-import juzu.template.Template;
 import org.exoplatform.platform.portlet.rss.model.FeedItem;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 
-import javax.inject.Inject;
+import javax.portlet.*;
 import java.io.IOException;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RSSReaderController {
+public class RssReaderPortlet extends GenericPortlet {
 
-    private static final Log LOG = ExoLogger.getExoLogger(RSSReaderController.class);
+    private static final Log LOG = ExoLogger.getExoLogger(RssReaderPortlet.class);
 
     public static final String RSS_URL = "RSS_URL";
     public static final String LIMIT_ENTRIES = "LIMIT_ENTRIES";
 
-    @Inject
-    javax.portlet.PortletPreferences preferences;
+    @Override
+    protected void doView(RenderRequest request, RenderResponse response) throws IOException, PortletException {
+        PortletPreferences preferences = request.getPreferences();
 
-    @Inject
-    @Path("index.gtmpl")
-    org.exoplatform.platform.portlet.rss.templates.index index;
-
-    @View
-    public Response index() {
-        String url = this.preferences.getValue(RSS_URL, "http://feeds.feedburner.com/gatein");
+        String url = preferences.getValue(RSS_URL, "http://feeds.feedburner.com/gatein");
         int limit;
         try {
-            limit = Integer.parseInt(this.preferences.getValue(LIMIT_ENTRIES, "10"));
+            limit = Integer.parseInt(preferences.getValue(LIMIT_ENTRIES, "10"));
         } catch (NumberFormatException ex) {
             limit = 10;
         }
@@ -92,14 +66,14 @@ public class RSSReaderController {
 
         }
 
-        return index.with()
-                .feedUrl(url)
-                .feedFavicon(feedFavicon)
-                .feedTitle(feedTitle)
-                .feedDescription(feedDescription)
-                .feedLink(feedLink)
-                .feedEntries(entries)
-                .ok();
+        request.setAttribute("feedFavicon", feedFavicon);
+        request.setAttribute("feedEntries", entries);
+        request.setAttribute("feedTitle", feedTitle);
+        request.setAttribute("feedDescription", feedDescription);
+        request.setAttribute("feedLink", feedLink);
+
+        PortletRequestDispatcher prDispatcher = getPortletContext().getRequestDispatcher("/rss-reader/index.jsp");
+        prDispatcher.include(request, response);
     }
 
     /**

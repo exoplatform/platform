@@ -59,7 +59,7 @@
   </portlet>
   <portlet>
 	<portlet-name>RSSReader</portlet-name>
-	<portlet-class>org.exoplatform.platform.portlet.rss.RSSReaderPortlet</portlet-class>
+	<portlet-class>org.exoplatform.platform.portlet.rss.RssReaderPortlet</portlet-class>
 	<supports>
 	  <mime-type>text/html</mime-type>
 	</supports>

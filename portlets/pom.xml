@@ -104,28 +104,6 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>commons-juzu</artifactId>
-      <exclusions>
-        <exclusion>
-          <artifactId>exo.kernel.container</artifactId>
-          <groupId>org.exoplatform.kernel</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.kernel.component.common</artifactId>
-          <groupId>org.exoplatform.kernel</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>exo.portal.component.portal</artifactId>
-          <groupId>org.exoplatform.gatein.portal</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.juzu</groupId>
-      <artifactId>juzu-plugins-portlet</artifactId>
-    </dependency>
-    <dependency>
       <groupId>rome</groupId>
       <artifactId>rome</artifactId>
     </dependency>

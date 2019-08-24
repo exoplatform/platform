@@ -68,5 +68,17 @@
             </depends>
         </module>
     </portlet>
+    <portlet>
+        <name>RSSReader</name>
+        <module>
+            <script>
+                <path>/rss-reader/script.js</path>
+            </script>
+            <depends>
+                <module>jquery</module>
+                <as>jq</as>
+            </depends>
+        </module>
+    </portlet>
 
 </gatein-resources>

@@ -1,4 +1,4 @@
-require(['SHARED/jquery'], function($) {
+(function($) {
     $(document).ready(function() {
         $('body').on('click', '.feedContainer a.titlelink', function(evt) {
             evt.preventDefault();
@@ -14,4 +14,4 @@ require(['SHARED/jquery'], function($) {
             return false;
         });
     });
-});
+})(jq);
