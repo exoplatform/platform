@@ -14,7 +14,7 @@
           :data="chartData"
           :options="chartOptions"
           type="ColumnChart"/>
-        <div style="margin-top: 10px; margin-left: 12px;">
+        <div class="uiContentBox">
           {{ $t('loginHistory.avgLoginPerDay') }}: {{ averageLogin }}
         </div>
       </div>
