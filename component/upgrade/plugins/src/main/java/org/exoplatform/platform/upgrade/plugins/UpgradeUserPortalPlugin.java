@@ -2,6 +2,7 @@ package org.exoplatform.platform.upgrade.plugins;
 
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.utils.ListAccess;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.container.xml.InitParams;
@@ -17,7 +18,11 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
+
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.Future;
 
 public class UpgradeUserPortalPlugin extends AbstractGadgetToPortletPlugin {
 
@@ -58,25 +63,45 @@ public class UpgradeUserPortalPlugin extends AbstractGadgetToPortletPlugin {
             int index = 0;
 
             do {
-                RequestLifeCycle.begin(PortalContainer.getInstance());
+                final PortalContainer container = PortalContainer.getInstance();
+                RequestLifeCycle.begin(container);
 
                 int max = (index + limit >= size) ? size - index : limit;
 
                 User[] users = listUser.load(index, max);
 
-                for (User user : users) {
-                    if (user.getUserName().trim().isEmpty()) {
-                        continue;
-                    }
-                    LOG.info("START clean up navigations and pages of user site: " + user.getUserName());
-                    PortalData portal = modelDataStorage.getPortalConfig(new PortalKey(PortalConfig.USER_TYPE, user.getUserName()));
-                    if (portal == null) {
-                        LOG.info("Site for user " + user.getUserName() + " does not exists");
-                    } else {
-                        NavigationContext navContext = this.navigationService.loadNavigation(SiteKey.user(user.getUserName()));
-                        this.removeNavs(navContext);
-                    }
-                    LOG.info("DONE clean up navigations and pages for user site: " + user.getUserName());
+                List<Future> futures = new ArrayList<>();
+                for (final User user : users) {
+
+                    Runnable task = () -> {
+                        final String username = user.getUserName().trim();
+                        try {
+                            ExoContainerContext.setCurrentContainer(container);
+                            RequestLifeCycle.begin(container);
+                            if (username.isEmpty()) {
+                                return;
+                            }
+                            LOG.info("START clean up navigations and pages of user site: " + username);
+                            PortalData portal = modelDataStorage.getPortalConfig(new PortalKey(PortalConfig.USER_TYPE, user.getUserName()));
+                            if (portal == null) {
+                                LOG.info("Site for user " + username + " does not exists");
+                            } else {
+                                NavigationContext navContext = this.navigationService.loadNavigation(SiteKey.user(user.getUserName()));
+                                this.removeNavs(navContext);
+                            }
+                            LOG.info("DONE clean up navigations and pages for user site: " + user.getUserName());
+
+                        } catch (Exception ex) {
+                            LOG.error("Error while clean up page/navigation of user: " + username, ex);
+                        } finally {
+                            RequestLifeCycle.end();
+                        }
+                    };
+
+                    futures.add(executor.submit(task));
+                }
+                for (Future f : futures) {
+                    f.get();
                 }
 
                 RequestLifeCycle.end();

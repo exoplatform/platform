@@ -500,7 +500,7 @@
          <value-param>
            <name>plugin.upgrade.async.execution</name>
            <description>Execute the upgrade plugin asynchronously</description>
-           <value>false</value>
+           <value>true</value>
          </value-param>
          <value-param>
            <name>plugin.upgrade.target.version</name>
@@ -534,7 +534,7 @@
          <value-param>
            <name>plugin.upgrade.async.execution</name>
            <description>Execute the upgrade plugin asynchronously</description>
-           <value>false</value>
+           <value>true</value>
          </value-param>
          <value-param>
            <name>plugin.upgrade.target.version</name>
