@@ -10,7 +10,6 @@ import org.exoplatform.platform.gadget.services.LoginHistory.jpa.entity.LoginHis
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
-import org.joda.time.DateTimeConstants;
 
 import java.time.*;
 import java.time.temporal.TemporalAdjusters;
@@ -18,6 +17,8 @@ import java.util.*;
 
 public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
   private static final Log LOG       = ExoLogger.getLogger(JPALoginHistoryStorageImpl.class);
+
+  private static final int MILLIS_PER_DAY = 1000 * 60 * 60 * 24;
 
   private String           ALL_USERS = "AllUsers";
 
@@ -240,7 +241,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
       list.add(loginCountPerDay);
       days.add(day);
 
-      day += DateTimeConstants.MILLIS_PER_DAY;
+      day += MILLIS_PER_DAY;
     } while (day < nextWeek);
 
     long leftDays = 0;
@@ -250,8 +251,8 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
 
     List<LoginCounterBean> counters = getLoginCountPerDaysInRange(userId,
                                                                   week,
-                                                                  nextMonday(week) - DateTimeConstants.MILLIS_PER_DAY
-                                                                      + (leftDays * DateTimeConstants.MILLIS_PER_DAY));
+                                                                  nextMonday(week) - MILLIS_PER_DAY
+                                                                      + (leftDays * MILLIS_PER_DAY));
 
     Iterator<LoginCounterBean> iter = counters.iterator();
     while (iter.hasNext()) {
@@ -289,7 +290,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
       loginCountPerWeek.setLoginCount(fromDate > now ? -1
                                                      : getLoginCountInDateRange(userId,
                                                                                 fromDate,
-                                                                                toDate - DateTimeConstants.MILLIS_PER_DAY));
+                                                                                toDate - MILLIS_PER_DAY));
 
       list.add(loginCountPerWeek);
     } while (toDate < toMonth);
@@ -326,7 +327,7 @@ public class JPALoginHistoryStorageImpl implements LoginHistoryStorage {
       loginCountPerWeek.setLoginCount(fromDate > now ? -1
                                                      : getLoginCountInDateRange(userId,
                                                                                 fromDate,
-                                                                                toDate - DateTimeConstants.MILLIS_PER_DAY));
+                                                                                toDate - MILLIS_PER_DAY));
 
       list.add(loginCountPerWeek);
     } while (toDate < nextYear);
