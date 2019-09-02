@@ -9,6 +9,7 @@ import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.navigation.*;
 import org.exoplatform.portal.mop.page.PageService;
 import org.exoplatform.portal.pom.data.*;
+import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 
@@ -20,8 +21,9 @@ public class UpgradeGadgetToPortletPlugin extends AbstractGadgetToPortletPlugin 
                                         ModelDataStorage modelDataStorage,
                                         PageService pageService,
                                         NavigationService navigationService,
+                                        RepositoryService repoService,
                                         InitParams initParams) {
-        super(settingService, modelDataStorage, pageService, navigationService, initParams);
+        super(settingService, modelDataStorage, pageService, navigationService, repoService, initParams);
     }
 
     public UpgradeGadgetToPortletPlugin(InitParams initParams) {

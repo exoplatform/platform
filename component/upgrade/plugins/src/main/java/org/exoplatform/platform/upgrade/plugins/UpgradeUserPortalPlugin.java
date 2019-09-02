@@ -14,6 +14,7 @@ import org.exoplatform.portal.mop.page.PageService;
 import org.exoplatform.portal.pom.data.ModelDataStorage;
 import org.exoplatform.portal.pom.data.PortalData;
 import org.exoplatform.portal.pom.data.PortalKey;
+import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.OrganizationService;
@@ -35,8 +36,9 @@ public class UpgradeUserPortalPlugin extends AbstractGadgetToPortletPlugin {
                                    PageService pageService,
                                    NavigationService navigationService,
                                    OrganizationService orgService,
+                                   RepositoryService repoService,
                                    InitParams initParams) {
-        super(settingService, modelDataStorage, pageService, navigationService, initParams);
+        super(settingService, modelDataStorage, pageService, navigationService, repoService, initParams);
         this.orgService = orgService;
     }
 

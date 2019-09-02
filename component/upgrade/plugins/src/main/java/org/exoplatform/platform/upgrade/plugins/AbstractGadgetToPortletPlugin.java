@@ -2,29 +2,33 @@ package org.exoplatform.platform.upgrade.plugins;
 
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
-import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.RequestLifeCycle;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.portal.config.Query;
+import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.ApplicationState;
 import org.exoplatform.portal.config.model.ApplicationType;
 import org.exoplatform.portal.config.model.TransientApplicationState;
-import org.exoplatform.portal.mop.QueryResult;
 import org.exoplatform.portal.mop.SiteType;
 import org.exoplatform.portal.mop.navigation.NavigationService;
 import org.exoplatform.portal.mop.page.PageContext;
 import org.exoplatform.portal.mop.page.PageService;
 import org.exoplatform.portal.pom.data.*;
 import org.exoplatform.portal.pom.spi.portlet.Portlet;
+import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.jcr.core.ManageableRepository;
+import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import javax.jcr.query.QueryManager;
+import java.util.*;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -33,21 +37,34 @@ public abstract class AbstractGadgetToPortletPlugin extends UpgradeProductPlugin
 
     private static final Log LOG = ExoLogger.getLogger(AbstractGadgetToPortletPlugin.class);
 
+    protected static final String DEFAULT_WORKSPACE_NAME = "portal-system";
+
     protected ExecutorService executor = Executors.newFixedThreadPool(100);
 
     protected ModelDataStorage modelDataStorage;
     protected PageService pageService;
     protected NavigationService navigationService;
+    protected RepositoryService repoService;
+    protected String workspaceName = DEFAULT_WORKSPACE_NAME;
 
     public AbstractGadgetToPortletPlugin(SettingService settingService,
                                          ModelDataStorage modelDataStorage,
                                          PageService pageService,
                                          NavigationService navigationService,
+                                         RepositoryService repoService,
                                          InitParams initParams) {
         super(settingService, initParams);
         this.modelDataStorage = modelDataStorage;
         this.pageService = pageService;
         this.navigationService = navigationService;
+        this.repoService = repoService;
+
+        ValueParam workspaceParam = initParams.getValueParam("workspace");
+        if (workspaceParam != null) {
+            this.workspaceName = workspaceParam.getValue();
+        } else {
+            this.workspaceName = DEFAULT_WORKSPACE_NAME;
+        }
     }
 
     public AbstractGadgetToPortletPlugin(InitParams initParams) {
@@ -60,16 +77,20 @@ public abstract class AbstractGadgetToPortletPlugin extends UpgradeProductPlugin
             final PortalContainer portalContainer = PortalContainer.getInstance();
             RequestLifeCycle.begin(portalContainer);
 
-            Query<PortalData> query = new Query<>(type.getName(), null, PortalData.class);
-            LazyPageList<PortalData> portals = this.modelDataStorage.find(query);
+            Set<PortalKey> portalKeys = this.findPortalContainGadgets(type);
+            if (portalKeys.isEmpty()) {
+                LOG.info("There is no site in type " + type.getName() + " contains gadgets. No need to migrate!");
+                return;
+            }
 
             List<Future> futures = new ArrayList<>();
-            List<PortalData> list = portals.getAll();
-            count = list.size();
+            count = portalKeys.size();
 
             LOG.info("START migrate for " + count + " portal of type " + type.getName());
 
-            for (PortalData portal : list) {
+            for (PortalKey key : portalKeys) {
+
+                PortalData portal = this.modelDataStorage.getPortalConfig(key);
 
                 Runnable task = () -> {
                     ExoContainerContext.setCurrentContainer(portalContainer);
@@ -117,55 +138,52 @@ public abstract class AbstractGadgetToPortletPlugin extends UpgradeProductPlugin
     }
 
     protected void migratePages(SiteType siteType) {
-        int offset = 0;
-        final int limit = 100;
 
-        LOG.info("START migrate for pages in portal type " + siteType.getName());
-        int countPage = 0;
-        QueryResult<PageContext> result = null;
-        do {
+        Set<org.exoplatform.portal.mop.page.PageKey> pageKeys = this.findPagesContainGadget(siteType);
+        if (pageKeys.isEmpty()) {
+            LOG.info("There is no page contains gadget in site type " + siteType.getName());
+            return;
+        }
+
+        int countPage = pageKeys.size();
+        List<Future> futures = new ArrayList<>();
+        try {
 
             final PortalContainer portalContainer = PortalContainer.getInstance();
             RequestLifeCycle.begin(portalContainer);
-            try {
 
-                List<Future> futures = new ArrayList<>();
-                result = this.pageService.findPages(offset, limit, siteType, null, null, null);
-                if (result != null && result.getSize() > 0) {
-                    countPage += result.getSize();
-                    Iterator<PageContext> iterator = result.iterator();
-                    while (iterator.hasNext()) {
-                        PageContext page = iterator.next();
+            LOG.info("START migrate for " + countPage + " pages in portal type " + siteType.getName());
 
-                        Runnable task = () -> {
-                            ExoContainerContext.setCurrentContainer(portalContainer);
-                            RequestLifeCycle.begin(portalContainer);
-                            try {
-                                LOG.info("START remove/replace gadgets in page: " + page.getKey().format());
-                                migratePage(page);
-                                LOG.info("DONE remove/replace gadgets in page: " + page.getKey().format());
-                            } catch (Exception e) {
-                                LOG.error("Error during remove/replace gadgets in pages of " + siteType.getName()  + " sites: " + e.getMessage(), e);
-                            } finally {
-                                RequestLifeCycle.end();
-                            }
-                        };
-                        futures.add(executor.submit(task));
+            for (org.exoplatform.portal.mop.page.PageKey pageKey : pageKeys) {
+                PageContext page = this.pageService.loadPage(pageKey);
+
+                Runnable task = () -> {
+                    ExoContainerContext.setCurrentContainer(portalContainer);
+                    RequestLifeCycle.begin(portalContainer);
+                    try {
+                        LOG.info("START remove/replace gadgets in page: " + page.getKey().format());
+                        migratePage(page);
+                        LOG.info("DONE remove/replace gadgets in page: " + page.getKey().format());
+                    } catch (Exception e) {
+                        LOG.error("Error during remove/replace gadgets in pages of " + siteType.getName()  + " sites: " + e.getMessage(), e);
+                    } finally {
+                        RequestLifeCycle.end();
                     }
-                    offset += limit;
-                }
-
-                for (Future f : futures) {
-                    f.get();
-                }
-
-            } catch (Exception e) {
-
-            } finally {
-                RequestLifeCycle.end();
+                };
+                futures.add(executor.submit(task));
             }
 
-        } while (result != null && result.getSize() > 0);
+            for (Future f : futures) {
+                try {
+                    f.get();
+                } catch (ExecutionException | InterruptedException e) {
+                    LOG.error(e);
+                }
+            }
+
+        } finally {
+            RequestLifeCycle.end();
+        }
 
         LOG.info("DONE migrate for " + countPage + " pages in type " + siteType.getName());
     }
@@ -288,5 +306,76 @@ public abstract class AbstractGadgetToPortletPlugin extends UpgradeProductPlugin
                 container.getMoveContainersPermissions(),
                 children
         );
+    }
+
+    protected Set<PortalKey> findPortalContainGadgets(SiteType type) {
+        Set<PortalKey> result = new HashSet<>();
+
+        String siteType = type.getName().toLowerCase() + "sites";
+        String basePath = "/production/mop:workspace/mop:" + siteType + "/";
+
+        try {
+            String query = "select * from mop:customization where mop:mimetype = 'application/gadget' and jcr:path like '" + basePath + "%/mop:rootpage/mop:children/mop:templates/mop:children/mop:default/%'";
+            javax.jcr.query.QueryResult rs = this.exeQuery(query);
+
+            NodeIterator iterator = rs.getNodes();
+            while (iterator.hasNext()) {
+                Node node = iterator.nextNode();
+                String path = node.getPath();
+                path = path.substring(basePath.length());
+                String siteName = path.substring(path.indexOf(':') + 1, path.indexOf('/'));
+
+                result.add(new PortalKey(type.getName().toLowerCase(), siteName));
+            }
+
+        } catch (RepositoryException ex) {
+            LOG.error("Error while retrieve portal", ex);
+        }
+
+        return result;
+    }
+
+    protected Set<org.exoplatform.portal.mop.page.PageKey> findPagesContainGadget(SiteType type) {
+        Set<org.exoplatform.portal.mop.page.PageKey> pageKeys = new HashSet<>();
+
+        String siteType = type.getName().toLowerCase() + "sites";
+        String basePath = "/production/mop:workspace/mop:" + siteType + "/";
+        String likePath = basePath + "%/mop:rootpage/mop:children/mop:pages/mop:children/%" ;
+
+        try {
+            String query = "select * from mop:customization where mop:mimetype = 'application/gadget' and jcr:path like '" + likePath + "'";
+            javax.jcr.query.QueryResult rs = this.exeQuery(query);
+
+            NodeIterator iterator = rs.getNodes();
+            while (iterator.hasNext()) {
+                Node node = iterator.nextNode();
+                String path = node.getPath();
+                path = path.substring(basePath.length());
+                int idx = path.indexOf('/');
+
+                String siteName = path.substring(path.indexOf(':') + 1, idx);
+
+                path = path.substring(idx + 1).replace("mop:rootpage/mop:children/mop:pages/mop:children/", "");
+                String pageName = path.substring(path.indexOf(':') + 1, path.indexOf('/'));
+
+                pageKeys.add(new org.exoplatform.portal.mop.page.PageKey(type.key(siteName), pageName));
+            }
+
+        } catch (RepositoryException ex) {
+            LOG.error("Error while retrieve portal", ex);
+        }
+
+        return pageKeys;
+    }
+
+    protected javax.jcr.query.QueryResult exeQuery(String query) throws RepositoryException {
+        ManageableRepository currentRepository = this.repoService.getCurrentRepository();
+        Session session = SessionProvider.createSystemProvider().getSession(workspaceName, currentRepository);
+        QueryManager queryManager = session.getWorkspace().getQueryManager();
+
+        javax.jcr.query.Query q = queryManager.createQuery(query, javax.jcr.query.Query.SQL);
+        javax.jcr.query.QueryResult rs = q.execute();
+
+        return rs;
     }
 }
