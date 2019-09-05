@@ -33,8 +33,8 @@
                     <span>{{ $t('all.day.label') }}</span>
                   </div>
                   <div v-else-if="getEventDuration(event) > ONE_DAY_MS">
-                    <span>{{ moment(evt.from).toDate().toLocaleDateString(exoConstants.LANG) }}</span> -
-                    <span>{{ moment(evt.to).toDate().toLocaleDateString(exoConstants.LANG) }}</span>
+                    <span>{{ evt && moment(evt.from).toDate().toLocaleDateString(exoConstants.LANG) }}</span> -
+                    <span>{{ evt && moment(evt.to).toDate().toLocaleDateString(exoConstants.LANG) }}</span>
                   </div>
                   <div v-else>
                     <span> {{ getEventFromTimeLabel(event) }} - {{ getEventToTimeLabel(event) }} </span>
@@ -167,7 +167,7 @@ export default {
       }
     },
     getEventFromTimeLabel(evt) {
-      const start = moment(evt.from).toDate().toLocaleTimeString(exoConstants.LANG, {hour: '2-digit', minute:'2-digit'});
+      const start = evt && moment(evt.from).toDate().toLocaleTimeString(exoConstants.LANG, {hour: '2-digit', minute:'2-digit'});
       if(exoConstants.LANG === 'en') {
         if (start.indexOf('00') === this.SECOND_INDEX) {
           return start.substring(0, 1) + start.substring(this.FOURTH_INDEX);
