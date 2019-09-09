@@ -1,5 +1,6 @@
 package org.exoplatform.platform.upgrade.plugins;
 
+import org.chromattic.ext.format.BaseEncodingObjectFormatter;
 import org.exoplatform.commons.api.settings.SettingService;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
 import org.exoplatform.container.ExoContainerContext;
@@ -36,6 +37,8 @@ import java.util.concurrent.Future;
 public abstract class AbstractGadgetToPortletPlugin extends UpgradeProductPlugin {
 
     private static final Log LOG = ExoLogger.getLogger(AbstractGadgetToPortletPlugin.class);
+
+    protected static final BaseEncodingObjectFormatter formatter = new BaseEncodingObjectFormatter();
 
     protected static final String DEFAULT_WORKSPACE_NAME = "portal-system";
 
@@ -155,7 +158,7 @@ public abstract class AbstractGadgetToPortletPlugin extends UpgradeProductPlugin
             LOG.info("START migrate for " + countPage + " pages in portal type " + siteType.getName());
 
             for (org.exoplatform.portal.mop.page.PageKey pageKey : pageKeys) {
-                PageContext page = this.pageService.loadPage(pageKey);
+                final PageContext page = this.pageService.loadPage(pageKey);
 
                 Runnable task = () -> {
                     ExoContainerContext.setCurrentContainer(portalContainer);
@@ -315,7 +318,7 @@ public abstract class AbstractGadgetToPortletPlugin extends UpgradeProductPlugin
         String basePath = "/production/mop:workspace/mop:" + siteType + "/";
 
         try {
-            String query = "select * from mop:customization where mop:mimetype = 'application/gadget' and jcr:path like '" + basePath + "%/mop:rootpage/mop:children/mop:templates/mop:children/mop:default/%'";
+            String query = "select * from mop:customization where (mop:mimetype = 'application/gadget' or mop:contentid like 'dashboard/%') and jcr:path like '" + basePath + "%/mop:rootpage/mop:children/mop:templates/mop:children/mop:default/%'";
             javax.jcr.query.QueryResult rs = this.exeQuery(query);
 
             NodeIterator iterator = rs.getNodes();
@@ -324,12 +327,40 @@ public abstract class AbstractGadgetToPortletPlugin extends UpgradeProductPlugin
                 String path = node.getPath();
                 path = path.substring(basePath.length());
                 String siteName = path.substring(path.indexOf(':') + 1, path.indexOf('/'));
+                siteName = formatter.decodeNodeName(null, siteName);
 
                 result.add(new PortalKey(type.getName().toLowerCase(), siteName));
             }
 
         } catch (RepositoryException ex) {
             LOG.error("Error while retrieve portal", ex);
+        }
+
+        return result;
+    }
+
+    protected Set<PortalKey> findUserSites() {
+        Set<PortalKey> result = new HashSet<>();
+
+        try {
+            String basePath = "/production/mop:workspace/mop:usersites/";
+            String query = "select * from mop:navigation where jcr:path like '" + basePath + "%/mop:rootnavigation/mop:children/mop:default/mop:children/%'";
+            javax.jcr.query.QueryResult rs = this.exeQuery(query);
+
+            NodeIterator iterator = rs.getNodes();
+            while (iterator.hasNext()) {
+                Node node = iterator.nextNode();
+                String path = node.getPath();
+                path = path.substring(basePath.length());
+                String siteName = path.substring(path.indexOf(':') + 1, path.indexOf('/'));
+                siteName = formatter.decodeNodeName(null, siteName);
+
+                result.add(new PortalKey(SiteType.USER.getName().toLowerCase(), siteName));
+            }
+
+
+        } catch (RepositoryException ex) {
+            LOG.error("Error while retrieve user portal", ex);
         }
 
         return result;
@@ -343,7 +374,7 @@ public abstract class AbstractGadgetToPortletPlugin extends UpgradeProductPlugin
         String likePath = basePath + "%/mop:rootpage/mop:children/mop:pages/mop:children/%" ;
 
         try {
-            String query = "select * from mop:customization where mop:mimetype = 'application/gadget' and jcr:path like '" + likePath + "'";
+            String query = "select * from mop:customization where (mop:mimetype = 'application/gadget' or mop:contentid like 'dashboard/%') and jcr:path like '" + likePath + "'";
             javax.jcr.query.QueryResult rs = this.exeQuery(query);
 
             NodeIterator iterator = rs.getNodes();
@@ -354,9 +385,11 @@ public abstract class AbstractGadgetToPortletPlugin extends UpgradeProductPlugin
                 int idx = path.indexOf('/');
 
                 String siteName = path.substring(path.indexOf(':') + 1, idx);
+                siteName = formatter.decodeNodeName(null, siteName);
 
                 path = path.substring(idx + 1).replace("mop:rootpage/mop:children/mop:pages/mop:children/", "");
                 String pageName = path.substring(path.indexOf(':') + 1, path.indexOf('/'));
+                pageName = formatter.decodeNodeName(null, pageName);
 
                 pageKeys.add(new org.exoplatform.portal.mop.page.PageKey(type.key(siteName), pageName));
             }
