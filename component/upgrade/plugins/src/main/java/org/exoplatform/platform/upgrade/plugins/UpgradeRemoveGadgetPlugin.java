@@ -55,7 +55,11 @@ public class UpgradeRemoveGadgetPlugin extends UpgradeProductPlugin {
                 List<org.exoplatform.application.registry.Application> applications =
                         this.applicationRegistryService.getApplications(category);
                 for (org.exoplatform.application.registry.Application app : applications) {
-                    if (app.getType() == ApplicationType.GADGET) {
+                    String contentId = app.getContentId();
+                    if (app.getType() == ApplicationType.GADGET
+                    || "dashboard/GadgetPortlet".equals(contentId)
+                            || "dashboard/TabbedDashboardPortlet".equals(contentId)
+                            || "dashboard/DashboardPortlet".equals(contentId)) {
                         LOG.info("Remove gadget " + app.getApplicationName() + " in category " + app.getCategoryName());
                         this.applicationRegistryService.remove(app);
                     }
