@@ -191,7 +191,7 @@
       }
 
       if (!uploadId) {
-        var createURL = parentContainer.find(".createUploadURL").text();
+        var createURL = parentContainer.find(".createUploadURL").data('url');
         ajaxAsyncGetRequest(createURL, false);
         var uploadId = inputs[inputs.length - 1];
         var idx = uploadId.search(/-\d+$/) + 1;
@@ -211,13 +211,20 @@
       template.after(uploadCont);
       return uploadCont;
     },
+    selectFolder : function(id) {
+      var inputs = uiUploadInput.getData("uploadContainer" + id, "inputs");
+      if (inputs.length > 1) {
+        var selectFolderInput = uiUploadInput.getParentContainer("uploadContainer" + id).find(".selectFolderUrl").data('url');
+        ajaxGet(selectFolderInput + "&objectId=" + id + "&ajaxRequest=true");
+      }
+    },
     deleteUpload : function(id) {
       var url = uiUploadInput.deleteURL + id;
       ajaxAsyncGetRequest(url, false);
 
       var inputs = uiUploadInput.getData("uploadContainer" + id, "inputs");
       if (inputs.length > 1) {
-        var rmInput = uiUploadInput.getParentContainer("uploadContainer" + id).find(".removeInputUrl").text();
+        var rmInput = uiUploadInput.getParentContainer("uploadContainer" + id).find(".removeInputUrl").data('url');
         ajaxAsyncGetRequest(rmInput + "&objectId=" + id, false);
 
         inputs.splice($.inArray(id, inputs), 1);
@@ -341,7 +348,7 @@
             status.progress.delay(2000).fadeOut('slow');
           }
           uiUploadInput.onChange(status.uploadCnt.attr("id"));
-          var selectURL = $("#" + status.parentId + " .selectUploadURL").text();
+          var selectURL = $("#" + status.parentId + " .selectUploadURL").data('url');
           ajaxAsyncGetRequest(selectURL, false);
         },
         error : function(data) {
@@ -457,6 +464,10 @@
       if (isNew) {
         this.deleteFile.find("a").off("click").click(function() {
           uiUploadInput.deleteUpload(uploadId);
+        })
+        this.selectFolderCnt = this.uploadCnt.find(".selectFolder");
+        this.selectFolderCnt.find("a").off("click").click(function() {
+          uiUploadInput.selectFolder(uploadId);
         })
       }
       this.setFileNameSizeAndType = function(name, size, type) {
