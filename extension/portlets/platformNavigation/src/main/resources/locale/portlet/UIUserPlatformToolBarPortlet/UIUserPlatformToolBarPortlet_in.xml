@@ -11,7 +11,6 @@
 <account>Akun</account>
 <language>Ganti Bahasa</language>
 <logout>Keluar</logout>
-        <dashboard>Dasbor Saya</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

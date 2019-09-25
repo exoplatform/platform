@@ -20,12 +20,9 @@ package org.exoplatform.platform.component;
 
 import java.util.*;
 
-import org.apache.commons.lang.ArrayUtils;
-
 import org.exoplatform.commons.notification.NotificationUtils;
 import org.exoplatform.commons.utils.CommonsUtils;
 import org.exoplatform.platform.navigation.component.breadcrumb.UserNavigationHandlerService;
-import org.exoplatform.platform.navigation.component.utils.DashboardUtils;
 import org.exoplatform.platform.webui.NavigationURLUtils;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfig;
@@ -74,7 +71,6 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     public static final String WIKI_URI= "wiki";
     public static final String WALLET_FEATURE_NAME = "wallet";
     public static final String WALLET_URI = "wallet";
-    public static final String DASHBOARD_URI= "dashboard";
     private static final String INVISIBLE = "invisible";
     private UserNodeFilterConfig toolbarFilterConfig;
     public static String DEFAULT_TAB_NAME = "Tab_Default";
@@ -138,7 +134,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         }
         //case dashboard : user navigation nodes are used for dashboard
         String requestUrl = Util.getPortalRequestContext().getRequest().getRequestURL().toString();
-        if(DASHBOARD_URI.equals(nav) && requestUrl.contains("/u/")) {
+        if(requestUrl.contains("/u/")) {
             return true;
         }
         //
@@ -214,7 +210,6 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
             if (CommonsUtils.isFeatureActive(WALLET_FEATURE_NAME, Utils.getViewerRemoteId())) {
               userNodes.put(WALLET_URI, getWalletURL());
             }
-            userNodes.put(DASHBOARD_URI, DashboardUtils.getDashboardURL());
             if (CommonsUtils.isFeatureActive(NotificationUtils.FEATURE_NAME)) {
                 userNodes.put(NOTIFICATION_SETTINGS, getNotificationsURL());
             }

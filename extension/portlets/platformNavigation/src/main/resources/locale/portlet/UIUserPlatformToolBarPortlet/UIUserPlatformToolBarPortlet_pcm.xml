@@ -11,7 +11,6 @@
 <account>Account</account>
 <language>Change Language</language>
 <logout>Logout</logout>
-        <dashboard>My Dashboard</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

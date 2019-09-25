@@ -70,16 +70,16 @@
       <artifactId>exo.portal.component.web.api</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.shindig</groupId>
-      <artifactId>shindig-social-api</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.juzu</groupId>
       <artifactId>juzu-plugins-less</artifactId>
     </dependency>
     <dependency>
       <groupId>org.juzu</groupId>
       <artifactId>juzu-plugins-portlet</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
     </dependency>
     <!-- We want to be sure to use the right version in the dependency plugin but it's not required in the package -->
     <dependency>

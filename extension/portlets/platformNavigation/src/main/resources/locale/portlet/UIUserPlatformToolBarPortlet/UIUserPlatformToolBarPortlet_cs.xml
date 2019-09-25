@@ -11,7 +11,6 @@
 <account>Účet</account>
 <language>Změnit jazyk</language>
 <logout>Odhlásit</logout>
-        <dashboard>Můj Dashboard</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

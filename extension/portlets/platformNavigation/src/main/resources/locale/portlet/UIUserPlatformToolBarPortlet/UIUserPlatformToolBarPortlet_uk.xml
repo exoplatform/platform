@@ -11,7 +11,6 @@
 <account>Аккаунт</account>
 <language>Змінити мову</language>
 <logout>Вийти</logout>
-        <dashboard>Моя панель інструментів</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

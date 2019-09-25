@@ -32,9 +32,12 @@ public abstract class BaseRestServicesTestCase extends BaseExoTestCase {
 
     protected ResourceLauncher launcher;
 
+    protected ExoContainer container;
+
     public void setUp() throws Exception {
         begin();
         ExoContainer container = getContainer();
+        this.container = container;
 
         binder = (ResourceBinder)container.getComponentInstanceOfType(ResourceBinder.class);
         RequestHandlerImpl requestHandler = (RequestHandlerImpl)container.getComponentInstanceOfType(RequestHandlerImpl.class);
@@ -57,6 +60,10 @@ public abstract class BaseRestServicesTestCase extends BaseExoTestCase {
     }
 
     protected abstract Class<?> getComponentClass();
+
+    protected <T> T getService(Class<T> clazz) {
+        return clazz.cast(this.container.getComponentInstanceOfType(clazz));
+    }
 
     private void registry(Class<?> resourceClass) throws Exception {
         binder.addResource(resourceClass, null);

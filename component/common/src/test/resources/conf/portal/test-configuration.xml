@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+  <component>
+    <key>org.exoplatform.services.mail.MailService</key>
+    <type>org.exoplatform.commons.testing.mock.MockMailService</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.commons.info.ProductInformations</type>
+    <init-params>
+        <value-param>
+            <name>product.versions.declaration.file</name>
+            <value>classpath:/conf/data/product.properties</value>
+        </value-param>
+        <value-param>
+            <name>working.worspace.name</name>
+            <value>portal-system</value>
+        </value-param>
+    </init-params>
+  </component>
+
+  <component>
+    <key>org.exoplatform.portal.config.UserACL</key>
+    <type>org.exoplatform.portal.config.UserACL</type>
+    <init-params>
+        <value-param>
+            <name>super.user</name>
+            <description>administrator</description>
+            <value>root</value>
+        </value-param>
+
+        <value-param>
+            <name>portal.administrator.groups</name>
+            <description>administrator</description>
+            <value>/platform/administrators</value>
+        </value-param>
+
+        <value-param>
+            <name>portal.administrator.mstype</name>
+            <description>administrator</description>
+            <value>manager</value>
+        </value-param>
+
+        <value-param>
+            <name>portal.creator.groups</name>
+            <description>groups with membership type have permission to manage portal</description>
+            <value>*:/platform/administrators,*:/organization/management/executive-board</value>
+        </value-param>
+
+        <value-param>
+            <name>navigation.creator.membership.type</name>
+            <description>specific membership type have full permission with group navigation</description>
+            <value>manager</value>
+        </value-param>
+        <value-param>
+            <name>guests.group</name>
+            <description>guests group</description>
+            <value>/platform/guests</value>
+        </value-param>
+        <values-param>
+            <name>mandatory.groups</name>
+            <description>Groups that can not be deleted.</description>
+            <value>/platform/administrators</value>
+            <value>/platform/users</value>
+            <value>/platform/guests</value>
+        </values-param>
+        <values-param>
+            <name>mandatory.mstypes</name>
+            <description>Membership type that can not be deleted.</description>
+            <value>member</value>
+        </values-param>
+    </init-params>
+  </component>
+
+  <component>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.jpa.dao.LoginHistoryDAO</type>
+  </component>
+
+  <component>
+    <key>org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage</key>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.storage.JPALoginHistoryStorageImpl</type>
+  </component>
+  <component>
+    <key>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryService</key>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryServiceImpl</type>
+    <init-params>
+        <value-param>
+            <name>exo.audit.login.enabled</name>
+            <description>Enable/Disable login history data storage</description>
+            <value>${exo.audit.login.enabled:true}</value>
+        </value-param>
+    </init-params>
+  </component>
+
+  <component>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryRestService</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryListener</type>
+  </component>
+
+
+  <component>
+    <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetService</key>
+    <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetServiceImp</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumRestService</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.services.jcr.ext.resource.jcr.Handler</type>
+  </component>
+
+  <component>
+    <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticService</key>
+    <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticServiceImp</type>
+  </component>
+
+
+    <component>
+        <key>org.exoplatform.forum.common.jcr.KSDataLocation</key>
+        <type>org.exoplatform.forum.common.jcr.KSDataLocation</type>
+        <description>Holds JCR storage location for KS data</description>
+        <init-params>
+            <value-param>
+                <name>workspace</name>
+                <description>workspace for KS data</description>
+                <value>portal-system</value>
+            </value-param>
+        </init-params>
+    </component>
+
+  <component>
+    <key>org.exoplatform.commons.chromattic.ChromatticManager</key>
+    <type>org.exoplatform.commons.chromattic.ChromatticManager</type>
+  </component>
+        
+  <external-component-plugins>
+      <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+      <component-plugin>
+          <name>add.nodeType</name>
+          <set-method>addPlugin</set-method>
+          <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+          <init-params>
+              <values-param>
+                  <name>autoCreatedInNewRepository</name>
+                  <description>Node types configuration file</description>
+                  <value>classpath:/conf/jcr/test-nodetypes-config.xml</value>
+                  <value>classpath:/conf/jcr/test-forum-nodetypes.xml</value>
+              </values-param>
+          </init-params>
+      </component-plugin>
+  </external-component-plugins>           
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</target-component>
+    <component-plugin>
+      <name>addPaths</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.jcr.ext.hierarchy.impl.AddPathPlugin</type>            
+      <init-params>
+        <object-param>
+          <name>ks.storage</name>
+          <description>ks data storage tree</description>
+          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig">
+            <field  name="repository"><string>repository</string></field>
+            <field name="workspaces">
+              <collection type="java.util.ArrayList">
+                <value><string>portal-system</string></value>                              
+              </collection>               
+            </field>
+            <field  name="jcrPaths">
+              <collection type="java.util.ArrayList">
+                <value>               
+                  <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">                 
+                    <field  name="alias"><string>eXoApplications</string></field>
+                    <field  name="path"><string>/exo:applications</string></field>                                          
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">               
+                        <value>                            
+                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">             
+                              <field name="identity"><string>*:/platform/administrators</string></field>
+                              <field name="read"><string>true</string></field>                
+                              <field name="addNode"><string>true</string></field>                
+                              <field name="setProperty"><string>true</string></field>                
+                              <field name="remove"><string>true</string></field>                
+                            </object>  
+                        </value>                        
+                      </collection>
+                    </field>                       
+                  </object>
+                </value>
+
+                <value>               
+                  <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">                 
+                    <field  name="alias"><string>ForumService</string></field>
+                    <field  name="path"><string>/exo:applications/ForumService</string></field> 
+                    <field  name="nodeType"><string>exo:forumHome</string></field>
+                    <field name="permissions">
+                      <collection type="java.util.ArrayList">               
+                        <value>                            
+                          <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">             
+                              <field name="identity"><string>*:/platform/administrators</string></field>
+                              <field name="read"><string>true</string></field>                
+                              <field name="addNode"><string>true</string></field>                
+                              <field name="setProperty"><string>true</string></field>                
+                              <field name="remove"><string>true</string></field>                
+                            </object>  
+                        </value>                        
+                      </collection>
+                    </field>                       
+                  </object>
+                </value>                
+
+              </collection>                               
+            </field>
+          </object>
+        </object-param>
+      </init-params>            
+    </component-plugin>
+  </external-component-plugins>
+
+    <!-- Bind datasource -->
+    <external-component-plugins>
+        <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
+        <component-plugin>
+            <name>bind.datasource</name>
+            <set-method>addPlugin</set-method>
+            <type>org.exoplatform.services.naming.BindReferencePlugin</type>
+            <init-params>
+                <value-param>
+                    <name>bind-name</name>
+                    <value>java:/comp/env/exo-jpa_portal</value>
+                </value-param>
+                <value-param>
+                    <name>class-name</name>
+                    <value>javax.sql.DataSource</value>
+                </value-param>
+                <value-param>
+                    <name>factory</name>
+                    <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+                </value-param>
+                <properties-param>
+                    <name>ref-addresses</name>
+                    <description>ref-addresses</description>
+                    <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+                    <property name="url" value="jdbc:hsqldb:mem:dbJPA" />
+                    <property name="username" value="sa" />
+                    <property name="password" value="" />
+                </properties-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
+
+    <!--<external-component-plugins>
+      <target-component>org.exoplatform.commons.api.persistence.DataInitializer</target-component>
+      <component-plugin>
+        <name>LoginHistoryChangeLogsPlugin</name>
+        <set-method>addChangeLogsPlugin</set-method>
+        <type>org.exoplatform.commons.persistence.impl.ChangeLogsPlugin</type>
+        <init-params>
+          <values-param>
+            <name>changelogs</name>
+            <description>Change logs of Login History</description>
+            <value>db/changelog/loginhistory.db.changelog-1.0.0.xml</value>
+          </values-param>
+        </init-params>
+      </component-plugin>
+    </external-component-plugins>-->
+
+    <!-- Bind datasource -->
+    <external-component-plugins>
+        <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
+        <component-plugin>
+            <name>bind.datasource</name>
+            <set-method>addPlugin</set-method>
+            <type>org.exoplatform.services.naming.BindReferencePlugin</type>
+            <init-params>
+                <value-param>
+                    <name>bind-name</name>
+                    <value>jdbcexo</value>
+                </value-param>
+                <value-param>
+                    <name>class-name</name>
+                    <value>javax.sql.DataSource</value>
+                </value-param>
+                <value-param>
+                    <name>factory</name>
+                    <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+                </value-param>
+                <properties-param>
+                    <name>ref-addresses</name>
+                    <description>ref-addresses</description>
+                    <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+                    <property name="url" value="jdbc:hsqldb:mem:dbJCR" />
+                    <property name="username" value="sa" />
+                    <property name="password" value="" />
+                </properties-param>
+            </init-params>
+        </component-plugin>
+    </external-component-plugins>
+
+  <import>classpath:/conf/jcr/test-jcr-configuration.xml</import>
+</configuration>

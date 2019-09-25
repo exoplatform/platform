@@ -11,9 +11,6 @@
   <component>
     <type>org.exoplatform.platform.common.rest.PlatformInformationRESTService</type>
   </component>
-  <component>
-    <type>org.exoplatform.platform.common.rest.DashboardInformationRESTService</type>
-  </component>
   <component profiles="all">
     <type>org.exoplatform.platform.common.space.rest.SpaceRestServiceImpl</type>
   </component>
@@ -429,6 +426,244 @@
   <component profiles="all">
     <type>org.exoplatform.platform.common.branding.BrandingRestResourcesV1</type>
   </component>
+
+  <!-- LOGIN HISTORY -->
+  <component>
+    <type>org.exoplatform.commons.persistence.impl.EntityManagerService</type>
+  </component>
+  <component>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.storage.JCRLoginHistoryStorageImpl</type>
+  </component>
+
+  <component profiles="all">
+    <key>org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage</key>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.storage.JPALoginHistoryStorageImpl</type>
+  </component>
+
+  <component profiles="all">
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.jpa.dao.LoginHistoryDAO</type>
+  </component>
+
+  <component profiles="all">
+    <key>org.exoplatform.platform.gadget.services.LoginHistory.storage.LoginHistoryStorage</key>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.storage.JPALoginHistoryStorageImpl</type>
+  </component>
+
+  <component profiles="all">
+    <key>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryService</key>
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryServiceImpl</type>
+    <init-params>
+      <value-param>
+        <name>exo.audit.login.enabled</name>
+        <description>Enable/Disable login history data storage</description>
+        <value>${exo.audit.login.enabled:true}</value>
+      </value-param>
+    </init-params>
+  </component>
+
+  <component profiles="all">
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryRestService</type>
+  </component>
+
+  <component profiles="all">
+    <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryListener</type>
+  </component>
+
+  <!-- FORUM STATISTICS -->
+  <component profiles="all">
+    <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetService</key>
+    <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsIntranetServiceImp</type>
+  </component>
+
+  <component profiles="all">
+    <key>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticService</key>
+    <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticServiceImp</type>
+  </component>
+
+  <component profiles="all">
+    <type>org.exoplatform.platform.gadget.services.ForumStatistics.ForumRestService</type>
+  </component>
+  <!-- NEW SPACES -->
+  <component>
+    <key>org.exoplatform.platform.gadget.services.newspaces.IntranetSpaceService</key>
+    <type>org.exoplatform.platform.gadget.services.newspaces.IntranetSpaceServiceImpl</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.platform.gadget.services.newspaces.NewSpaceRestService</type>
+  </component>
+
+  <!-- WHO IS ONLINE -->
+  <component>
+    <type>org.exoplatform.platform.gadget.services.Online.OnlineRestService</type>
+  </component>
+
+  <!--FAVORITE DOCUMENT-->
+  <component>
+    <type>org.exoplatform.platform.gadget.services.favorite.FavoriteRESTService</type>
+  </component>
+
+  <!--INVITATIONS-->
+  <component>
+    <type>org.exoplatform.platform.gadget.services.Invitations.InvitationsRestServices</type>
+  </component>
+
+  <!--BOOKMARKS-->
+  <component>
+    <type>org.exoplatform.platform.gadget.services.Bookmark.BookmarkRestService</type>
+  </component>
+
+  <!-- GROOVY REST SERVICES -->
+  <component>
+    <type>org.exoplatform.platform.gadget.services.GroovyScript2RestLoader.GroovyScript2RestLoaderExt</type>
+    <init-params>
+      <object-param>
+        <name>observation.config</name>
+        <object type="org.exoplatform.services.jcr.ext.script.groovy.ObservationListenerConfiguration">
+          <field name="workspaces">
+            <collection type="java.util.ArrayList">
+              <value>
+                <string>portal-system</string>
+              </value>
+            </collection>
+          </field>
+        </object>
+      </object-param>
+    </init-params>
+  </component>
+
+  <!-- LISTENERS -->
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.listener.ListenerService</target-component>
+    <component-plugin>
+      <name>exo.core.security.ConversationRegistry.register</name>
+      <set-method>addListener</set-method>
+      <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryListener</type>
+      <description>Listener for user login event</description>
+    </component-plugin>
+  </external-component-plugins>
+
+
+  <!-- JOBS -->
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.scheduler.JobSchedulerService</target-component>
+    <component-plugin>
+      <name>ForumsWeeklyStatisticJob</name>
+      <set-method>addPeriodJob</set-method>
+      <type>org.exoplatform.services.scheduler.PeriodJob</type>
+      <description>add a ForumsWeeklyStatisticJob job to the JobSchedulerService</description>
+      <init-params>
+        <properties-param>
+          <name>job.info</name>
+          <description>save the Forums Weekly Statistic data periodically</description>
+          <property name="jobName" value="periodically"/>
+          <property name="groupName" value="KnowlegedSuite"/>
+          <property name="job"
+                    value="org.exoplatform.platform.gadget.services.ForumStatistics.ForumsWeeklyStatisticJob"/>
+          <property name="repeatCount" value="0"/>
+          <property name="period" value="43200000"/> <!--12 hours-->
+          <property name="startTime" value="+0"/>
+          <property name="endTime" value=""/>
+        </properties-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+  <!-- JCR NODE TYPES -->
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+    <component-plugin>
+      <name>add.gadget.services.nodeType</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+      <init-params>
+        <values-param>
+          <name>autoCreatedInNewRepository</name>
+          <description>Node types configuration file</description>
+          <value>jar:/conf/portal/jcr/loginHistory-nodetypes.xml</value>
+          <value>jar:/conf/portal/jcr/forumStatistics-nodetypes.xml</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+  <external-component-plugins>
+    <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
+    <component-plugin>
+      <name>chromattic</name>
+      <set-method>addLifeCycle</set-method>
+      <type>org.exoplatform.commons.chromattic.ChromatticLifeCycle</type>
+      <init-params>
+        <value-param>
+          <name>domain-name</name>
+          <value>softwareRegistration</value>
+        </value-param>
+        <value-param>
+          <name>workspace-name</name>
+          <value>collaboration</value>
+        </value-param>
+        <values-param>
+          <name>entities</name>
+          <value>org.chromattic.ext.ntdef.NTFile</value>
+          <value>org.chromattic.ext.ntdef.NTFolder</value>
+          <value>org.chromattic.ext.ntdef.NTResource</value>
+        </values-param>
+        <properties-param>
+          <name>options</name>
+          <property name="org.chromattic.api.Option.root_node.path" value="/exo:applications"/>
+          <property name="org.chromattic.api.Option.root_node.create" value="true"/>
+        </properties-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.commons.upgrade.UpgradeProductService</target-component>
+    <component-plugin profiles="all">
+      <name>LoginHistoryUpgradePlugin</name>
+      <set-method>addUpgradePlugin</set-method>
+      <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryUpgradePlugin</type>
+      <description>Upgrade plugin for login history data storage from jcr to jpa</description>
+      <init-params>
+        <value-param>
+          <name>product.group.id</name>
+          <description>The groupId of the product</description>
+          <value>org.exoplatform.platform</value>
+        </value-param>
+        <value-param>
+          <name>plugin.execution.order</name>
+          <description>The plugin execution order</description>
+          <value>1</value>
+        </value-param>
+        <value-param>
+          <name>plugin.upgrade.target.version</name>
+          <description>Target version of the plugin</description>
+          <value>5.2.0</value>
+        </value-param>
+        <value-param>
+          <name>plugin.upgrade.async.execution</name>
+          <description>Execute the upgrade plugin asynchronously</description>
+          <value>true</value>
+        </value-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+  <!-- Data Initialization -->
+  <external-component-plugins>
+    <target-component>org.exoplatform.commons.api.persistence.DataInitializer</target-component>
+    <component-plugin>
+      <name>LoginHistoryChangeLogsPlugin</name>
+      <set-method>addChangeLogsPlugin</set-method>
+      <type>org.exoplatform.commons.persistence.impl.ChangeLogsPlugin</type>
+      <init-params>
+        <values-param>
+          <name>changelogs</name>
+          <description>Change logs of Login History</description>
+          <value>db/changelog/loginhistory.db.changelog-1.0.0.xml</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
 
   <external-component-plugins>
     <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>

@@ -11,7 +11,6 @@
 <account>Учётная запись</account>
 <language>Изменить язык</language>
 <logout>Выйти</logout>
-        <dashboard>Моя панель мониторинга</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

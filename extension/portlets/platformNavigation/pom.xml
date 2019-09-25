@@ -107,10 +107,6 @@
       <artifactId>exo.portal.webui.portlet</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.shindig</groupId>
-      <artifactId>shindig-social-api</artifactId>
-    </dependency>
-    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <scope>provided</scope>

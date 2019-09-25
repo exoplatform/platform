@@ -9,7 +9,7 @@
   <artifactId>platform-component-upgrade-plugins</artifactId>
   <name>eXo PLF:: Platform - Upgrade plugins</name>
   <properties>
-    <exo.test.coverage.ratio>0.02</exo.test.coverage.ratio>
+    <exo.test.coverage.ratio>0.01</exo.test.coverage.ratio>
   </properties>
   <dependencies>
     <dependency>

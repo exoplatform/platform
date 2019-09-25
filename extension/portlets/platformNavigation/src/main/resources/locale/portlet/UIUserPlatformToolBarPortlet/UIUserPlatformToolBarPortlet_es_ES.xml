@@ -11,7 +11,6 @@
 <account>Cuenta</account>
 <language>Cambiar Idioma</language>
 <logout>Desconectarse</logout>
-        <dashboard>Mi Panel de Control</dashboard>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

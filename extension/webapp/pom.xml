@@ -59,6 +59,10 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+    </dependency>
+    <dependency>
       <groupId>javax.ws.rs</groupId>
       <artifactId>jsr311-api</artifactId>
     </dependency>
@@ -287,11 +291,6 @@
       <artifactId>platform-component-edition-community</artifactId>
       <scope>runtime</scope>
       <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.exoplatform.platform</groupId>
-      <artifactId>platform-component-gadgets</artifactId>
-      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform</groupId>

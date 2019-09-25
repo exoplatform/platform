@@ -57,8 +57,6 @@
                          value="https://docs.exoplatform.org/en/5.2/PersonalApplications.html#managing-your-profile"/>
                <property name="personnal:wiki"
                          value="https://docs.exoplatform.org/en/5.2/Wiki.html"/>
-               <property name="dashboard"
-                         value="https://docs.exoplatform.org/en/5.2/PersonalApplications.html#managing-your-dashboard"/>
                <property name="space:activity_stream"
                          value="https://docs.exoplatform.org/en/5.2/Manage-Space.html"/>
                <property name="space:manager"
