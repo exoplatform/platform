@@ -23,7 +23,7 @@
   <parent>
     <artifactId>platform</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>5.3.x-kill-shindig-SNAPSHOT</version>
+    <version>5.3.x-SNAPSHOT</version>
   </parent>
   <artifactId>portlets</artifactId>
   <packaging>war</packaging>
