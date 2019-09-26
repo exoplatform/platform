@@ -229,7 +229,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     //////////////////////////////////////////////////////////
 
     public String getNotificationsURL() {
-       return LinkProvider.getUserNotificationSettingUri(getOwnerRemoteId());
+      return LinkProvider.getUserNotificationSettingUri(getOwnerRemoteId());
     }
 
     public String getactivitesURL() {
