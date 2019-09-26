@@ -102,6 +102,17 @@
                 <a href="$walletLink"><i class="uiIconWalletMyWallet"></i>$labelWallet</a>
               </li>
             <% } %>
+
+
+            <% if (CommonsUtils.isFeatureActive("gamification", remoteUser)) {
+            def gamificationLink = NavigationURLUtils.getURLInCurrentPortal("achievements");
+            def labelGamification = _ctx.appRes("UIUserPlatformToolBarPortlet.label.achievements");
+            %>
+            <li>
+                <a href="$gamificationLink"><i class="uiIconAppGamification"></i>$labelGamification</a>
+            </li>
+            <% } %>
+
             <li class="divider">&nbsp;</li>
             <li>
               <a href="javascript:void(0);" onclick="$accountSetting"><i class="uiIconSetting"></i>$labelaccount</a>
