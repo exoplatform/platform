@@ -71,6 +71,8 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     public static final String WIKI_URI= "wiki";
     public static final String WALLET_FEATURE_NAME = "wallet";
     public static final String WALLET_URI = "wallet";
+    public static final String GAMIFICATION_FEATURE_NAME = "gamification";
+    public static final String GAMIFICATION_URI = "achievements";
     private static final String INVISIBLE = "invisible";
     private UserNodeFilterConfig toolbarFilterConfig;
     public static String DEFAULT_TAB_NAME = "Tab_Default";
@@ -111,16 +113,16 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
 
     @Override
     public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
-      uiBanner.setRendered(isProfileOwner());
-      uiAvatarBanner.setRenderUpload(isProfileOwner());
-      super.processRender(app, context);
+        uiBanner.setRendered(isProfileOwner());
+        uiAvatarBanner.setRenderUpload(isProfileOwner());
+        super.processRender(app, context);
     }
 
     @Override
     public void processRender(WebuiRequestContext context) throws Exception {
-      uiBanner.setRendered(isProfileOwner());
-      uiAvatarBanner.setRenderUpload(isProfileOwner());
-      super.processRender(context);
+        uiBanner.setRendered(isProfileOwner());
+        uiAvatarBanner.setRenderUpload(isProfileOwner());
+        super.processRender(context);
     }
 
     public boolean isSelectedUserNavigation(String nav) throws Exception {
@@ -208,7 +210,10 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
             userNodes.put(CONNEXIONS_URI, getrelationURL());
             userNodes.put(WIKI_URI, getWikiURL());
             if (CommonsUtils.isFeatureActive(WALLET_FEATURE_NAME, Utils.getViewerRemoteId())) {
-              userNodes.put(WALLET_URI, getWalletURL());
+                userNodes.put(WALLET_URI, getWalletURL());
+            }
+            if (CommonsUtils.isFeatureActive(GAMIFICATION_FEATURE_NAME, Utils.getViewerRemoteId())) {
+                userNodes.put(GAMIFICATION_URI, getGamificationURL());
             }
             if (CommonsUtils.isFeatureActive(NotificationUtils.FEATURE_NAME)) {
                 userNodes.put(NOTIFICATION_SETTINGS, getNotificationsURL());
@@ -216,7 +221,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
         }
         return userNodes;
     }
-    
+
     //////////////////////////////////////////////////////////
     /**/                                                  /**/
     /**/         //GET URL METHOD//                       /**/
@@ -224,7 +229,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     //////////////////////////////////////////////////////////
 
     public String getNotificationsURL() {
-      return LinkProvider.getUserNotificationSettingUri(getOwnerRemoteId());
+        return LinkProvider.getUserNotificationSettingUri(getOwnerRemoteId());
     }
 
     public String getactivitesURL() {
@@ -238,7 +243,11 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     public String getWalletURL() {
         return NavigationURLUtils.getURLInCurrentPortal(WALLET_URI);
     }
-    
+
+    public String getGamificationURL() {
+        return NavigationURLUtils.getURLInCurrentPortal(GAMIFICATION_URI);
+    }
+
     public String getWikiURL() {
         return NavigationURLUtils.getURLInCurrentPortal(WIKI_REF)+USER +getOwnerRemoteId()+WIKI_HOME;
     }
