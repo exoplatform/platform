@@ -113,16 +113,16 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
 
     @Override
     public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
-        uiBanner.setRendered(isProfileOwner());
-        uiAvatarBanner.setRenderUpload(isProfileOwner());
-        super.processRender(app, context);
+      uiBanner.setRendered(isProfileOwner());
+      uiAvatarBanner.setRenderUpload(isProfileOwner());
+      super.processRender(app, context);
     }
 
     @Override
     public void processRender(WebuiRequestContext context) throws Exception {
-        uiBanner.setRendered(isProfileOwner());
-        uiAvatarBanner.setRenderUpload(isProfileOwner());
-        super.processRender(context);
+      uiBanner.setRendered(isProfileOwner());
+      uiAvatarBanner.setRenderUpload(isProfileOwner());
+      super.processRender(context);
     }
 
     public boolean isSelectedUserNavigation(String nav) throws Exception {
@@ -210,10 +210,10 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
             userNodes.put(CONNEXIONS_URI, getrelationURL());
             userNodes.put(WIKI_URI, getWikiURL());
             if (CommonsUtils.isFeatureActive(WALLET_FEATURE_NAME, Utils.getViewerRemoteId())) {
-                userNodes.put(WALLET_URI, getWalletURL());
+              userNodes.put(WALLET_URI, getWalletURL());
             }
             if (CommonsUtils.isFeatureActive(GAMIFICATION_FEATURE_NAME, Utils.getViewerRemoteId())) {
-                userNodes.put(GAMIFICATION_URI, getGamificationURL());
+              userNodes.put(GAMIFICATION_URI, getGamificationURL());
             }
             if (CommonsUtils.isFeatureActive(NotificationUtils.FEATURE_NAME)) {
                 userNodes.put(NOTIFICATION_SETTINGS, getNotificationsURL());
@@ -229,7 +229,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     //////////////////////////////////////////////////////////
 
     public String getNotificationsURL() {
-        return LinkProvider.getUserNotificationSettingUri(getOwnerRemoteId());
+       return LinkProvider.getUserNotificationSettingUri(getOwnerRemoteId());
     }
 
     public String getactivitesURL() {
@@ -245,7 +245,7 @@ public class UIUserNavigationPortlet extends UIPortletApplication {
     }
 
     public String getGamificationURL() {
-        return NavigationURLUtils.getURLInCurrentPortal(GAMIFICATION_URI);
+       return NavigationURLUtils.getURLInCurrentPortal(GAMIFICATION_URI);
     }
 
     public String getWikiURL() {
