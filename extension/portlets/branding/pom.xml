@@ -23,10 +23,10 @@
   <parent>
     <artifactId>platform-extension-portlets</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>5.3.x-SNAPSHOT</version>
+    <version>6.0.x-SNAPSHOT</version>
   </parent>
   <artifactId>platform-extension-portlet-branding</artifactId>
-  <version>5.3.x-SNAPSHOT</version>
+  <version>6.0.x-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>eXo PLF:: Branding Portlet Web App</name>
   <description>eXo Branding Portlet Web App</description>
