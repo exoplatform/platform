@@ -40,7 +40,7 @@
     <!-- Project Dependencies -->
     <!-- **************************************** -->
     <!-- Platform Project Dependencies -->
-    <org.exoplatform.depmgt.version>16-SNAPSHOT</org.exoplatform.depmgt.version>
+    <org.exoplatform.depmgt.version>16.x-SNAPSHOT</org.exoplatform.depmgt.version>
     <org.exoplatform.commons.version>5.3.x-SNAPSHOT</org.exoplatform.commons.version>
     <org.exoplatform.ecms.version>5.3.x-SNAPSHOT</org.exoplatform.ecms.version>
     <org.exoplatform.social.version>5.3.x-SNAPSHOT</org.exoplatform.social.version>
