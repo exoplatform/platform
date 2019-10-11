@@ -7,6 +7,26 @@
     <aggregate primaryType="wiki:attachment">
         <include primaryType="nt:resource">jcr:content</include>
     </aggregate>
+    <index-rule nodeType="nt:resource" condition="@jcr:mixinTypes='[http://www.exoplatform.com/jcr/exo/1.0]webContentChild'">
+        <property useInExcerpt="false">jcr:mimeType</property>
+        <property useInExcerpt="false">jcr:encoding</property>
+        <property useInExcerpt="false">jcr:lastModified</property>
+        <property useInExcerpt="false">dc:title</property>
+        <property useInExcerpt="false">dc:resourceType</property>
+        <property useInExcerpt="false">dc:source</property>
+        <property useInExcerpt="false">dc:relation</property>
+        <property useInExcerpt="false">dc:description</property>
+        <property useInExcerpt="false">dc:rights</property>
+        <property useInExcerpt="false">dc:format</property>
+        <property useInExcerpt="false">dc:identifier</property>
+        <property useInExcerpt="false">dc:coverage</property>
+        <property useInExcerpt="false">dc:subject</property>
+        <property useInExcerpt="false">dc:creator</property>
+        <property useInExcerpt="false">dc:language</property>
+        <property useInExcerpt="false">dc:publisher</property>
+        <property useInExcerpt="false">dc:contributor</property>
+        <property useInExcerpt="false">jcr:data</property>
+    </index-rule>
     <index-rule nodeType="nt:resource">
         <property useInExcerpt="false">jcr:mimeType</property>
         <property useInExcerpt="false">jcr:encoding</property>
