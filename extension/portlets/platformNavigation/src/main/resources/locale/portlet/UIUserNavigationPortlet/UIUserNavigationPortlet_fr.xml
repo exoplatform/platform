@@ -37,11 +37,11 @@
       <action>
          <AcceptRequest>Accepter</AcceptRequest>
          <Deny>Refuser</Deny>
-         <RemoveConnection>Déconnexion</RemoveConnection>
+         <RemoveConnection>Enlever contact</RemoveConnection>
          <CancelRequest>Annuler la Requête</CancelRequest>
       </action>
       <label>
-         <Connect>Se connecter</Connect>
+         <Connect>Ajouter contact</Connect>
          <ConnectNotExisting>L'invitation a été annulée par une autre personne</ConnectNotExisting>
          <ConnectionExisted>L'invitation a été établie par quelqu'un d'autre.</ConnectionExisted>
       </label>
