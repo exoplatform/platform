@@ -642,5 +642,136 @@
          </value-param>
        </init-params>
      </component-plugin>
+<<<<<<< HEAD
+=======
+
+     <component-plugin>
+       <name>UpgradeMigrateGadgetToPortlet</name>
+       <set-method>addUpgradePlugin</set-method>
+       <type>org.exoplatform.platform.upgrade.plugins.UpgradeGadgetToPortletPlugin</type>
+       <description>Migrate gadget to portlet or drop the unsupported ones</description>
+       <init-params>
+         <value-param>
+           <name>product.group.id</name>
+           <description>The groupId of the product</description>
+           <value>org.exoplatform.platform</value>
+         </value-param>
+         <value-param>
+           <name>plugin.execution.order</name>
+           <description>The plugin execution order</description>
+           <value>3</value>
+         </value-param>
+         <value-param>
+           <name>plugin.upgrade.execute.once</name>
+           <description>Execute this upgrade plugin only once</description>
+           <value>true</value>
+         </value-param>
+         <value-param>
+           <name>plugin.upgrade.async.execution</name>
+           <description>Execute the upgrade plugin asynchronously</description>
+           <value>true</value>
+         </value-param>
+         <value-param>
+           <name>plugin.upgrade.target.version</name>
+           <description>Target version of the plugin</description>
+           <value>5.3.0</value>
+         </value-param>
+       </init-params>
+     </component-plugin>
+     <component-plugin>
+       <name>UpgradeRemoveGadgetPlugin</name>
+       <set-method>addUpgradePlugin</set-method>
+       <type>org.exoplatform.platform.upgrade.plugins.UpgradeRemoveGadgetPlugin</type>
+       <description>Drop gadget support</description>
+       <init-params>
+         <value-param>
+           <name>product.group.id</name>
+           <description>The groupId of the product</description>
+           <value>org.exoplatform.platform</value>
+         </value-param>
+         <value-param>
+           <name>plugin.execution.order</name>
+           <description>The plugin execution order</description>
+           <value>5</value>
+         </value-param>
+         <value-param>
+           <name>plugin.upgrade.execute.once</name>
+           <description>Execute this upgrade plugin only once</description>
+           <value>true</value>
+         </value-param>
+         <value-param>
+           <name>plugin.upgrade.async.execution</name>
+           <description>Execute the upgrade plugin asynchronously</description>
+           <value>true</value>
+         </value-param>
+         <value-param>
+           <name>plugin.upgrade.target.version</name>
+           <description>Target version of the plugin</description>
+           <value>5.3.0</value>
+         </value-param>
+       </init-params>
+     </component-plugin>
+     <component-plugin>
+       <name>UpgradeRemoveUserPagesPlugin</name>
+       <set-method>addUpgradePlugin</set-method>
+       <type>org.exoplatform.platform.upgrade.plugins.UpgradeUserPortalPlugin</type>
+       <description>Drop user pages and navigations</description>
+       <init-params>
+         <value-param>
+           <name>product.group.id</name>
+           <description>The groupId of the product</description>
+           <value>org.exoplatform.platform</value>
+         </value-param>
+         <value-param>
+           <name>plugin.execution.order</name>
+           <description>The plugin execution order</description>
+           <value>4</value>
+         </value-param>
+         <value-param>
+           <name>plugin.upgrade.execute.once</name>
+           <description>Execute this upgrade plugin only once</description>
+           <value>true</value>
+         </value-param>
+         <value-param>
+           <name>plugin.upgrade.async.execution</name>
+           <description>Execute the upgrade plugin asynchronously</description>
+           <value>true</value>
+         </value-param>
+         <value-param>
+           <name>plugin.upgrade.target.version</name>
+           <description>Target version of the plugin</description>
+           <value>5.3.0</value>
+         </value-param>
+       </init-params>
+     </component-plugin>
+     <component-plugin>
+       <name>ResumeDigestJobUpgradePlugin</name>
+       <set-method>addUpgradePlugin</set-method>
+       <type>org.exoplatform.platform.upgrade.plugins.ResumeDigestJobUpgradePlugin</type>
+       <description>Resume the digest notification jobs daily and weekly (deactivated by mail notification migration)</description>
+       <init-params>
+           <value-param>
+               <name>product.group.id</name>
+               <description>The groupId of the product</description>
+               <value>org.exoplatform.platform</value>
+           </value-param>
+           <value-param>
+               <name>plugin.execution.order</name>
+               <description>The plugin execution order</description>
+               <value>2</value>
+           </value-param>
+           <value-param>
+               <name>plugin.upgrade.execute.once</name>
+               <description>Execute this upgrade pluginonly once</description>
+               <value>true</value>
+           </value-param>
+           <value-param>
+               <name>plugin.upgrade.target.version</name>
+               <description>Target version of the plugin</description>
+               <value>5.3.0</value>
+           </value-param>
+       </init-params>
+     </component-plugin>
+>>>>>>> eb4ceb03f8... PLF-8447 : Resume Daily and weekly digest mails jobs (#406)
    </external-component-plugins>
 </configuration>
