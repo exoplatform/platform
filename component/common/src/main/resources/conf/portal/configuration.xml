@@ -120,12 +120,6 @@
               <value>
                 <string>ks</string>
               </value>
-              <value>
-                <string>SmartGWT</string>
-              </value>
-              <value>
-                <string>IDE</string>
-              </value>
             </collection>
           </field>
           <!-- List of portletId = {webappName}/portletName -->
@@ -191,34 +185,6 @@
         </object>
       </object-param>
       <object-param>
-        <name>workflow.webapps</name>
-        <object type="org.exoplatform.platform.common.module.Module">
-          <field name="name">
-            <string>workflow</string>
-          </field>
-          <field name="description">
-            <string>workflow profile modules</string>
-          </field>
-          <field name="webapps">
-            <collection type="java.util.ArrayList">
-              <value>
-                <string>ecmworkflow-extension</string>
-              </value>
-              <value>
-                <string>workflow</string>
-              </value>
-              <value>
-                <string>eXoWorkflowResources</string>
-              </value>
-            </collection>
-          </field>
-          <!-- List of portletId = {webappName}/portletName -->
-          <field name="portlets">
-            <collection type="java.util.ArrayList"/>
-          </field>
-        </object>
-      </object-param>
-      <object-param>
         <name>social.webapps</name>
         <object type="org.exoplatform.platform.common.module.Module">
           <field name="name">
@@ -234,6 +200,9 @@
               </value>
               <value>
                 <string>social-portlet</string>
+              </value>
+              <value>
+                <string>social-vue-portlet</string>
               </value>
               <value>
                 <string>social-juzu</string>
@@ -260,6 +229,9 @@
               </value>
               <value>
                 <string>platformNavigation/NotificationPopoverToolbarPortlet</string>
+              </value>
+              <value>
+                <string>platformNavigation/UICompanyNavigationPortlet</string>
               </value>
             </collection>
           </field>
@@ -296,31 +268,6 @@
               </value>
               <value>
                 <string>cometd</string>
-              </value>
-            </collection>
-          </field>
-          <!-- List of portletId = {webappName}/portletName -->
-          <field name="portlets">
-            <collection type="java.util.ArrayList"/>
-          </field>
-        </object>
-      </object-param>
-      <object-param>
-        <name>ide.webapps</name>
-        <object type="org.exoplatform.platform.common.module.Module">
-          <field name="name">
-            <string>ide</string>
-          </field>
-          <field name="description">
-            <string>ide profile modules</string>
-          </field>
-          <field name="webapps">
-            <collection type="java.util.ArrayList">
-              <value>
-                <string>SmartGWT</string>
-              </value>
-              <value>
-                <string>IDE</string>
               </value>
             </collection>
           </field>
@@ -535,7 +482,7 @@
   <!-- LISTENERS -->
   <external-component-plugins>
     <target-component>org.exoplatform.services.listener.ListenerService</target-component>
-    <component-plugin>
+    <component-plugin profiles="all">
       <name>exo.core.security.ConversationRegistry.register</name>
       <set-method>addListener</set-method>
       <type>org.exoplatform.platform.gadget.services.LoginHistory.LoginHistoryListener</type>
