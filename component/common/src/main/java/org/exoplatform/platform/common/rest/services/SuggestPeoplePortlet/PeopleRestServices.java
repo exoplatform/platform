@@ -27,16 +27,14 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.RuntimeDelegate;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 
 @Path("/homepage/intranet/people/")
 @Produces("application/json")
 public class PeopleRestServices implements ResourceContainer {
 
+  private static final int NUMBER_OF_SUGGESTIONS = 10;
   private static Log log = ExoLogger.getLogger(PeopleRestServices.class);
 
   private static final CacheControl cacheControl;
@@ -232,27 +230,27 @@ public class PeopleRestServices implements ResourceContainer {
 
       ListAccess<Identity> connectionList = relationshipManager.getConnections(identity);
       int size = connectionList.getSize();
-      Map<Identity, Integer> suggestions;
+      Map<Identity, Integer> connectionsSuggestions;
       if (size > 0) {
-        suggestions = relationshipManager.getSuggestions(identity, 20, 50, 10);
-        if (suggestions.size() == 1 && suggestions.keySet().iterator().next().getRemoteId().equals(userACL.getSuperUser())) {
+        connectionsSuggestions = relationshipManager.getSuggestions(identity, 20, 50, 10);
+        if (connectionsSuggestions.size() == 1 && connectionsSuggestions.keySet().iterator().next().getRemoteId().equals(userACL.getSuperUser())) {
           // The only suggestion is the super user so we clear the suggestion list
-          suggestions = Collections.emptyMap();
+          connectionsSuggestions = Collections.emptyMap();
         }
       } else {
-        suggestions = Collections.emptyMap();
+        connectionsSuggestions = Collections.emptyMap();
       }
 
       JSONObject jsonGlobal = new JSONObject();
       JSONArray jsonArray = new JSONArray();
-      if (suggestions.isEmpty()) {
+      Map<Identity, Integer> suggestions = new HashMap<>(connectionsSuggestions);
+      if (connectionsSuggestions.size() < NUMBER_OF_SUGGESTIONS) {
         // Returns the last users
-        List<Identity> identities = identityManager.getLastIdentities(10);
-        suggestions = new LinkedHashMap<Identity, Integer>();
+        List<Identity> identities = identityManager.getLastIdentities(NUMBER_OF_SUGGESTIONS - suggestions.size());
         for (Identity id : identities) {
           if (identity.equals(id) || relationshipManager.get(identity, id) != null)
             continue;
-          suggestions.put(id, new Integer(0));
+          suggestions.put(id, 0);
         }
       }
       for (Entry<Identity, Integer> suggestion : suggestions.entrySet()) {
