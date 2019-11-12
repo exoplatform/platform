@@ -63,6 +63,9 @@
          <depends>
             <module>extensionRegistry</module>
          </depends>
+        <depends>
+          <module>bts_tooltip</module>
+        </depends>
       </module>
    </portlet>
 
@@ -89,6 +92,9 @@
          <depends>
             <module>userPopupPlugin</module>
          </depends>
+        <depends>
+          <module>bts_tooltip</module>
+        </depends>
       </module>
    </portlet>
 
@@ -104,6 +110,9 @@
       <depends>
          <module>xss-utils</module>
       </depends>
+      <depends>
+        <module>bts_tooltip</module>
+      </depends>
    </module>
 
    <module>
@@ -118,6 +127,9 @@
       <depends>
          <module>xss-utils</module>
       </depends>
+      <depends>
+        <module>bts_tooltip</module>
+      </depends>
    </module>
 
    <module>
@@ -131,6 +143,9 @@
       </depends>
       <depends>
          <module>jquery</module>
+      </depends>
+      <depends>
+        <module>bts_tooltip</module>
       </depends>
    </module>
 
