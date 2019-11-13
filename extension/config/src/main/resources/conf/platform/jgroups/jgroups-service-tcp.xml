@@ -34,7 +34,7 @@
   -->
   <TCP
       singleton_name="${exo.service.cluster.jgroups.tcp.singleton_name:service-transport-tcp}"
-      bind_port="${exo.service.cluster.jgroups.tcp.bind_port:7800}"
+      bind_port="${exo.service.cluster.jgroups.tcp.bind_port:7900}"
       bind_addr="${exo.service.cluster.jgroups.tcp.bind_addr:127.0.0.1}"
       recv_buf_size="${exo.service.cluster.jgroups.tcp.recv_buf_size:20M}"
       send_buf_size="${exo.service.cluster.jgroups.tcp.send_buf_size:640K}"
@@ -63,7 +63,7 @@
       oob_thread_pool.queue_max_size="${exo.service.cluster.jgroups.tcp.oob_thread_pool.queue_max_size:1000}"
       oob_thread_pool.rejection_policy="${exo.service.cluster.jgroups.tcp.oob_thread_pool.rejection_policy:Discard}" />
   <TCPPING
-      initial_hosts="${exo.service.cluster.jgroups.tcpping.initial_hosts:localhost[7800]}"
+      initial_hosts="${exo.service.cluster.jgroups.tcpping.initial_hosts:localhost[7900]}"
       port_range="${exo.service.cluster.jgroups.tcpping.port_range:0}"
       ergonomics="${exo.service.cluster.jgroups.tcpping.ergonomics:false}" />
   <MERGE2
