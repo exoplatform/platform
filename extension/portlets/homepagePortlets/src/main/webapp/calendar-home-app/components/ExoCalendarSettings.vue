@@ -64,6 +64,7 @@ export default {
       calendarServices.updateSettings(this.nonDisplayedCalendars.map(cal => cal.id).join()).then(this.$emit('savedCalendar'));
     },
     addDisplayCalendar(item, i, isSearch) {
+      $('.tooltip.fade.bottom.in').remove();
       if (isSearch) {
         this.displayedCalendars.push(item);
         this.searchResults.splice(i, 1);
