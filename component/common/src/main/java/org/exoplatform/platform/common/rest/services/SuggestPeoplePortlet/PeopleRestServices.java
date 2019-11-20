@@ -29,6 +29,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.RuntimeDelegate;
 import java.util.*;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 @Path("/homepage/intranet/people/")
 @Produces("application/json")
@@ -243,14 +244,19 @@ public class PeopleRestServices implements ResourceContainer {
 
       JSONObject jsonGlobal = new JSONObject();
       JSONArray jsonArray = new JSONArray();
-      Map<Identity, Integer> suggestions = new HashMap<>(connectionsSuggestions);
-      if (connectionsSuggestions.size() < NUMBER_OF_SUGGESTIONS) {
+      Map<Identity, Integer> suggestions = new LinkedHashMap<>(connectionsSuggestions);
+      suggestions = suggestions.entrySet()
+              .stream()
+              .sorted((Map.Entry.<Identity, Integer>comparingByValue().reversed()))
+              .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+      if (suggestions.size() < NUMBER_OF_SUGGESTIONS) {
         // Returns the last users
         List<Identity> identities = identityManager.getLastIdentities(NUMBER_OF_SUGGESTIONS - suggestions.size());
         for (Identity id : identities) {
           if (identity.equals(id) || relationshipManager.get(identity, id) != null)
             continue;
-          suggestions.put(id, 0);
+          suggestions.putIfAbsent(id, 0);
         }
       }
       for (Entry<Identity, Integer> suggestion : suggestions.entrySet()) {
