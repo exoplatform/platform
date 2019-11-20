@@ -4,22 +4,6 @@
         return b.number - a.number;
     } ;
 
-    function dynamicSort(property) {
-        var sortOrder = 1;
-        if(property[0] === "-") {
-            sortOrder = -1;
-            property = property.substr(1, property.length - 1);
-        }
-        return function (a,b) {
-            var result = (a[property].toLowerCase() < b[property].toLowerCase()) ? -1 : (a[property].toLowerCase() > b[property].toLowerCase()) ? 1 : 0;
-            return result ;
-        }
-    } ;
-
-    function sortByCreatedDate(a, b){
-        return b.createdDate - a.createdDate;
-    } ;
-
     function sortByNumOfMember(a, b){
         return b.members - a.members;
     } ;
@@ -64,21 +48,6 @@
                     $("#content").show();
                     $("#peopleSuggest").show();
 
-                }
-                var newUser=true;
-                for(var k= 0; k < list.items.length; k++)
-                {
-                    if(list.items[k].number!=0){
-                        newUser=false;
-                    }
-                }
-
-                if(newUser==true || list.noConnections==0){
-                    list.items.sort(sortByCreatedDate) ;
-                }else{
-                    list.items.sort(dynamicSort("suggestionName"));
-                    // sort my most contacts instead of random
-                    list.items.sort(sortByContacts);
                 }
 
                 $.each(list.items, function(i, item){
