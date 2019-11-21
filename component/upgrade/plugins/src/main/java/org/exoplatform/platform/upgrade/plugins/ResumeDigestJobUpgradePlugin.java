@@ -50,17 +50,7 @@ public class ResumeDigestJobUpgradePlugin extends UpgradeProductPlugin {
       //Before this version, there is no problem of blocking digest, so no need of delete it
       if (VersionComparator.isAfter(oldVersion, "5.2.0") ||
               VersionComparator.isSame(oldVersion, "5.2.0")) {
-        NotificationContext context = NotificationContextImpl.cloneInstance();
-
-        //force remove weekly notification digest
-        context.append(NotificationJob.JOB_DAILY, false);
-        context.append(NotificationJob.JOB_WEEKLY, true);
-        mailNotificationStorage.removeMessageAfterSent(context);
-
-        //force remove daily notification digest
-        context.append(NotificationJob.JOB_WEEKLY, false);
-        context.append(NotificationJob.JOB_DAILY, true);
-        mailNotificationStorage.removeMessageAfterSent(context);
+        mailNotificationStorage.deleteAllDigests();
       }
 
       schedulerService.resumeJob("NotificationDailyJob", "Notification");
