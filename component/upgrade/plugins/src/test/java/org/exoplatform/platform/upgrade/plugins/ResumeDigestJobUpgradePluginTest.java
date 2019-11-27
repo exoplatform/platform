@@ -22,7 +22,7 @@ public class ResumeDigestJobUpgradePluginTest {
         plugin.processUpgrade("5.1.0", "5.2.0");
 
         // Then
-        verify(mailNotificationStorage, times(0)).deleteAllDigests();
+        verify(mailNotificationStorage, times(0)).removeMessageAfterSent(any(NotificationContext.class));
         verify(schedulerService,times(2)).resumeJob(anyString(),anyString());
     }
 
@@ -38,7 +38,7 @@ public class ResumeDigestJobUpgradePluginTest {
         plugin.processUpgrade("5.2.0", "6.0.0");
 
         // Then
-        verify(mailNotificationStorage, times(1)).deleteAllDigests();
+        verify(mailNotificationStorage, times(2)).removeMessageAfterSent(any(NotificationContext.class));
         verify(schedulerService,times(2)).resumeJob(anyString(),anyString());
     }
 
@@ -54,7 +54,7 @@ public class ResumeDigestJobUpgradePluginTest {
         plugin.processUpgrade("5.1.0", "6.0.0");
 
         // Then
-        verify(mailNotificationStorage, times(0)).deleteAllDigests();
+        verify(mailNotificationStorage, times(0)).removeMessageAfterSent(any(NotificationContext.class));
         verify(schedulerService,times(2)).resumeJob(anyString(),anyString());
     }
 }
