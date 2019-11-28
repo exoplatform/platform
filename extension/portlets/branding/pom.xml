@@ -17,16 +17,15 @@
     along with this program; if not, see<http://www.gnu.org/licenses />.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>platform-extension-portlets</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>6.0.x-SNAPSHOT</version>
+    <version>6.0.0-M09</version>
   </parent>
   <artifactId>platform-extension-portlet-branding</artifactId>
-  <version>6.0.x-SNAPSHOT</version>
+  <version>6.0.0-M09</version>
   <packaging>war</packaging>
   <name>eXo PLF:: Branding Portlet Web App</name>
   <description>eXo Branding Portlet Web App</description>
