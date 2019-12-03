@@ -15,15 +15,15 @@
         <p>{{ $t('display.additional.calendar.label') }}</p>
         <input v-model="searchKey" :placeholder="$t('search.calendar.label')" type="text" class="PLFcalendarSearchKey" @input="search()"/>
         <ul id="nonDisplayedCalendarContainer" class="calendarItems NonDisplayedCalendar">
-          <li v-for="(nonDispCal, index) in nonDisplayedCalendars" v-show="nonDisplayedCalendars.length > 0 && searchKey === ''" :key="nonDispCal" :id="nonDispCal.id" class="calendarItem clearfix" @mouseover="isShowAdd = index" @mouseout="isShowAdd = null">
-            <a v-exo-tooltip.bottom.body="$t('calendar.add')" v-show="isShowAdd === index" href="javascript:void(0);" class="addButton pull-right" @click="addDisplayCalendar(nonDispCal, index, false)">
+          <li v-for="(nonDispCal, index) in nonDisplayedCalendars" v-show="nonDisplayedCalendars.length > 0 && searchKey === ''" :key="nonDispCal" :id="nonDispCal.id" class="calendarItem clearfix">
+            <a v-exo-tooltip.bottom.body="$t('calendar.add')" href="javascript:void(0);" class="addButton pull-right" @click="addDisplayCalendar(nonDispCal, index, false)">
               <i class="uiIconSimplePlusMini uiIconLightGray"></i>
             </a>
             <a :class="[nonDispCal.color + ' colorBox pull-left']" href="javascript:void(0);"></a>
             <a v-exo-tooltip.bottom.body="nonDispCal.name" href="javascript:void(0);" class="calName">{{ nonDispCal.name }}</a>
           </li>
-          <li v-for="(result, index) in searchResults" v-show="searchKey !== ''" :key="result" :id="result.id" class="calendarItem clearfix" @mouseover="isShowResultAdd = index" @mouseout="isShowResultAdd = null">
-            <a v-exo-tooltip.bottom.body="$t('calendar.add')" v-show="isShowResultAdd === index" href="javascript:void(0);" class="addButton pull-right" @click="addDisplayCalendar(result, index, true)">
+          <li v-for="(result, index) in searchResults" v-show="searchKey !== ''" :key="result" :id="result.id" class="calendarItem clearfix">
+            <a v-exo-tooltip.bottom.body="$t('calendar.add')" href="javascript:void(0);" class="addButton pull-right" @click="addDisplayCalendar(result, index, true)">
               <i class="uiIconSimplePlusMini uiIconLightGray"></i>
             </a>
             <a :class="[result.color + ' colorBox pull-left']" href="javascript:void(0);"></a>
@@ -53,8 +53,6 @@ export default {
   },
   data() {
     return {
-      isShowAdd: null,
-      isShowResultAdd: null,
       searchKey: '',
       searchResults: []
     };
