@@ -33,11 +33,11 @@
                     <span>{{ $t('all.day.label') }}</span>
                   </div>
                   <div v-else-if="getEventDuration(event) > ONE_DAY_MS">
-                    <span>{{ evt && moment(evt.from).toDate().toLocaleDateString(exoConstants.LANG) }}</span> -
-                    <span>{{ evt && moment(evt.to).toDate().toLocaleDateString(exoConstants.LANG) }}</span>
+                    <span>{{ formatDate(event.from) }}</span> -
+                    <span>{{ formatDate(event.to) }}</span>
                   </div>
                   <div v-else>
-                    <span> {{ getEventFromTimeLabel(event) }} - {{ getEventToTimeLabel(event) }} </span>
+                    <span> {{ getEventTimeLabel(event.from) }}-{{ getEventTimeLabel(event.to) }}</span>
                   </div>
                 </div>
               </div>
@@ -166,29 +166,21 @@ export default {
         }
       }
     },
-    getEventFromTimeLabel(evt) {
-      const start = evt && moment(evt.from).toDate().toLocaleTimeString(exoConstants.LANG, {hour: '2-digit', minute:'2-digit'});
-      if(exoConstants.LANG === 'en') {
-        if (start.indexOf('00') === this.SECOND_INDEX) {
-          return start.substring(0, 1) + start.substring(this.FOURTH_INDEX);
-        }
-        if (start.indexOf('00') === this.THIRD_INDEX) {
-          return start.substring(0, this.SECOND_INDEX) + start.substring(this.FIFTH_INDEX);
-        }
-      }
-      return start;
+    formatDate(evt){
+      return moment(evt).toDate().toLocaleDateString(exoConstants.LANG);
     },
-    getEventToTimeLabel(evt) {
-      const end = moment(evt.to).toDate().toLocaleTimeString(exoConstants.LANG, {hour: '2-digit', minute:'2-digit'});
+    /* Return date in format hour:minute*/
+    getEventTimeLabel(evt) {
+      const time =  moment(evt).toDate().toLocaleTimeString(exoConstants.LANG, {hour: '2-digit', minute:'2-digit'});
       if(exoConstants.LANG === 'en') {
-        if (end.indexOf('00') === this.SECOND_INDEX) {
-          return end.substring(0, 1) + end.substring(this.FOURTH_INDEX);
+        if (time.indexOf('00') === this.SECOND_INDEX) {
+          return time.substring(0, 1) + time.substring(this.FOURTH_INDEX);
         }
-        if (end.indexOf('00') === this.THIRD_INDEX) {
-          return end.substring(0, this.SECOND_INDEX) + end.substring(this.FIFTH_INDEX);
+        if (time.indexOf('00') === this.THIRD_INDEX) {
+          return time.substring(0, this.SECOND_INDEX) + time.substring(this.FIFTH_INDEX);
         }
       }
-      return end;
+      return time;
     },
     getEventDuration(event) {
       return new Date(event.to) - new Date(event.from);
