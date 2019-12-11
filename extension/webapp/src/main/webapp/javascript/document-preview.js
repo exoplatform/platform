@@ -18,7 +18,7 @@
         cssIcon : null,
         isWebContent: false
       },
-      showComments: false,
+      showComments: true,
       user: {
         username: null,
         fullname: null,
@@ -54,38 +54,43 @@
 
       this.settings = $.extend(this.defaultSettings, docPreviewSettings);
 
-      var promises = [];
+      if(this.settings.showComments) {
+        var promises = [];
 
-      // if we miss author information, let's fetch them
-      if(this.settings.author.username != null
-        && (this.settings.author.fullname == null  || this.settings.author.avatarUrl == null || this.settings.author.profileUrl == null)) {
-        promises.push(this.fetchAuthorInformation());
-      }
-      // if we miss current user information, let's fetch them
-      if(this.settings.user.fullname == null  || this.settings.user.avatarUrl == null || this.settings.user.profileUrl == null) {
-        promises.push(this.fetchUserInformation());
-      }
-      // if we don't have the number of likes, let's fetch it
-      if(this.settings.activity.id != null && this.settings.activity.likes == null) {
-        promises.push(this.fetchLikes());
-      }
-
-      var self = this;
-
-      if(ES6Promise && !window.Promise ) {
-        ES6Promise.polyfill();
-      }
-
-      // wait for all users info fetches to be complete before rendering the component
-      Promise.all(promises).then(function() {
-        self.render();
-        self.show();
-        if(!$('.commentsLoaded').length) {
-          self.loadComments();
+        // if we miss author information, let's fetch them
+        if(this.settings.author.username != null
+          && (this.settings.author.fullname == null  || this.settings.author.avatarUrl == null || this.settings.author.profileUrl == null)) {
+          promises.push(this.fetchAuthorInformation());
         }
-      }, function(err) {
-        // error occurred
-      });
+        // if we miss current user information, let's fetch them
+        if(this.settings.user.fullname == null  || this.settings.user.avatarUrl == null || this.settings.user.profileUrl == null) {
+          promises.push(this.fetchUserInformation());
+        }
+        // if we don't have the number of likes, let's fetch it
+        if(this.settings.activity.id != null && this.settings.activity.likes == null) {
+          promises.push(this.fetchLikes());
+        }
+
+        var self = this;
+
+        if(ES6Promise && !window.Promise ) {
+          ES6Promise.polyfill();
+        }
+
+        // wait for all users info fetches to be complete before rendering the component
+        Promise.all(promises).then(function() {
+          self.render();
+          self.show();
+          if(!$('.commentsLoaded').length) {
+            self.loadComments();
+          }
+        }, function(err) {
+          // error occurred
+        });
+      } else {
+        this.render();
+        this.show();
+      }
     },
 
     fetchUserInformation: function(callback) {
@@ -298,25 +303,29 @@
       }
 
       if($('.commentsLoaded').length) {
-        docPreviewContainer.find(".previewBtn").html(
-          '<div class="showComments">' +
-            '<a><i class="uiIconComment uiIconWhite"></i>&nbsp;${UIActivity.comment.showComment}</a>' +
-          '</div>' +
-          '<div class="openBtn">' +
+        let html = '';
+        if(this.settings.showComments) {
+          html += '<div class="showComments">' +
+              '<a><i class="uiIconComment uiIconWhite"></i>&nbsp;${UIActivity.comment.showComment}</a>' +
+            '</div>';
+        }
+        html += '<div class="openBtn">' +
             '<a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;${UIActivity.comment.openInDocuments}</a>' +
           '</div>' +
           '<div class="downloadBtn">' +
             '<a href="' + this.settings.doc.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;${UIActivity.comment.download}</a>' +
-          '</div>');
+          '</div>';
+        docPreviewContainer.find(".previewBtn").html(html);
       } else {
         var authorFullName = XSSUtils.sanitizeString(this.settings.author.fullname != null ? this.settings.author.fullname : '');
-        docPreviewContainer.html(
-          '<div class="uiDocumentPreview" id="uiDocumentPreview">' +
-            '<div class="exitWindow">' +
-              '<a class="uiIconClose uiIconWhite" title="${UIActivity.comment.close}" onclick="documentPreview.hide()"></a>' +
-            '</div>' +
-            '<div class="uiDocumentPreviewMainWindow clearfix">' +
-              '<!-- doc comments -->' +
+        let html = '<div class="uiDocumentPreview' + (this.settings.showComments ? '' : ' collapsed') + '" id="uiDocumentPreview">' +
+          '<div class="exitWindow">' +
+            '<a class="uiIconClose uiIconWhite" title="${UIActivity.comment.close}" onclick="documentPreview.hide()"></a>' +
+          '</div>' +
+          '<div class="uiDocumentPreviewMainWindow clearfix">';
+
+          if(this.settings.showComments) {
+            html += '<!-- doc comments -->' +
               '<div class="uiBox commentArea pull-right" id="commentArea">' +
                 '<div class="title">' +
                   '<i class="' + cssClasses + '"></i>&nbsp;' + this.settings.doc.title +
@@ -373,45 +382,53 @@
               '<div class="resizeButton " id="ShowHideAll">' +
                 '<i class="uiIconMiniArrowLeft uiIconWhite"></i>' +
                 '<i class="uiIconMiniArrowRight uiIconWhite"></i>' +
-              '</div>' +
-              '<div id="documentPreviewContent" ' + (this.settings.doc.isWebContent == true ? ' class="uiPreviewWebContent"' : '') + '>' +
-                  '<div class="loading">' +
-                    '<i class="uiLoadingIconMedium uiIconLightGray"></i>' +
-                  '</div>' +
-              '</div>' +
-                '<div id = "previewPopup" class="UIPopupWindow uiPopup UIDragObject NormalStyle" style="width: 560px; position: absolute; top: 30%; left: 30%; margin: 0 auto 20px; z-index: 1; max-width: 100%;display:none">' +
-                '<div class="popupHeader ClearFix">' +
-                    '<a id="previewPopupCloseIcon" class="uiIconClose pull-right" aria-hidden="true" ></a>' +
-                    '<span class="PopupTitle popupTitle">Popup header</span>' +
-                '</div>' +
-                '<div class="PopupContent popupContent">' +
-                    '<div class="form-horizontal resizable">' +
-                        '<div class="popupContent">' +
-                        '<span class="confirmationIcon contentMessage">Are you sure you want to delete this comment?</span>' +
-                     '</div>' +
-                    '</div>' +
-                    '<div class="uiAction uiActionBorder">' +
-                        '<button id="previewPopupDeleteButton" class="btn" onclick="" type="button">Delete</button>' +
-                        '<button id="previewPopupCloseButton" class="btn" onclick="" type="button">Cancel</button>' +
-                    '</div>' +
-                '</div>' +
-                '<span class="uiIconResize pull-right uiIconLightGray"></span>' +
-              '</div>' +
+              '</div>';
+            }
 
-              '<!-- put vote area here -->' +
-              '<div class="previewBtn">' +
-                '<div class="showComments">' +
-                  '<a><i class="uiIconComment uiIconWhite"></i>&nbsp;${UIActivity.comment.showComment}</a>' +
+            html += '<div id="documentPreviewContent" ' + (this.settings.doc.isWebContent == true ? ' class="uiPreviewWebContent"' : '') + '>' +
+                    '<div class="loading">' +
+                      '<i class="uiLoadingIconMedium uiIconLightGray"></i>' +
+                    '</div>' +
+                  '</div>' +
+                    '<div id = "previewPopup" class="UIPopupWindow uiPopup UIDragObject NormalStyle" style="width: 560px; position: absolute; top: 30%; left: 30%; margin: 0 auto 20px; z-index: 1; max-width: 100%;display:none">' +
+                    '<div class="popupHeader ClearFix">' +
+                        '<a id="previewPopupCloseIcon" class="uiIconClose pull-right" aria-hidden="true" ></a>' +
+                        '<span class="PopupTitle popupTitle">Popup header</span>' +
+                    '</div>' +
+                    '<div class="PopupContent popupContent">' +
+                        '<div class="form-horizontal resizable">' +
+                            '<div class="popupContent">' +
+                            '<span class="confirmationIcon contentMessage">Are you sure you want to delete this comment?</span>' +
+                         '</div>' +
+                        '</div>' +
+                        '<div class="uiAction uiActionBorder">' +
+                            '<button id="previewPopupDeleteButton" class="btn" onclick="" type="button">Delete</button>' +
+                            '<button id="previewPopupCloseButton" class="btn" onclick="" type="button">Cancel</button>' +
+                        '</div>' +
+                    '</div>' +
+                    '<span class="uiIconResize pull-right uiIconLightGray"></span>' +
+                  '</div>' +
+
+                  '<!-- put vote area here -->' +
+                  '<div class="previewBtn">';
+
+            if(this.settings.showComments) {
+              html += '<div class="showComments">' +
+                      '<a><i class="uiIconComment uiIconWhite"></i>&nbsp;${UIActivity.comment.showComment}</a>' +
+                    '</div>';
+            }
+
+            html += '<div class="openBtn">' +
+                      '<a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;${UIActivity.comment.openInDocuments}</a>' +
+                    '</div>' +
+                    '<div class="downloadBtn">' +
+                      '<a href="' + this.settings.doc.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;${UIActivity.comment.download}</a>' +
+                    '</div>' +
+                  '</div>' +
                 '</div>' +
-                '<div class="openBtn">' +
-                  '<a href="' + this.settings.doc.openUrl + '"><i class="uiIconGotoFolder uiIconWhite"></i>&nbsp;${UIActivity.comment.openInDocuments}</a>' +
-                '</div>' +
-                '<div class="downloadBtn">' +
-                  '<a href="' + this.settings.doc.downloadUrl + '"><i class="uiIconDownload uiIconWhite"></i>&nbsp;${UIActivity.comment.download}</a>' +
-                '</div>' +
-              '</div>' +
-            '</div>' +
-          '</div>');
+              '</div>';
+
+        docPreviewContainer.html(html);
       }
 
       if(this.settings.doc.remoteEditURL) {
@@ -850,7 +867,7 @@
           })
         }
         window.previewDocumentEventsSet = true;
-  
+
         // Bind close event. Return body scroll, turn off keyup
         $(".exitWindow > .uiIconClose", $('#uiDocumentPreview')).click(function() {
           $('body').removeClass('modal-open');
@@ -862,61 +879,63 @@
           }, 500);
         });
   
-        // Bind expanded/collapsed event
-        var uiDocumentPreview = $('#uiDocumentPreview');
-        $('.resizeButton .uiIconMiniArrowLeft, .resizeButton .uiIconMiniArrowRight', uiDocumentPreview).click(function() {
-          uiDocumentPreview.toggleClass("collapsed");
-          resizeEventHandler();
-        });
-  
-        if(this.settings.activity.id != null) {
-          // render like link and nb of likes
-          this.refreshLikeLink();
-          $('#documentPreviewContainer .nbOfLikes').html(this.settings.activity.likes);
-        } else {
-          // hide like link since there is no linked activity
-          $('#documentPreviewContainer #previewLikeLink').hide();
-        }
-        
-        this.initCKEditor();
-
-        if($('#CommentButton [data-action-initialized]').length == 0) {
-          $('#CommentButton').on('click', function(event) {
-            self.postComment();
-            self.showCommentLink(eXo.social.SocialUtil.checkDevice().isMobile, false, true);
-          });
-          $('#CommentButton').attr("data-action-initialized", "true");
-        }
-
-        if($('#CancelButton [data-action-initialized]').length == 0) {
-          $('#CancelButton').on('click', function(event) {
-            $('#documentPreviewContainer .commentArea')[0].style.display = "none";
-            $('#documentPreviewContent')[0].style.display = "block";
-            $('.previewBtn')[0].style.display = "block"
+        if(this.settings.showComments) {
+          // Bind expanded/collapsed event
+          var uiDocumentPreview = $('#uiDocumentPreview');
+          $('.resizeButton .uiIconMiniArrowLeft, .resizeButton .uiIconMiniArrowRight', uiDocumentPreview).click(function() {
+            uiDocumentPreview.toggleClass("collapsed");
             resizeEventHandler();
           });
-          $('#CancelButton').attr("data-action-initialized", "true");
-        }
 
-        if($('.showComments [data-action-initialized]').length == 0) {
-          $('.showComments').on('click', function(event) {
-            var $uiDocumentPreview = $('#uiDocumentPreview');
-            var $commentArea = $('.commentArea', $uiDocumentPreview);
-            var $commentList = $('.commentList', $commentArea);
-            if($('#cke_commentInput .cke_contents').length > 0) {
-              $('#cke_commentInput .cke_contents')[0].style.height = "100px";
-            }
-            $('#documentPreviewContainer .commentArea')[0].style.display = "block";
-            $('.previewBtn')[0].style.display = "none"
-            $('#documentPreviewContent')[0].style.display = "none";
-            $("#documentPreviewContainer .parentCommentBlock").addClass("hidden");
+          if(this.settings.activity.id != null) {
+            // render like link and nb of likes
+            this.refreshLikeLink();
+            $('#documentPreviewContainer .nbOfLikes').html(this.settings.activity.likes);
+          } else {
+            // hide like link since there is no linked activity
+            $('#documentPreviewContainer #previewLikeLink').hide();
+          }
 
-            self.moveCKEditorInOriginalLocation();
-            self.initCKEditor();
-            self.clearErrorMessage();
-            self.showCommentLink(eXo.social.SocialUtil.checkDevice().isMobile, false, false);
-          });
-          $('.showComments').attr("data-action-initialized", "true");
+          this.initCKEditor();
+
+          if($('#CommentButton [data-action-initialized]').length == 0) {
+            $('#CommentButton').on('click', function(event) {
+              self.postComment();
+              self.showCommentLink(eXo.social.SocialUtil.checkDevice().isMobile, false, true);
+            });
+            $('#CommentButton').attr("data-action-initialized", "true");
+          }
+
+          if($('#CancelButton [data-action-initialized]').length == 0) {
+            $('#CancelButton').on('click', function(event) {
+              $('#documentPreviewContainer .commentArea')[0].style.display = "none";
+              $('#documentPreviewContent')[0].style.display = "block";
+              $('.previewBtn')[0].style.display = "block"
+              resizeEventHandler();
+            });
+            $('#CancelButton').attr("data-action-initialized", "true");
+          }
+
+          if($('.showComments [data-action-initialized]').length == 0) {
+            $('.showComments').on('click', function(event) {
+              var $uiDocumentPreview = $('#uiDocumentPreview');
+              var $commentArea = $('.commentArea', $uiDocumentPreview);
+              var $commentList = $('.commentList', $commentArea);
+              if($('#cke_commentInput .cke_contents').length > 0) {
+                $('#cke_commentInput .cke_contents')[0].style.height = "100px";
+              }
+              $('#documentPreviewContainer .commentArea')[0].style.display = "block";
+              $('.previewBtn')[0].style.display = "none"
+              $('#documentPreviewContent')[0].style.display = "none";
+              $("#documentPreviewContainer .parentCommentBlock").addClass("hidden");
+
+              self.moveCKEditorInOriginalLocation();
+              self.initCKEditor();
+              self.clearErrorMessage();
+              self.showCommentLink(eXo.social.SocialUtil.checkDevice().isMobile, false, false);
+            });
+            $('.showComments').attr("data-action-initialized", "true");
+          }
         }
   
         $('.loading', docContentContainer).show();
