@@ -5,6 +5,8 @@ import org.exoplatform.commons.api.notification.service.storage.MailNotification
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.services.scheduler.JobSchedulerService;
 import org.junit.Test;
+import org.mockito.Mockito;
+import org.mockito.internal.matchers.Any;
 
 import static org.mockito.Mockito.*;
 
@@ -23,6 +25,7 @@ public class ResumeDigestJobUpgradePluginTest {
 
         // Then
         verify(mailNotificationStorage, times(0)).deleteAllDigests();
+        verify(mailNotificationStorage, times(0)).removeMessageAfterSent(Mockito.any());
         verify(schedulerService,times(2)).resumeJob(anyString(),anyString());
     }
 
@@ -39,6 +42,7 @@ public class ResumeDigestJobUpgradePluginTest {
 
         // Then
         verify(mailNotificationStorage, times(1)).deleteAllDigests();
+        verify(mailNotificationStorage, times(1)).removeMessageAfterSent(Mockito.any());
         verify(schedulerService,times(2)).resumeJob(anyString(),anyString());
     }
 
@@ -55,6 +59,7 @@ public class ResumeDigestJobUpgradePluginTest {
 
         // Then
         verify(mailNotificationStorage, times(0)).deleteAllDigests();
+        verify(mailNotificationStorage, times(0)).removeMessageAfterSent(Mockito.any());
         verify(schedulerService,times(2)).resumeJob(anyString(),anyString());
     }
 }

@@ -5,6 +5,7 @@ import org.exoplatform.commons.api.notification.service.storage.MailNotification
 import org.exoplatform.commons.notification.impl.NotificationContextImpl;
 import org.exoplatform.commons.notification.impl.jpa.email.JPAMailNotificationStorage;
 import org.exoplatform.commons.notification.impl.jpa.email.dao.MailDigestDAO;
+import org.exoplatform.commons.notification.impl.jpa.email.entity.MailNotifEntity;
 import org.exoplatform.commons.notification.job.NotificationJob;
 import org.exoplatform.commons.upgrade.UpgradeProductPlugin;
 import org.exoplatform.commons.version.util.VersionComparator;
@@ -12,6 +13,9 @@ import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.scheduler.JobSchedulerService;
+
+import java.util.Calendar;
+import java.util.List;
 
 
 /**
@@ -51,10 +55,13 @@ public class ResumeDigestJobUpgradePlugin extends UpgradeProductPlugin {
       if (VersionComparator.isAfter(oldVersion, "5.2.0") ||
               VersionComparator.isSame(oldVersion, "5.2.0")) {
         mailNotificationStorage.deleteAllDigests();
+        NotificationContext context = NotificationContextImpl.cloneInstance();
+        mailNotificationStorage.removeMessageAfterSent(context);
       }
 
       schedulerService.resumeJob("NotificationDailyJob", "Notification");
       schedulerService.resumeJob("NotificationWeeklyJob", "Notification");
+
     } catch (Exception e) {
       LOG.error("Error when resuming daily and weekly job",e);
       throw new RuntimeException("An error occurred when resuming daily and weekly job");
