@@ -5,9 +5,6 @@
 #{param name=channels/}
 <div id="notificationAdmin" class="uiNotificationAdmin">
 	<h3 class="mgB20">${_ctx.appRes("NotificationAdmin.title")}</h3>
-	<div id="confirmMessage" style="display:none">
-		<i class="uiIconSuccess"></i><span class="message"></span>
-	</div>
 
 	<h4 class="titleWithBorder mgB20">${_ctx.appRes("NotificationAdmin.label.notificationTypes")}</h4>
 	<table class="uiGrid table  table-hover table-striped">
@@ -99,6 +96,9 @@
 	  </tbody>
 	</table>
 
+	<div id="confirmMessage" style="display:none">
+	<i class="uiIconSuccess"></i><span class="message"></span>
+	</div>
 	<form id="senderForm" class="senderForm">
     <h4 class="titleWithBorder mgB20">${_ctx.appRes("NotificationAdmin.label.notificationsSender")}</h4>
     <div class="control-groups clearfix">
@@ -124,6 +124,8 @@
 		<span id="Error">${_ctx.appRes("NotificationAdmin.label.Error")}</span>
 		<span id="msgSaveOK">${_ctx.appRes("NotificationAdmin.msg.saveOK")}</span>
 		<span id="msgSaveKO">${_ctx.appRes("NotificationAdmin.msg.saveKO")}</span>
+		<span id="msgNameNok">${_ctx.appRes("NotificationAdmin.msg.NameNOK")}</span>
+		<span id="msgEmailNok">${_ctx.appRes("NotificationAdmin.msg.EmailNOK")}</span>
 	</div>
 
 </div>
