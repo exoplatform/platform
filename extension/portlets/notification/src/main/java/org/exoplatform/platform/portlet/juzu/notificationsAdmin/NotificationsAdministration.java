@@ -159,7 +159,7 @@ public class NotificationsAdministration {
     JSON data = new JSON();
     data.set("name", name);
     data.set("email",email);
-    if (name != null && name.length() > 0 && NotificationUtils.isValidNotificationSenderName(name) && NotificationUtils.isValidEmailAddresses(email)) {
+    if(name != null && name.length() > 0 && NotificationUtils.isValidNotificationSenderName(name) && NotificationUtils.isValidEmailAddresses(email)) {
       settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL,
                          NotificationPluginUtils.NOTIFICATION_SENDER_NAME, SettingValue.create(name));
       settingService.set(org.exoplatform.commons.api.settings.data.Context.GLOBAL, Scope.GLOBAL,
