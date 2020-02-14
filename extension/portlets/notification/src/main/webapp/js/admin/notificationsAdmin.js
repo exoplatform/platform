@@ -2,8 +2,10 @@
   var localizeStatus = $("div#labelBundle");
   var NotificationAdmin = {
       status : {
-        OK : 'OK',
-        NOK : 'NOK'
+         OK : 'OK',
+         NOK : 'NOK',
+         NameNOK : 'NameNOK',
+         EmailNOK : 'EmailNOK'
       },
       label : {
         Information : $("span#Information", localizeStatus).text(),
@@ -14,7 +16,9 @@
       },
       msg : {
         OK : $("span#msgSaveOK", localizeStatus).text(),
-        NOK: $("span#msgSaveKO", localizeStatus).text()
+        NOK: $("span#msgSaveKO", localizeStatus).text(),
+        NameNOK: $("span#msgNameNok", localizeStatus).text(),
+        EmailNOK: $("span#msgEmailNok", localizeStatus).text()
       },
       init : function() {
     	$("a.edit-setting").click(function() {
@@ -76,7 +80,10 @@
               var msgOk = NotificationAdmin.msg.OK;
               msgOk = msgOk.replace('{0}', res.name).replace('{1}', res.email);
               NotificationAdmin.showMessage(msgOk, NotificationAdmin.status.OK);
-            } else {
+            }
+             else if(res.status === "NameNOK") {NotificationAdmin.showMessage(NotificationAdmin.msg.NameNOK, NotificationAdmin.status.NameNOK);}
+             else if(res.status === "EmailNOK") {NotificationAdmin.showMessage(NotificationAdmin.msg.EmailNOK, NotificationAdmin.status.EmailNOK);}
+             else {
               NotificationAdmin.showMessage(NotificationAdmin.msg.NOK, NotificationAdmin.status.NOK);
             }
           }
