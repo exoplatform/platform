@@ -29,7 +29,16 @@
   import org.exoplatform.social.core.space.SpaceUtils;
   import org.exoplatform.social.webui.Utils;
   import org.exoplatform.web.security.csrf.CSRFTokenUtil;
-  
+  import org.exoplatform.commons.utils.PropertyManager;
+
+  def maxToUpload = PropertyManager.getProperty("exo.social.composer.maxToUpload");
+  def maxFileSizeInMB = PropertyManager.getProperty("exo.social.composer.maxFileSizeInMB");
+  if( maxToUpload == null ){
+    maxToUpload = 20;
+  }
+  if( maxFileSizeInMB == null ){
+      maxFileSizeInMB = 200;
+  }
   def rcontext = _ctx.getRequestContext() ;
   String docBase =  rcontext.getRequestContextPath() ;  
   String skin = uicomponent.getSkin();
@@ -185,6 +194,8 @@
       if(rcontext.getAccessPath() == 0) {%>eXo.env.portal.accessMode = "public" ;<%}
      else {%>eXo.env.portal.accessMode = "private" ;<%}%>
      eXo.env.portal.portalName = "<%=rcontext.getPortalOwner()%>" ;
+     eXo.env.portal.maxToUpload = <%=maxToUpload%>;
+     eXo.env.portal.maxFileSizeInMB = <%=maxFileSizeInMB%>;
      eXo.env.server.context = "<%=docBase%>" ;
      eXo.env.server.portalBaseURL = "<%=rcontext.getRequest().getRequestURI()%>" ;
      eXo.env.server.portalURLTemplate = "<%=uicomponent.getPortalURLTemplate()%>" ;
