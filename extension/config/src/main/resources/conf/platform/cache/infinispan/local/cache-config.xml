@@ -37,7 +37,7 @@
     <jmx duplicate-domains="true" domain="services.ispn.cache" mbean-server-lookup="org.infinispan.jmx.PlatformMBeanServerLookup"/>
     <local-cache-configuration name="default" statistics="true">
       <locking isolation="READ_COMMITTED" concurrency-level="500" striping="false" write-skew="false" acquire-timeout="${exo.cache.lockacquisitiontimeout:20000}"/>
-      <transaction mode="BATCH" transaction-manager-lookup="org.exoplatform.services.transaction.infinispan.JBossStandaloneJTAManagerLookup" />
+      <transaction locking="PESSIMISTIC" mode="NON_XA" transaction-manager-lookup="org.exoplatform.services.transaction.infinispan.JBossStandaloneJTAManagerLookup" />
       <eviction size="${exo.cache.eviction.maxEntries:1000000}" strategy="LRU" thread-policy="DEFAULT"/>
       <expiration interval="${exo.cache.expiration.wakeupinterval:60000}"/>
     </local-cache-configuration>
