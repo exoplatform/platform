@@ -459,25 +459,6 @@
         );
       }
       
-      var onlyOfficeButton =
-              '<div class="onlyOfficeEditBtn">' +
-                 '<a href="/portal/' + eXo.env.portal.portalName + '/oeditor?docId=' + this.settings.doc.id + '" target="_blank"><i class="uiIconEdit uiIconWhite"></i>'+ eXo.ecm.WCMUtils.getBundle("File.view.label.editOnline",eXo.env.portal.language) +'</a>' +
-              '</div>';
-
-      $.ajax({
-            url: "/portal/rest/onlyoffice/editor/api/version",
-              }).done(function(data, textStatus, xhr) {
-                 //If status code = 200 append onlyOffice button
-                 if( xhr.status === 200){
-                  $(".previewBtn").append(onlyOfficeButton);
-                  }
-              }).fail(function(textStatus, xhr) {
-                 if( xhr.status === 404){
-                  //OnlyOffice addons is not installed
-                 } else {
-                 console.log("Error to call rest service with status code :" +  xhr.status);}
-      });
-      
       $('#documentPreviewContainer #previewLikeLink').tooltip();
       
       $("#uiPreviewErrorMessage").hide();
