@@ -29,6 +29,9 @@ def srcImage = null;
 def profile = uicomponent.getOwnerProfile();
 if(profile != null){
     profileFullname = StringEscapeUtils.escapeHtml(profile.getFullName());
+    if (! profile.getIdentity().isEnable()) {
+        profileFullname = profileFullname + " (" + _ctx.appRes("UIUserNavigationPortlet.label.Disabled") + ")";
+    }
     srcImage = uicomponent.getAvatarURL(profile);
 }
 if (srcImage == null) {
