@@ -63,7 +63,8 @@ export default {
         Confirm: this.$t('Confirm.label'),
         CancelRequest: this.$t('CancelRequest.label'),
         RemoveConnection: this.$t('RemoveConnection.label'),
-        Ignore: this.$t('Ignore.label')
+        Ignore: this.$t('Ignore.label'),
+        Disabled: this.$t('Disabled.label')
       };
       $('#onlineList').find('a').each(function (idx, el) {
         $(el).userPopup({
