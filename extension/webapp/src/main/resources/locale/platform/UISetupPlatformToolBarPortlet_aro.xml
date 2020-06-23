@@ -11,12 +11,12 @@
 <org-management>إدارة المستخدمين</org-management>
 <portal>بوّابة</portal>
 <administration>ادارة</administration>
-<system>System</system>
+<system>النظام</system>
 <groupnavigation>مواقع المجموعات</groupnavigation>
 <pageManagement>صفحات</pageManagement>
 <portalnavigation>مواقع</portalnavigation>
-<spaces>المساحات</spaces>
-<Branding>الهوية</Branding>
+<spaces>فضاءات</spaces>
+<Branding>الشّكل</Branding>
       <Notification>الإشعارات</Notification>
 <ide>نظام برمجة متكامل IDE</ide>
 <search>إدارة البحث</search>

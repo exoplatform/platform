@@ -11,6 +11,7 @@
          <Myconnections>Mitt nettverk</Myconnections>
          <Mywiki>Min Wiki</Mywiki>
          <Mywallet>My Wallet</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>Mine varsler</NotificationSettingsPortlet>
          <More>More</More>
          <EditProfile>Rediger</EditProfile>
@@ -19,6 +20,7 @@
          <away>Borte</away>
          <donotdisturb>Ikke forstyrr</donotdisturb>
          <invisible>Invisible</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

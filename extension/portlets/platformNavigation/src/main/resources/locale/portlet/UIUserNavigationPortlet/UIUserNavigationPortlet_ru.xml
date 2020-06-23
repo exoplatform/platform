@@ -11,6 +11,7 @@
          <Myconnections>Мои контакты</Myconnections>
          <Mywiki>Моя Вики-страница</Mywiki>
          <Mywallet>My Wallet</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>Мои уведомления</NotificationSettingsPortlet>
          <More>Еще</More>
          <EditProfile>Редактировать</EditProfile>
@@ -19,6 +20,7 @@
          <away>Нет на месте</away>
          <donotdisturb>Не беспокоить</donotdisturb>
          <invisible>Невидимый</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>Выберите изображение не менее 130 пикселей в высоту.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

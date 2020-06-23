@@ -3,11 +3,12 @@
 <UIUserPlatformToolBarPortlet>
 <label>
 <NotificationSettingsPortlet>الإشعارات الخاصّة بي</NotificationSettingsPortlet>
-<activities>أنشطتي</activities>
+<activities>آخر أخباري</activities>
 <profile>ملفي الشخصي</profile>
-<network>جهات الاتصال</network>
+<network>علاقاتي</network>
 <wiki>ويكي خاصة</wiki>
 <wallet>محفظتي</wallet>
+<achievements>My Achievements</achievements>
 <account>الحساب</account>
 <language>تغيير اللغة</language>
 <logout>تسجيل الخروج</logout>

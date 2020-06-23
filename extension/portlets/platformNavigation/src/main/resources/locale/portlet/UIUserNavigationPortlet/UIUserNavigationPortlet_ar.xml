@@ -11,6 +11,7 @@
          <Myconnections>علاقاتي</Myconnections>
          <Mywiki>ويكي خاصة</Mywiki>
          <Mywallet>محفظتي</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>الإشعارات الخاصّة بي</NotificationSettingsPortlet>
          <More>المزيد</More>
          <EditProfile>تغيير</EditProfile>
@@ -19,6 +20,7 @@
          <away>غير موجود</away>
          <donotdisturb>عدم الإزعاج</donotdisturb>
          <invisible>غير مرئي</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>اختر صورة بارتفاع 130 بكسل على الأقل.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

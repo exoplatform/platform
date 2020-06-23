@@ -6,43 +6,45 @@
          <profile>الملفّ الشخصي</profile>
          <connections>اتصالات</connections>
          <wiki>ويكي</wiki>
-         <Myactivities>أنشطتي</Myactivities>
+         <Myactivities>آخر أخباري</Myactivities>
          <Myprofile>ملفي الشخصي</Myprofile>
-         <Myconnections>جهات الاتصال</Myconnections>
+         <Myconnections>علاقاتي</Myconnections>
          <Mywiki>ويكي خاصة</Mywiki>
          <Mywallet>محفظتي</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>الإشعارات الخاصّة بي</NotificationSettingsPortlet>
          <More>المزيد</More>
-         <EditProfile>Edit</EditProfile>
-         <available>Available</available>
-         <offline>Offline</offline>
-         <away>Away</away>
-         <donotdisturb>Do not disturb</donotdisturb>
-         <invisible>Invisible</invisible>
+         <EditProfile>تغيير</EditProfile>
+         <available>المـُـشاركون المُتواجدون</available>
+         <offline>غير متصل</offline>
+         <away>غير موجود</away>
+         <donotdisturb>عدم الإزعاج</donotdisturb>
+         <invisible>غير مرئي</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>اختر صورة بارتفاع 130 بكسل على الأقل.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>
       <title>
-         <UIAvatarUploader>Upload an Image</UIAvatarUploader>
+         <UIAvatarUploader>تحميل صورة</UIAvatarUploader>
       </title>
    </UIAvatarUploaderPopup>
    <UIPopupBannerUploader>
       <title>
-         <UIBannerUploader>Upload an Image</UIBannerUploader>
+         <UIBannerUploader>تحميل صورة</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
    <UIRelationshipAction>
       <action>
-         <AcceptRequest>Accept</AcceptRequest>
-         <Deny>Deny</Deny>
-         <RemoveConnection>Disconnect</RemoveConnection>
-         <CancelRequest>Cancel Request</CancelRequest>
+         <AcceptRequest>قبول</AcceptRequest>
+         <Deny>رفض</Deny>
+         <RemoveConnection>قطع الاتصال</RemoveConnection>
+         <CancelRequest>الغاء الطّلب</CancelRequest>
       </action>
       <label>
-         <Connect>Connect</Connect>
-         <ConnectNotExisting>Invitation was canceled by someone else.</ConnectNotExisting>
-         <ConnectionExisted>Invitation was established by someone else.</ConnectionExisted>
+         <Connect>اتصال</Connect>
+         <ConnectNotExisting>تم إلغاء الدعوة من قبل شخص آخر.</ConnectNotExisting>
+         <ConnectionExisted>أنشئت هذه الدعوة من قبل شخص آخر.</ConnectionExisted>
       </label>
    </UIRelationshipAction>
 </bundle>

@@ -11,6 +11,7 @@
          <Myconnections>Colaboratorii mei</Myconnections>
          <Mywiki>Wiki</Mywiki>
          <Mywallet>My Wallet</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>Notificări</NotificationSettingsPortlet>
          <More>Mai mult</More>
          <EditProfile>Modifică</EditProfile>
@@ -19,6 +20,7 @@
          <away>Plecat</away>
          <donotdisturb>Nu deranjaţi</donotdisturb>
          <invisible>Invizibil</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>Alege o imagine de cel puțin 130 de pixeli în înălțime.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

@@ -2,15 +2,16 @@
 <bundle>
 <UIUserPlatformToolBarPortlet>
 <label>
-<NotificationSettingsPortlet>میری اطلاعات</NotificationSettingsPortlet>
-<activities>میری سرگرمیاں</activities>
-<profile>میرا پروفائل</profile>
-<network>میرے کنکشن</network>
-<wiki>میری وکی</wiki>
+<NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+<activities>My Activities</activities>
+<profile>My Profile</profile>
+<network>My Connections</network>
+<wiki>My Wiki</wiki>
 <wallet>My Wallet</wallet>
-<account>اکاؤنٹ</account>
-<language>زبان تبدیل کریں</language>
-<logout>لاگ آؤٹ کریں</logout>
+<achievements>My Achievements</achievements>
+<account>Account</account>
+<language>Change Language</language>
+<logout>Logout</logout>
 </label>
 </UIUserPlatformToolBarPortlet>
 </bundle>

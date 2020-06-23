@@ -11,6 +11,7 @@
          <Myconnections>Moje kontakty</Myconnections>
          <Mywiki>Moje Wiki</Mywiki>
          <Mywallet>My Wallet</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>Oznámení</NotificationSettingsPortlet>
          <More>Více</More>
          <EditProfile>Upravit</EditProfile>
@@ -19,6 +20,7 @@
          <away>Nepřítomný</away>
          <donotdisturb>Nerušit</donotdisturb>
          <invisible>Neviditelný</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>Zvolte obrázek o výšce nejméně 130 pixelů.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

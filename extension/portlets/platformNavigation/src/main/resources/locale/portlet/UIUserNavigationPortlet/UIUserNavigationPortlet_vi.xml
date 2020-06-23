@@ -11,6 +11,7 @@
          <Myconnections>Kết nối của Tôi</Myconnections>
          <Mywiki>Wiki</Mywiki>
          <Mywallet>My Wallet</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>Thiết lập các thông báo</NotificationSettingsPortlet>
          <More>Hiện thêm</More>
          <EditProfile>Chỉnh sửa</EditProfile>
@@ -19,6 +20,7 @@
          <away>Vắng</away>
          <donotdisturb>Không làm phiền</donotdisturb>
          <invisible>Ẩn</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

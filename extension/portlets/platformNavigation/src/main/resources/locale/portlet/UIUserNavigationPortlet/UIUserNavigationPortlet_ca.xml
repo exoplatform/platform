@@ -11,6 +11,7 @@
          <Myconnections>Les Meves Connexions</Myconnections>
          <Mywiki>El Meu Wiki</Mywiki>
          <Mywallet>My Wallet</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>Les Meves Notificacions</NotificationSettingsPortlet>
          <More>Més</More>
          <EditProfile>Edita</EditProfile>
@@ -19,6 +20,7 @@
          <away>Absent</away>
          <donotdisturb>No molestar</donotdisturb>
          <invisible>Invisible</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>Triï una imatge d'una alçada mínima de 130 píxels.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

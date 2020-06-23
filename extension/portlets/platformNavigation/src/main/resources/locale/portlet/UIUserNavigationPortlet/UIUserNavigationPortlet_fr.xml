@@ -20,6 +20,7 @@
          <away>Absent</away>
          <donotdisturb>Ne pas déranger</donotdisturb>
          <invisible>Invisible</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>Choisissez une image de 130 pixels de hauteur minimum.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

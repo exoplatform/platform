@@ -11,6 +11,7 @@
          <Myconnections>Mijn verbindingen</Myconnections>
          <Mywiki>Mijn Wiki</Mywiki>
          <Mywallet>My Wallet</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>Mijn Notificaties</NotificationSettingsPortlet>
          <More>Meer</More>
          <EditProfile>Bewerken</EditProfile>
@@ -19,6 +20,7 @@
          <away>Afwezig</away>
          <donotdisturb>Niet storen</donotdisturb>
          <invisible>Onzichtbaar</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>Kies een afbeelding van minimaal 130 pixels hoog.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

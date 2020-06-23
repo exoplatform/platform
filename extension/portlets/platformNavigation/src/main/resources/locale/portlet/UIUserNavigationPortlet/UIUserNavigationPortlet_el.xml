@@ -11,6 +11,7 @@
          <Myconnections>Οι συνδέσεις μου</Myconnections>
          <Mywiki>To Wiki μου</Mywiki>
          <Mywallet>My Wallet</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>Οι ειδοποιήσεις μου</NotificationSettingsPortlet>
          <More>Περισσότερα</More>
          <EditProfile>Επεξεργασία</EditProfile>
@@ -19,6 +20,7 @@
          <away>Μη διαθέσιμος/η</away>
          <donotdisturb>Μην ενοχλείτε</donotdisturb>
          <invisible>Αόρατος</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

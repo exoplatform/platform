@@ -11,6 +11,7 @@
          <Myconnections>Mənim Əlaqələrim</Myconnections>
          <Mywiki>Wiki'm</Mywiki>
          <Mywallet>My Wallet</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>Bidlirişlərim</NotificationSettingsPortlet>
          <More>More</More>
          <EditProfile>Edit</EditProfile>
@@ -19,6 +20,7 @@
          <away>Uzaqda</away>
          <donotdisturb>Narahat etməyin</donotdisturb>
          <invisible>Gözəgörünməz</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

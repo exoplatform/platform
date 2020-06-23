@@ -9,7 +9,7 @@
          <Page>الصفحة</Page>
          <Site>موقع</Site>
          <Layout>تغير التخطيط</Layout>
-         <siteLayout>تغير التخطيط</siteLayout>
+         <siteLayout>تغيير التخطيط</siteLayout>
          <ManagePages>إدارة الصفحات</ManagePages>
          <GroupSite>موقع المجموعة</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
@@ -37,7 +37,7 @@
         <Hourly>كل ساعة</Hourly>
         <Daily>يوميا</Daily>
         <Weekly>أسبوعي</Weekly>
-        <Monthly>شهريّا</Monthly>
+        <Monthly>كل شهر</Monthly>
         <Yearly>سنويا</Yearly>
         <Never>أبدا</Never>
       </option> 
@@ -45,7 +45,7 @@
  
     <action>
       <Save>#{word.save}</Save>
-      <Cancel>#{word.cancel}</Cancel>
+      <Cancel>إلغاء</Cancel>
     </action>
     <msg>
       <repository-exception>حدث خطأ غير متوقع. لا يمكن حفظ البيانات الوصفية للصفحة.</repository-exception>
@@ -83,7 +83,7 @@
     <label>      
       <it>الإيطالية</it>      
       <fr>فرنسية</fr>
-      <en>انجليزية</en>      
+      <en>انقليزية</en>      
     </label>
   </Locale>
   

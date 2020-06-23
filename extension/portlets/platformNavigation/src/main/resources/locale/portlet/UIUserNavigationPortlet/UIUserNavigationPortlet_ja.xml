@@ -11,6 +11,7 @@
          <Myconnections>マイ・コネクト</Myconnections>
          <Mywiki>Wiki</Mywiki>
          <Mywallet>マイ・ウォレット</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>通知</NotificationSettingsPortlet>
          <More>詳細</More>
          <EditProfile>編集</EditProfile>
@@ -19,6 +20,7 @@
          <away>離席中</away>
          <donotdisturb>サイレントモード</donotdisturb>
          <invisible>非公開</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>少なくとも 高さ130 ピクセルのイメージを選択してください。</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

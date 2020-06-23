@@ -2,8 +2,8 @@
 <bundle>
   <Signin>
     <welcome>أهلا وسهلا بكم</welcome>
-    <login>دخول</login>
-    <logout>خروج</logout>
+    <login>تسجيل الدخول</login>
+    <logout>تسجيل الخروج</logout>
     <language>
       <en>التبديل إلى اللغة الإنجليزية</en>
       <fr>التبديل إلى الفرنسية</fr>
@@ -25,7 +25,7 @@
     <GoHome>انتقل إلى الصفحة الرئيسية</GoHome>
   </Logo>
   <acme>
-    <label>نموذج ACME</label>
+    <label>ACME نموذج</label>
   </acme>  
   <WAIPortal>
     <label>عينة موقع يمكن الوصول إليها</label>

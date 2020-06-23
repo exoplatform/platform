@@ -11,6 +11,7 @@
          <Myconnections>Aking mga Koneksyon</Myconnections>
          <Mywiki>Ang Wiki ko</Mywiki>
          <Mywallet>My Wallet</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>Aking mga notipikasyon</NotificationSettingsPortlet>
          <More>Higit pa</More>
          <EditProfile>I-edit</EditProfile>
@@ -19,6 +20,7 @@
          <away>Nasa Malayo</away>
          <donotdisturb>Huwag Gambalain</donotdisturb>
          <invisible>Hindi nakikita</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>Pumili ng imahe kahit mga 130 pixel ang taas.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>

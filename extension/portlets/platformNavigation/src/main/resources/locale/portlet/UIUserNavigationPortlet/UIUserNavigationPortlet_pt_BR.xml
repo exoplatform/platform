@@ -11,6 +11,7 @@
          <Myconnections>Minhas conexões</Myconnections>
          <Mywiki>Meu Wiki</Mywiki>
          <Mywallet>Minha Carteira</Mywallet>
+         <Myachievements>My Achievements</Myachievements>
          <NotificationSettingsPortlet>Minhas Notificações</NotificationSettingsPortlet>
          <More>Mais</More>
          <EditProfile>Editar</EditProfile>
@@ -19,6 +20,7 @@
          <away>Ausente</away>
          <donotdisturb>Não perturbe</donotdisturb>
          <invisible>Invisível</invisible>
+         <disabeld>Disabled</disabeld>
          <bannerSizeHint>Escolha uma imagem com pelo menos 130 pixels de altura.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
