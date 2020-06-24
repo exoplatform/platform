@@ -22,19 +22,19 @@
 
 -->
 <messagebundle>
-  <msg name="forums.statistic.title">Estadísticas del Foro</msg>
-  <msg name="forums.statistic.total.topic">Total de temas:</msg>
-  <msg name="forums.statistic.total.post">Total de mensajes:</msg>
-  <msg name="forums.statistic.total.member">Número total de miembros:</msg>
-  <msg name="forums.statistic.active.member">Miembros recientemente activos :</msg>
-  <msg name="forums.statistic.maximum.user">Número máximo de usuarios conectados:</msg>  
-  <msg name="forums.statistic.at">en</msg>  
-  <msg name="forums.weekly.statistic.title">Estadísticas semanales de foros</msg>
-  <msg name="forums.weekly.statistic.post.open">Mensaje(s) creados</msg>
-  <msg name="forums.weekly.statistic.next">Siguiente</msg>
-  <msg name="forums.weekly.statistic.prev">Previo</msg>
-  <msg name="forums.weekly.statistic.view.chart">Ver como gráfica</msg>
-  <msg name="forums.weekly.statistic.view.list">Ver como lista</msg>
-  <msg name="forums.statistic.see.total.statistic">Estadísticas generales</msg>
-  <msg name="forums.statistic.see.weekly.statistic">Estadísticas semanales</msg>  
+  <msg name="forums.statistic.title">Forum Statistics</msg>
+  <msg name="forums.statistic.total.topic">Total Topics:</msg>
+  <msg name="forums.statistic.total.post">Total Posts:</msg>
+  <msg name="forums.statistic.total.member">Total Members:</msg>
+  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
+  <msg name="forums.statistic.maximum.user">Maximum number of online users:</msg>  
+  <msg name="forums.statistic.at">at</msg>  
+  <msg name="forums.weekly.statistic.title">Forums Weekly Statistics</msg>
+  <msg name="forums.weekly.statistic.post.open">Post(s) Created</msg>
+  <msg name="forums.weekly.statistic.next">Next</msg>
+  <msg name="forums.weekly.statistic.prev">Previous</msg>
+  <msg name="forums.weekly.statistic.view.chart">View as chart</msg>
+  <msg name="forums.weekly.statistic.view.list">View as list</msg>
+  <msg name="forums.statistic.see.total.statistic">Global Statistics</msg>
+  <msg name="forums.statistic.see.weekly.statistic">Weekly Statistics</msg>  
 </messagebundle>

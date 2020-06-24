@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Encuesta recomendada</msg>
-  <msg name="setting">Ajuste</msg>
-  <msg name="vote">Votar</msg>
-  <msg name="voteAgain">Votar de nuevo</msg>
-  <msg name="warning">Seleccione al menos una opción</msg>
-  <msg name="option">Opciones</msg>
-  <msg name="percent">Porcentaje</msg>
-  <msg name="voter">Votantes</msg>
+  <msg name="title">Featured Poll</msg>
+  <msg name="setting">View</msg>
+  <msg name="vote">Vote</msg>
+  <msg name="voteAgain">Vote Again</msg>
+  <msg name="warning">Please choose at least one option</msg>
+  <msg name="option">Options</msg>
+  <msg name="percent">Percent</msg>
+  <msg name="voter">Voters</msg>
   <msg name="total">Total</msg>
-  <msg name="discuss">Discutir en el foro</msg>
-  <msg name="nopoll">Todavía no hay encuestas</msg>  
-  <msg name="createPoll">Crear su propia encuesta</msg>    
+  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="nopoll">No Polls Yet</msg>  
+  <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>
