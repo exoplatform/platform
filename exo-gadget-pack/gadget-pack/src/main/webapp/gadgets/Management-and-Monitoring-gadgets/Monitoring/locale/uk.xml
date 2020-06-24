@@ -20,20 +20,20 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">Пам'ять</msg>
-  <msg name="used">Використано</msg>
-  <msg name="free">Безкоштовно</msg>
-  <msg name="total">Всього</msg>
-  <msg name="heap">Heap пам'ять</msg>
-  <msg name="non-heap">Non-heap пам'ять</msg>
-  <msg name="loading">Завантаження даних...</msg>
-  <msg name="title_caches">Рівні кешу</msg>
-  <msg name="consumption">Споживання</msg>
-  <msg name="hit_ratio">Співвідношення влучання</msg>
-  <msg name="details">Подробиці</msg>
-  <msg name="hit">Влучання</msg>
-  <msg name="miss">Пропуск</msg>
-  <msg name="full">повний</msg>
-  <msg name="max_size">Максимальний розмір</msg>
-  <msg name="time_to_live">Час життя</msg>
+  <msg name="title_memory">Memory</msg>
+  <msg name="used">Used</msg>
+  <msg name="free">Free</msg>
+  <msg name="total">Total</msg>
+  <msg name="heap">Heap memory</msg>
+  <msg name="non-heap">Non-heap memory</msg>
+  <msg name="loading">Loading data ...</msg>
+  <msg name="title_caches">Cache Levels</msg>
+  <msg name="consumption">Consumption</msg>
+  <msg name="hit_ratio">Hit ratio</msg>
+  <msg name="details">Details</msg>
+  <msg name="hit">Hit</msg>
+  <msg name="miss">Miss</msg>
+  <msg name="full">full</msg>
+  <msg name="max_size">Max size</msg>
+  <msg name="time_to_live">Time to live</msg>
 </messagebundle>

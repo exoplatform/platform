@@ -20,10 +20,10 @@
 
 -->
 <messagebundle>
-  <msg name="title">Обрані документи</msg>
-  <msg name="titleFav">Обране</msg>
-  <msg name="titleDoc">Мої документи</msg>  
-  <msg name="nofav">У вас немає обраних документів</msg>
-  <msg name="nodoc">У вас немає документів</msg>
-  <msg name="showall">Показати все</msg>
+  <msg name="title">Favorite Documents</msg>
+  <msg name="titleFav">My Favorites</msg>
+  <msg name="titleDoc">My Documents</msg>  
+  <msg name="nofav">You have no favorite document</msg>
+  <msg name="nodoc">You have no document</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>
