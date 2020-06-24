@@ -22,30 +22,30 @@
 
 -->
 <messagebundle>
-  <msg name="loginHistory.title">Ιστορικό συνδέσεων</msg>
-  <msg name="loginHistory.user">Χρήστης</msg>
-  <msg name="loginHistory.find">Εύρεση</msg>
-  <msg name="loginHistory.latest">Επαναφορά</msg>
-  <msg name="loginHistory.lastLogin">Τελευταία είσοδος</msg>
-  <msg name="loginHistory.beforeThat">Πιο πριν</msg>
-  <msg name="loginHistory.more">Περισσότερα</msg>
-  <msg name="loginHistory.stats">Στατιστικά</msg>
-  <msg name="loginHistory.history">Ιστορικό</msg>
+  <msg name="loginHistory.title">Login History</msg>
+  <msg name="loginHistory.user">User</msg>
+  <msg name="loginHistory.find">Find</msg>
+  <msg name="loginHistory.latest">Reset</msg>
+  <msg name="loginHistory.lastLogin">Last Login</msg>
+  <msg name="loginHistory.beforeThat">Before that</msg>
+  <msg name="loginHistory.more">More</msg>
+  <msg name="loginHistory.stats">Stats</msg>
+  <msg name="loginHistory.history">History</msg>
   <msg name="loginHistory.global">Global</msg>
-  <msg name="loginHistory.week">Εβδομάδα</msg>
-  <msg name="loginHistory.lastLoginsView">Τελευταίες Συνδέσεις στο σύστημα</msg>
-  <msg name="loginHistory.historyView">Ιστορικό</msg>
-  <msg name="loginHistory.statisticsView">Στατιστικά</msg>
-  <msg name="loginHistory.averagePerDay">Μέσος όρος συνδέσεων ανά ημέρα</msg>
-  <msg name="loginHistory.averagePerWeek">Μέσος όρος συνδέσεων ανά εβδομάδα</msg>
-  <msg name="loginHistory.averagePerMonth">Μέσος όρος εισόδων ανά μήνα</msg>
-  <msg name="loginHistory.today">Σήμερα</msg>
-  <msg name="loginHistory.earlierThisWeek">Νωρίτερα μέσα στην εβδομάδα</msg>
-  <msg name="loginHistory.earlierThisMonth">Νωρίτερα αυτό το μήνα</msg>
-  <msg name="loginHistory.earlier">Νωρίτερα</msg>
-  <msg name="loginHistory.allUsers">Όλοι οι χρήστες</msg>
-  <msg name="loginHistory.unknow">Άγνωστο</msg>
-  <msg name="loginHistory.next">Επόμενο</msg>
+  <msg name="loginHistory.week">Week</msg>
+  <msg name="loginHistory.lastLoginsView">Last Logins</msg>
+  <msg name="loginHistory.historyView">History</msg>
+  <msg name="loginHistory.statisticsView">Statistics</msg>
+  <msg name="loginHistory.averagePerDay">Average logins / day</msg>
+  <msg name="loginHistory.averagePerWeek">Average logins / week</msg>
+  <msg name="loginHistory.averagePerMonth">Average logins / month</msg>
+  <msg name="loginHistory.today">Today</msg>
+  <msg name="loginHistory.earlierThisWeek">Earlier this week</msg>
+  <msg name="loginHistory.earlierThisMonth">Earlier this month</msg>
+  <msg name="loginHistory.earlier">Earlier</msg>
+  <msg name="loginHistory.allUsers">All Users</msg>
+  <msg name="loginHistory.unknow">Unknow</msg>
+  <msg name="loginHistory.next">Next</msg>
   <msg name="loginHistory.ago">Ago</msg>
-  <msg name="loginHistory.search_user">Αναζήτηση χρήστη</msg>
+  <msg name="loginHistory.search_user">Search user</msg>
 </messagebundle>

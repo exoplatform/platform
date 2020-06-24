@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messagebundle>
-  <msg name="title">Ίσως γνωρίζετε αυτούς τους ανθρώπους;</msg>
+  <msg name="title">Do you know these people?</msg>
 
 
-  <msg name="mutual-friends">Κοινοί φίλοι</msg>
+  <msg name="mutual-friends">Mutual friend(s)</msg>
 </messagebundle>

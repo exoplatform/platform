@@ -21,18 +21,18 @@
 -->
 <messagebundle>  
   <msg name="title">Service Management</msg>
-  <msg name="services">Υπηρεσίες</msg>
-  <msg name="name">Όνομα</msg>
-  <msg name="description">Περιγραφή</msg>
-  <msg name="noDescription">Χωρίς περιγραφή</msg>
-  <msg name="method">Μέθοδος</msg>
-  <msg name="parameters">Παράμετροι</msg>
-  <msg name="action">Ενέργεια</msg>
-  <msg name="value">Τιμή</msg>
-  <msg name="services_url">URL υπηρεσίας</msg>
-  <msg name="failManage">Προσωρινά δεν είναι εφικτή η διαχείριση των υπηρεσιών από απομακρυσμένο διακομιστή καθώς απαιτείται η υποστήριξη του OAuth</msg>
+  <msg name="services">Services</msg>
+  <msg name="name">Name</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
   <msg name="noServices">No service is available or you don't have enough permission</msg>
-  <msg name="noMethod">Καμία μέθοδος</msg>
-  <msg name="noProperty">Δεν υπάρχουν ιδιότητες</msg>
-  <msg name="badURL">Παρουσιάστηκε σφάλμα κατά την ανάκτηση δεδομένων. Ελέγξτε το URL που έχετε ορίσει</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>
