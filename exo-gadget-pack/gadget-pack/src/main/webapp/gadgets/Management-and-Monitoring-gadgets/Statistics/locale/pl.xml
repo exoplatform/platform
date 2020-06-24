@@ -20,15 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title_templates">Statystyki Szablonu</msg>
-  <msg name="ten_slowest_templates">10 najwolniejszych szablonów</msg>
-  <msg name="all_templates">Wszystkie szablony</msg>
-  <msg name="title_apps">Statystyki aplikacji</msg>
-  <msg name="ten_slowest_apps">10 najwolniejszych aplikacji</msg>
-  <msg name="all_apps">Wszystkie aplikacje</msg>
-  <msg name="avg_exec_time">Średni czas wykonywania (ms)</msg>
+  <msg name="title_templates">Template Statistics</msg>
+  <msg name="ten_slowest_templates">10 slowest templates</msg>
+  <msg name="all_templates">All templates</msg>
+  <msg name="title_apps">Application Statistics</msg>
+  <msg name="ten_slowest_apps">10 slowest applications</msg>
+  <msg name="all_apps">All applications</msg>
+  <msg name="avg_exec_time">Average execution time (ms)</msg>
   <msg name="min">min</msg>
-  <msg name="max">maks</msg>
+  <msg name="max">max</msg>
   <msg name="exec">#exec</msg>
-  <msg name="loading">Ładowanie danych...</msg>
+  <msg name="loading">Loading data ...</msg>
 </messagebundle>
