@@ -20,15 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title_templates">سانچا کے اعداد و شمار</msg>
-  <msg name="ten_slowest_templates">10 سست ترین سانچے</msg>
-  <msg name="all_templates">تمام سانچے</msg>
-  <msg name="title_apps">ایپلی کیشن کے اعداد و شمار</msg>
-  <msg name="ten_slowest_apps">10 سست ترین درخواست</msg>
-  <msg name="all_apps">تمام درخواستیں</msg>
-  <msg name="avg_exec_time">اوسط عملدرآمد کا وقت (ایم ایس)</msg>
-  <msg name="min">کم از کم</msg>
-  <msg name="max">زیادہ سے زیادہ</msg>
+  <msg name="title_templates">Template Statistics</msg>
+  <msg name="ten_slowest_templates">10 slowest templates</msg>
+  <msg name="all_templates">All templates</msg>
+  <msg name="title_apps">Application Statistics</msg>
+  <msg name="ten_slowest_apps">10 slowest applications</msg>
+  <msg name="all_apps">All applications</msg>
+  <msg name="avg_exec_time">Average execution time (ms)</msg>
+  <msg name="min">min</msg>
+  <msg name="max">max</msg>
   <msg name="exec">#exec</msg>
-  <msg name="loading">لوڈنگ ڈیٹا...</msg>
+  <msg name="loading">Loading data ...</msg>
 </messagebundle>

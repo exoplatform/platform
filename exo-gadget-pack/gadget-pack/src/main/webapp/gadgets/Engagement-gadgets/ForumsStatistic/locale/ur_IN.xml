@@ -22,19 +22,19 @@
 
 -->
 <messagebundle>
-  <msg name="forums.statistic.title">فورم کے اعداد و شمار</msg>
-  <msg name="forums.statistic.total.topic">کل عنوانات:</msg>
-  <msg name="forums.statistic.total.post">کل اشاعتیں:</msg>
-  <msg name="forums.statistic.total.member">کل ارکان:</msg>
-  <msg name="forums.statistic.active.member">حال ہی میں فعال ارکان:</msg>
-  <msg name="forums.statistic.maximum.user">آن لائن صارفین کی زیادہ سے زیادہ تعداد:</msg>  
-  <msg name="forums.statistic.at">پر</msg>  
-  <msg name="forums.weekly.statistic.title">فورمز کی ہفتہ وار اعداد و شمار</msg>
-  <msg name="forums.weekly.statistic.post.open">پوسٹ (ے) تیار</msg>
-  <msg name="forums.weekly.statistic.next">اگلا</msg>
-  <msg name="forums.weekly.statistic.prev">پچھلا</msg>
-  <msg name="forums.weekly.statistic.view.chart">چارٹ کے طور پر دیکھیں</msg>
-  <msg name="forums.weekly.statistic.view.list">فہرست کے طور پر دیکھیں</msg>
-  <msg name="forums.statistic.see.total.statistic">عالمی اعداد و شمار</msg>
-  <msg name="forums.statistic.see.weekly.statistic">ہفتہ وار اعداد و شمار</msg>  
+  <msg name="forums.statistic.title">Forum Statistics</msg>
+  <msg name="forums.statistic.total.topic">Total Topics:</msg>
+  <msg name="forums.statistic.total.post">Total Posts:</msg>
+  <msg name="forums.statistic.total.member">Total Members:</msg>
+  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
+  <msg name="forums.statistic.maximum.user">Maximum number of online users:</msg>  
+  <msg name="forums.statistic.at">at</msg>  
+  <msg name="forums.weekly.statistic.title">Forums Weekly Statistics</msg>
+  <msg name="forums.weekly.statistic.post.open">Post(s) Created</msg>
+  <msg name="forums.weekly.statistic.next">Next</msg>
+  <msg name="forums.weekly.statistic.prev">Previous</msg>
+  <msg name="forums.weekly.statistic.view.chart">View as chart</msg>
+  <msg name="forums.weekly.statistic.view.list">View as list</msg>
+  <msg name="forums.statistic.see.total.statistic">Global Statistics</msg>
+  <msg name="forums.statistic.see.weekly.statistic">Weekly Statistics</msg>  
 </messagebundle>

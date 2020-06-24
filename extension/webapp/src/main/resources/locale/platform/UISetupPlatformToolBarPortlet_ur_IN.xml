@@ -2,26 +2,26 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>درخواستیں</applications>
-<content>مواد</content>
-<siteExplorer>جگہ تلاش کرنے والا</siteExplorer>
-<wcmAdmin>مواد انتظامیہ</wcmAdmin>
-<users>صارفین</users>
-<newStaff>صارفین کا اضافہ کریں</newStaff>
-<org-management>صارفین کو سنبھالیں</org-management>
-<portal>پورٹل</portal>
-<administration>انتظامیہ</administration>
-<system>سسٹم</system>
-<groupnavigation>گروپ کی سائٹس</groupnavigation>
-<pageManagement>صفہے</pageManagement>
-<portalnavigation>سائٹس</portalnavigation>
-<servicesManagement>انتظامیه</servicesManagement>
-<monitoring>نگرانی</monitoring>
-<spaces>خالی جگہیں</spaces>
-<Branding>برانڈ سازی</Branding>
-      <Notification>اطلاعات</Notification>
+<applications>Applications</applications>
+<content>Content</content>
+<siteExplorer>Site Explorer</siteExplorer>
+<wcmAdmin>Content Administration</wcmAdmin>
+<users>Users</users>
+<newStaff>Add Users</newStaff>
+<org-management>Manage Users</org-management>
+<portal>Portal</portal>
+<administration>Administration</administration>
+<system>System</system>
+<groupnavigation>Group Sites</groupnavigation>
+<pageManagement>Pages</pageManagement>
+<portalnavigation>Sites</portalnavigation>
+<servicesManagement>Management</servicesManagement>
+<monitoring>Monitoring</monitoring>
+<spaces>Spaces</spaces>
+<Branding>Branding</Branding>
+      <Notification>Notifications</Notification>
 <ide>IDE</ide>
-<search>تلاش انتظامیہ</search>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

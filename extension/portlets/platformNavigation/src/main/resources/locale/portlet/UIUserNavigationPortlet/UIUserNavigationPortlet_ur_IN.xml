@@ -2,47 +2,47 @@
 <bundle>
    <UIUserNavigationPortlet>
       <label>
-         <activities>سرگرمیاں</activities>
-         <profile>پروفائل</profile>
-         <connections>کنکشنز</connections>
-         <wiki>ویکی</wiki>
-         <Myactivities>میری سرگرمیاں</Myactivities>
-         <Myprofile>میرا پروفائل</Myprofile>
-         <Myconnections>میرے کنکشن</Myconnections>
-         <Mywiki>میری وکی</Mywiki>
-         <Mydashboard>میرا ڈیش بورڈ</Mydashboard>
-         <NotificationSettingsPortlet>میری اطلاعات</NotificationSettingsPortlet>
-         <More>مزید</More>
-         <EditProfile>ترمیم</EditProfile>
-         <available>دستياب</available>
-         <offline>آف لائن</offline>
-         <away>دور</away>
-         <donotdisturb>پریشان نہ کريى</donotdisturb>
-         <invisible>پوشیدہ</invisible>
-         <bannerSizeHint>کم از کم 130 پکسلز کی تصویر منتخب کریں.</bannerSizeHint>
+         <activities>Activities</activities>
+         <profile>Profile</profile>
+         <connections>Connections</connections>
+         <wiki>Wiki</wiki>
+         <Myactivities>My Activities</Myactivities>
+         <Myprofile>My Profile</Myprofile>
+         <Myconnections>My Connections</Myconnections>
+         <Mywiki>My Wiki</Mywiki>
+         <Mydashboard>My Dashboard</Mydashboard>
+         <NotificationSettingsPortlet>My Notifications</NotificationSettingsPortlet>
+         <More>More</More>
+         <EditProfile>Edit</EditProfile>
+         <available>Available</available>
+         <offline>Offline</offline>
+         <away>Away</away>
+         <donotdisturb>Do not disturb</donotdisturb>
+         <invisible>Invisible</invisible>
+         <bannerSizeHint>Choose an image at least 130 pixels high.</bannerSizeHint>
       </label>
    </UIUserNavigationPortlet>
    <UIAvatarUploaderPopup>
       <title>
-         <UIAvatarUploader>تصویر چھائیں</UIAvatarUploader>
+         <UIAvatarUploader>Upload an Image</UIAvatarUploader>
       </title>
    </UIAvatarUploaderPopup>
    <UIPopupBannerUploader>
       <title>
-         <UIBannerUploader>تصویر چھائیں</UIBannerUploader>
+         <UIBannerUploader>Upload an Image</UIBannerUploader>
       </title>
    </UIPopupBannerUploader>
    <UIRelationshipAction>
       <action>
-         <AcceptRequest>قبول کریں</AcceptRequest>
-         <Deny>انکار</Deny>
-         <RemoveConnection>منقطع</RemoveConnection>
-         <CancelRequest>درخواست منسوخ کریں</CancelRequest>
+         <AcceptRequest>Accept</AcceptRequest>
+         <Deny>Deny</Deny>
+         <RemoveConnection>Disconnect</RemoveConnection>
+         <CancelRequest>Cancel Request</CancelRequest>
       </action>
       <label>
-         <Connect>رابطہ</Connect>
-         <ConnectNotExisting>دعوت نامہ منسوخ کر دیا گیا.</ConnectNotExisting>
-         <ConnectionExisted>مدعو کسی اور کی طرف سے قائم کیا گیا تھا.</ConnectionExisted>
+         <Connect>Connect</Connect>
+         <ConnectNotExisting>Invitation was canceled by someone else.</ConnectNotExisting>
+         <ConnectionExisted>Invitation was established by someone else.</ConnectionExisted>
       </label>
    </UIRelationshipAction>
 </bundle>

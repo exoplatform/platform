@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">نمایاں سروے</msg>
-  <msg name="setting">ملاحظہ کریں</msg>
-  <msg name="vote">ووٹ</msg>
-  <msg name="voteAgain">پھر ووٹ ديں</msg>
-  <msg name="warning">کم ازکم ایک اختیار انتخاب کریں ۔</msg>
-  <msg name="option">اختیارات</msg>
-  <msg name="percent">فیصد</msg>
-  <msg name="voter">رائے دہندگان</msg>
-  <msg name="total">کل</msg>
-  <msg name="discuss">فورم میں بحث کریں</msg>
-  <msg name="nopoll">ابھی تک کوئی سروے نھہں</msg>  
-  <msg name="createPoll">اپنی سروے بنائیں</msg>    
+  <msg name="title">Featured Poll</msg>
+  <msg name="setting">View</msg>
+  <msg name="vote">Vote</msg>
+  <msg name="voteAgain">Vote Again</msg>
+  <msg name="warning">Please choose at least one option</msg>
+  <msg name="option">Options</msg>
+  <msg name="percent">Percent</msg>
+  <msg name="voter">Voters</msg>
+  <msg name="total">Total</msg>
+  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="nopoll">No Polls Yet</msg>  
+  <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>

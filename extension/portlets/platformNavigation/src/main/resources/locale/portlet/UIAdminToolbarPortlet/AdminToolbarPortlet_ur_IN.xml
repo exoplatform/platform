@@ -2,44 +2,44 @@
 <bundle>
    <UIAdminToolbarPortlet>
       <action>
-         <AddPage>صفحہ ا ضافہ کریں</AddPage>
-         <EditNavigation>نیوی گیشن میں ترمیم کریں</EditNavigation>
-         <Content>ترتیب سے ترمیم</Content>
-         <Editor>ترمیم</Editor>
-         <Page>صفہ</Page>
-         <Site>سائٹ</Site>
-         <Layout>ترتیب میں ترمیم کریں</Layout>
-         <siteLayout>ترتیب میں ترمیم کریں</siteLayout>
-         <ManagePages>صفحات كو منظم کریں</ManagePages>
-         <GroupSite>گروپ کی سائٹ</GroupSite>
+         <AddPage>Add Page</AddPage>
+         <EditNavigation>Edit Navigation</EditNavigation>
+         <Content>Inline Edit</Content>
+         <Editor>Edit</Editor>
+         <Page>Page</Page>
+         <Site>Site</Site>
+         <Layout>Edit Layout</Layout>
+         <siteLayout>Edit Layout</siteLayout>
+         <ManagePages>Manage Pages</ManagePages>
+         <GroupSite>Group Site</GroupSite>
          <Properties>#{UISEOToolbarForm.label.seo}</Properties>
-         <AddSite>سائٹ کا ا ضافہ کریں</AddSite>
+         <AddSite>Add Site</AddSite>
       </action>
-<ManageSites>سائٹس منظم کریی</ManageSites>
-<ManageGroupSites>گروپ سائٹس کا انتظام کریں</ManageGroupSites>
+<ManageSites>Manage Sites</ManageSites>
+<ManageGroupSites>Manage Group Sites</ManageGroupSites>
    </UIAdminToolbarPortlet>
 
   <UISEOForm>
     <label>
-      <title>عنوان:</title>  
-      <description>تفصیل:</description>
-      <keywords>اہم الفاظ:</keywords>
-      <language>زبان:</language>
-      <robots>روبوٹ:</robots>
-      <sitemap>سائٹ کا نقشہ:</sitemap>
-      <sitemapvisible>سائٹ کے نقشہ میں نظر آتا ہے</sitemapvisible>
-  <isInherited>اصلی صفحہ سے وراثت میں مِلا</isInherited>
-      <priority>ترجیح:</priority>
-      <frequency>کثرت:</frequency>
-      <select-language>زبان منتخب کریں</select-language>
+      <title>Title:</title>  
+      <description>Description:</description>
+      <keywords>Keywords:</keywords>
+      <language>Language:</language>
+      <robots>Robots:</robots>
+      <sitemap>Sitemap:</sitemap>
+      <sitemapvisible>Visible in sitemap</sitemapvisible>
+  <isInherited>Inherited from parent page</isInherited>
+      <priority>Priority:</priority>
+      <frequency>Frequency:</frequency>
+      <select-language>Select Language</select-language>
       <option>
-        <Always>ہمیشہ</Always>
-        <Hourly>فی گهنٹا</Hourly>
-        <Daily>روزانا</Daily>
-        <Weekly>ہفتہ وار</Weekly>
-        <Monthly>ماہانہ</Monthly>
-        <Yearly>سالانہ</Yearly>
-        <Never>کبھی نہیں</Never>
+        <Always>Always</Always>
+        <Hourly>Hourly</Hourly>
+        <Daily>Daily</Daily>
+        <Weekly>Weekly</Weekly>
+        <Monthly>Monthly</Monthly>
+        <Yearly>Yearly</Yearly>
+        <Never>Never</Never>
       </option> 
     </label>
  
@@ -48,16 +48,16 @@
       <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
-      <repository-exception>ایک غیر متوقع غلطی ہوئی. صفحہ میٹاڈیٹا کو محفوظ نہیں کرسکتا.</repository-exception>
-      <confirm-delete>کیا آپ واقعی ان SEO ڈیٹا كو حذف کرنا چاہتے ہیی؟</confirm-delete>
+      <repository-exception>An unexpected error occurred. Cannot save page metadata.</repository-exception>
+      <confirm-delete>Are you sure you want to delete these SEO data?</confirm-delete>
     </msg>
     <title>
-    <seo-delete>حذف کریں</seo-delete>
+    <seo-delete>Delete</seo-delete>
     </title>
 <help> 
-  <priority>درست اقدار 0.0 سے 1.0 تک ھے</priority>
-  <description>مدد تلاش کرنے والے: انہیں بتائیں کہ مندرجہ ذیل صفحے کے پاس وہ لِنك ہے جو وہ تلاش کر رہے ہیں.</description>
-  <keywords>صفحے میں سب سے اہم شرائط كا ایک کوما سے الگ ہونا لازمی ہے.</keywords>  
+  <priority>Valid values range from 0.0 to 1.0.</priority>
+  <description>Help searchers: let them know that the following page has a link with what they are looking for.</description>
+  <keywords>Most important terms in the page must be separated by a comma.</keywords>  
     </help>  
   </UISEOForm>
   <UISEOPopupWindow>
@@ -67,7 +67,7 @@
   </UISEOPopupWindow>    
   <UISEOToolbarForm>
   <title>
-      <seo>SEO انتظامیه</seo>
+      <seo>SEO Management</seo>
   </title>
   <label>
     <seo>SEO</seo>
@@ -75,15 +75,15 @@
   </UISEOToolbarForm>  
   <FloatNumberValidator>
     <msg>
-      <Invalid-number>ترجیحی میدان میں ایک غلط وصف ہے. براہ مہربانی 0.0 اور 1.0 کے درمیان ایک نمبر درج کریں.</Invalid-number>
+      <Invalid-number>Priority field has an invalid value. Please enter a number between 0.0 and 1.0.</Invalid-number>
     </msg>
   </FloatNumberValidator>
   
   <Locale>
     <label>      
       <it>Italian</it>      
-      <fr>فرانسیسی</fr>
-      <en>انگریزی</en>      
+      <fr>French</fr>
+      <en>English</en>      
     </label>
   </Locale>
   

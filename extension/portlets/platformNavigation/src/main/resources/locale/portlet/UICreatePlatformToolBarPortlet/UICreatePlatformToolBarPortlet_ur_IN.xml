@@ -2,21 +2,21 @@
 <bundle>
    <UIUserPlatformToolBarCreatePortlet>
       <label>
-         <topic>مباحثہ</topic>
-         <poll>رائے شماری</poll>
+         <topic>Discussion</topic>
+         <poll>Poll</poll>
          <event>Event</event>
-         <upload>مسل</upload>
-         <wiki>وکی صفحہ</wiki>
+         <upload>File</upload>
+         <wiki>Wiki Page</wiki>
 
       </label>
    </UIUserPlatformToolBarCreatePortlet>
    <UICreateList>
       <label>
-         <topic>مباحثہ</topic>
-         <poll>رائے شماری</poll>
-         <CreateANew>نیا {1}:</CreateANew>
-         <NoForum>معذرت، کوئی فورم دستیاب نہیں ہے جس میں آپ {1} بنا سکتے ہیں. سب سے پہلے ایک خالی جگے پیدا کرکے شروع کریں اور پھر دوبارہ کوشش کریں.</NoForum>
-         <RequireSelectForum>برائے مہربانی فورم منتخب کریں ۔.</RequireSelectForum>
+         <topic>discussion</topic>
+         <poll>Poll</poll>
+         <CreateANew>New {1}:</CreateANew>
+         <NoForum>Sorry, no forum is available yet in which you can create the {1}. Start by creating a space first and then try again.</NoForum>
+         <RequireSelectForum>Please select a forum.</RequireSelectForum>
       </label>
       <action>
          <Next>#{word.next}</Next>
@@ -25,48 +25,48 @@
    </UICreateList>
    <UICreateTopic>
       <label>
-         <SelectAForum>فورم منتخب کریں</SelectAForum>
-         <location>مقام میں</location>
-         <forumId>اور فورم</forumId>
-         <FilterForums>فورمز کو فلٹر کریں</FilterForums>
+         <SelectAForum>Select a Forum</SelectAForum>
+         <location>In Location</location>
+         <forumId>And Forum</forumId>
+         <FilterForums>Filter Forums</FilterForums>
       </label>
    </UICreateTopic>
    <UICreatePoll>
       <label>
-         <SelectAForum>فورم منتخب کریں</SelectAForum>
-         <location>مقام میں</location>
-         <forumId>اور فورم</forumId>
-         <FilterForums>فورمز کو فلٹر کریں</FilterForums>
+         <SelectAForum>Select Forum</SelectAForum>
+         <location>In Location</location>
+         <forumId>And Forum</forumId>
+         <FilterForums>Filter Forums</FilterForums>
       </label>
    </UICreatePoll>
    <UICreateWiki>
       <label>
-         <title>نیا ویکی صفحہ:</title>
-         <location>مقام</location>
+         <title>New Wiki Page:</title>
+         <location>Location</location>
       </label>
    </UICreateWiki>
    <UICreateEvent>
       <label>
-         <Popup_title>ایک نیا واقعہ بنائیں</Popup_title>
+         <Popup_title>Create a new Event</Popup_title>
          <Title>#{word.title}</Title>
-         <Choix>نیا شامل کریں:</Choix>
-         <EndEvent>کو</EndEvent>
-         <StartEvent>سے</StartEvent>
-         <Calendar>کیلنڈر</Calendar>
-         <all-day>تمام دن</all-day>
-         <defaultCalendarId>طے شدہ</defaultCalendarId>
+         <Choix>Add New:</Choix>
+         <EndEvent>To</EndEvent>
+         <StartEvent>From</StartEvent>
+         <Calendar>Calendar</Calendar>
+         <all-day>All Day</all-day>
+         <defaultCalendarId>Default</defaultCalendarId>
       </label>
       <msg>
-         <summary-field-required>فیلڈ "عنوان" کی ضرورت ہے.</summary-field-required>
-         <fromDate-format>"; سے"; تاریخ شکل صحیح نہیں ہے ۔.</fromDate-format>
-         <toDate-format>"; جانب"; تاریخ شکل صحیح نہیں ہے ۔.</toDate-format>
-         <logic-required>افسوس، آپ اس تقریب کو نہیں بنا سکتے ہیں جو شروع ہونے سے پہلے ختم ہو جاتی ہے.</logic-required>
-         <cant-add-event-on-remote-calendar>آپ دور دراز کیلنڈر میں ایونٹ شامل نہیں کرسکتے ہیں</cant-add-event-on-remote-calendar>
+         <summary-field-required>The field "Title" is required.</summary-field-required>
+         <fromDate-format>The "From" date format is incorrect.</fromDate-format>
+         <toDate-format>The "To" date format is incorrect.</toDate-format>
+         <logic-required>Sorry, you cannot create an event that ends before it starts.</logic-required>
+         <cant-add-event-on-remote-calendar>You cannot add event to remote calendar</cant-add-event-on-remote-calendar>
          <add-successfully>
-            <Event>واقعہ {1} میں شامل کیا گیا</Event>
-            <Task>ٹاسک {1} میں شامل کیا گیا تھا</Task>
+            <Event>The Event was added to {1}</Event>
+            <Task>The Task was added to {1}</Task>
          </add-successfully>
-         <add-unsuccessfully>{0} اضافہ نہیں کیا گیا.</add-unsuccessfully>
+         <add-unsuccessfully>{0} was not added.</add-unsuccessfully>
       </msg>
       <action>
          <Next>#{word.save}</Next>
@@ -74,15 +74,15 @@
       </action>
    </UICreateEvent>
     <UIUploadFile>
-        <Select>مسل منتخب کریں</Select>
+        <Select>Select File</Select>
         <action>
           <close>#{word.close}</close>
         </action>
     </UIUploadFile>
    <Choix>
       <label>
-         <Event>تقریب</Event>
-         <Task>کام</Task>
+         <Event>Event</Event>
+         <Task>Task</Task>
       </label>
    </Choix>
 </bundle>

@@ -4,8 +4,8 @@
     <welcome>Welcome</welcome>
     <login>Login</login>
     <logout>Logout</logout>
-    <language>زبان تبدیل کریں</language>
-    <register>درج کرنا</register>
+    <language>Change Language</language>
+    <register>Register</register>
   </Signin>
 
   <ACMEPortal>

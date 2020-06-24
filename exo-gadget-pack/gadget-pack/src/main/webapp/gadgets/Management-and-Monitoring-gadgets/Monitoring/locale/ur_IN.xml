@@ -20,20 +20,20 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">یاداشت</msg>
-  <msg name="used">استعمال کیا جاتا ہے</msg>
-  <msg name="free">مفت</msg>
-  <msg name="total">کل</msg>
-  <msg name="heap">ڈھیر یا داشت</msg>
-  <msg name="non-heap">غیر-ڈھیر یاداشت</msg>
-  <msg name="loading">لوڈنگ ڈیٹا...</msg>
-  <msg name="title_caches">کیسہ سطح</msg>
-  <msg name="consumption">کھپت</msg>
-  <msg name="hit_ratio">تناسب کا شکار</msg>
-  <msg name="details">تفصیلات</msg>
-  <msg name="hit">مارا</msg>
-  <msg name="miss">چهوٹ جانا</msg>
-  <msg name="full">مکمل</msg>
-  <msg name="max_size">زیادہ سے زیادہ جسامت</msg>
-  <msg name="time_to_live">رہنے کا وقت</msg>
+  <msg name="title_memory">Memory</msg>
+  <msg name="used">Used</msg>
+  <msg name="free">Free</msg>
+  <msg name="total">Total</msg>
+  <msg name="heap">Heap memory</msg>
+  <msg name="non-heap">Non-heap memory</msg>
+  <msg name="loading">Loading data ...</msg>
+  <msg name="title_caches">Cache Levels</msg>
+  <msg name="consumption">Consumption</msg>
+  <msg name="hit_ratio">Hit ratio</msg>
+  <msg name="details">Details</msg>
+  <msg name="hit">Hit</msg>
+  <msg name="miss">Miss</msg>
+  <msg name="full">full</msg>
+  <msg name="max_size">Max size</msg>
+  <msg name="time_to_live">Time to live</msg>
 </messagebundle>
