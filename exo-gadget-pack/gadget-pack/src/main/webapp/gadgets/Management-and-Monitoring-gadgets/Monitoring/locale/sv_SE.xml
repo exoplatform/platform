@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">Minne</msg>
+  <msg name="title_memory">Memory</msg>
   <msg name="used">Used</msg>
   <msg name="free">Free</msg>
   <msg name="total">Total</msg>
