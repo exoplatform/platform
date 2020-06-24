@@ -20,10 +20,10 @@
 
 -->
 <messagebundle>
-  <msg name="title">Tài liệu Yêu thích</msg>
-  <msg name="titleFav">Tài liệu Yêu thích</msg>
-  <msg name="titleDoc">Tài liệu Cá nhân</msg>  
-  <msg name="nofav">Bạn không có tài liệu yêu thích nào</msg>
-  <msg name="nodoc">Bạn không có tài liệu nào</msg>
-  <msg name="showall">Hiện Tất cả</msg>
+  <msg name="title">Favorite Documents</msg>
+  <msg name="titleFav">My Favorites</msg>
+  <msg name="titleDoc">My Documents</msg>  
+  <msg name="nofav">You have no favorite document</msg>
+  <msg name="nodoc">You have no document</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>

@@ -22,30 +22,30 @@
 
 -->
 <messagebundle>
-  <msg name="loginHistory.title">Lịch sử Đăng nhập</msg>
-  <msg name="loginHistory.user">Tên Người dùng</msg>
-  <msg name="loginHistory.find">Tìm kiếm</msg>
-  <msg name="loginHistory.latest">Làm lại</msg>
-  <msg name="loginHistory.lastLogin">Lần Đăng nhập cuối</msg>
-  <msg name="loginHistory.beforeThat">Trước đó</msg>
-  <msg name="loginHistory.more">Hiện thêm</msg>
-  <msg name="loginHistory.stats">Thống kê</msg>
-  <msg name="loginHistory.history">Lược sử</msg>
+  <msg name="loginHistory.title">Login History</msg>
+  <msg name="loginHistory.user">User</msg>
+  <msg name="loginHistory.find">Find</msg>
+  <msg name="loginHistory.latest">Reset</msg>
+  <msg name="loginHistory.lastLogin">Last Login</msg>
+  <msg name="loginHistory.beforeThat">Before that</msg>
+  <msg name="loginHistory.more">More</msg>
+  <msg name="loginHistory.stats">Stats</msg>
+  <msg name="loginHistory.history">History</msg>
   <msg name="loginHistory.global">Global</msg>
-  <msg name="loginHistory.week">Theo Tuần</msg>
-  <msg name="loginHistory.lastLoginsView">Đăng nhập Lần cuối</msg>
-  <msg name="loginHistory.historyView">Lược sử</msg>
-  <msg name="loginHistory.statisticsView">Thống kê</msg>
-  <msg name="loginHistory.averagePerDay">Số lần đăng nhập / ngày</msg>
-  <msg name="loginHistory.averagePerWeek">Số lần đăng nhập / tuần</msg>
-  <msg name="loginHistory.averagePerMonth">Số lần đăng nhập / tháng</msg>
-  <msg name="loginHistory.today">Hôm nay</msg>
-  <msg name="loginHistory.earlierThisWeek">Đầu tuần này</msg>
-  <msg name="loginHistory.earlierThisMonth">Đầu tháng này</msg>
-  <msg name="loginHistory.earlier">Trước đó</msg>
-  <msg name="loginHistory.allUsers">Toàn bộ Thành viên</msg>
-  <msg name="loginHistory.unknow">Không xác định</msg>
-  <msg name="loginHistory.next">Tiếp tục</msg>
+  <msg name="loginHistory.week">Week</msg>
+  <msg name="loginHistory.lastLoginsView">Last Logins</msg>
+  <msg name="loginHistory.historyView">History</msg>
+  <msg name="loginHistory.statisticsView">Statistics</msg>
+  <msg name="loginHistory.averagePerDay">Average logins / day</msg>
+  <msg name="loginHistory.averagePerWeek">Average logins / week</msg>
+  <msg name="loginHistory.averagePerMonth">Average logins / month</msg>
+  <msg name="loginHistory.today">Today</msg>
+  <msg name="loginHistory.earlierThisWeek">Earlier this week</msg>
+  <msg name="loginHistory.earlierThisMonth">Earlier this month</msg>
+  <msg name="loginHistory.earlier">Earlier</msg>
+  <msg name="loginHistory.allUsers">All Users</msg>
+  <msg name="loginHistory.unknow">Unknow</msg>
+  <msg name="loginHistory.next">Next</msg>
   <msg name="loginHistory.ago">Ago</msg>
-  <msg name="loginHistory.search_user">Tìm người dùng</msg>
+  <msg name="loginHistory.search_user">Search user</msg>
 </messagebundle>

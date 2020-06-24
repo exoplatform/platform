@@ -21,18 +21,18 @@
 -->
 <messagebundle>  
   <msg name="title">Service Management</msg>
-  <msg name="services">Dịch vụ</msg>
-  <msg name="name">Tên</msg>
-  <msg name="description">Mô tả</msg>
-  <msg name="noDescription">Không có mô tả</msg>
-  <msg name="method">Hàm</msg>
-  <msg name="parameters">Tham số</msg>
-  <msg name="action">Tác vụ</msg>
-  <msg name="value">Giá trị</msg>
-  <msg name="services_url">URL của Dịch vụ</msg>
-  <msg name="failManage">Tạm thời không thể quản lý dịch vụ từ một máy chủ khác cho đến khi chúng tôi hỗ trợ OAuth</msg>
+  <msg name="services">Services</msg>
+  <msg name="name">Name</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
   <msg name="noServices">No service is available or you don't have enough permission</msg>
-  <msg name="noMethod">Không tồn tại phương thức</msg>
-  <msg name="noProperty">Không có thuộc tính</msg>
-  <msg name="badURL">Lỗi trong quá trình lấy dữ liệu, hãy kiểm tra lại đường dẫn tham chiếu của bạn</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>

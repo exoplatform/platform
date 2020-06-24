@@ -20,20 +20,20 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">Bộ nhớ</msg>
-  <msg name="used">Đã dùng</msg>
-  <msg name="free">Còn trống</msg>
-  <msg name="total">Tổng số</msg>
-  <msg name="heap">Bộ nhớ heap</msg>
-  <msg name="non-heap">Bộ nhớ khác</msg>
-  <msg name="loading">Đang tải dữ liệu ...</msg>
-  <msg name="title_caches">Các bộ nhớ cache</msg>
-  <msg name="consumption">Sử dụng</msg>
-  <msg name="hit_ratio">Tỉ lệ trúng</msg>
-  <msg name="details">Chi tiết</msg>
-  <msg name="hit">Trúng</msg>
-  <msg name="miss">Trật</msg>
-  <msg name="full">đầy</msg>
-  <msg name="max_size">Kích thước tối đa</msg>
-  <msg name="time_to_live">Thời gian tồn tại</msg>
+  <msg name="title_memory">Memory</msg>
+  <msg name="used">Used</msg>
+  <msg name="free">Free</msg>
+  <msg name="total">Total</msg>
+  <msg name="heap">Heap memory</msg>
+  <msg name="non-heap">Non-heap memory</msg>
+  <msg name="loading">Loading data ...</msg>
+  <msg name="title_caches">Cache Levels</msg>
+  <msg name="consumption">Consumption</msg>
+  <msg name="hit_ratio">Hit ratio</msg>
+  <msg name="details">Details</msg>
+  <msg name="hit">Hit</msg>
+  <msg name="miss">Miss</msg>
+  <msg name="full">full</msg>
+  <msg name="max_size">Max size</msg>
+  <msg name="time_to_live">Time to live</msg>
 </messagebundle>
