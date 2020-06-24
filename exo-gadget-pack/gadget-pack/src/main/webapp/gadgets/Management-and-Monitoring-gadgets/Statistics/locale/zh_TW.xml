@@ -20,15 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title_templates">範本統計</msg>
-  <msg name="ten_slowest_templates">最慢10範本</msg>
-  <msg name="all_templates">所有範本</msg>
-  <msg name="title_apps">應用程式統計資訊</msg>
-  <msg name="ten_slowest_apps">10 個最慢的應用程式</msg>
-  <msg name="all_apps">所有應用程式</msg>
-  <msg name="avg_exec_time">平均執行時間 (毫秒)</msg>
-  <msg name="min">最小</msg>
-  <msg name="max">最大</msg>
+  <msg name="title_templates">Template Statistics</msg>
+  <msg name="ten_slowest_templates">10 slowest templates</msg>
+  <msg name="all_templates">All templates</msg>
+  <msg name="title_apps">Application Statistics</msg>
+  <msg name="ten_slowest_apps">10 slowest applications</msg>
+  <msg name="all_apps">All applications</msg>
+  <msg name="avg_exec_time">Average execution time (ms)</msg>
+  <msg name="min">min</msg>
+  <msg name="max">max</msg>
   <msg name="exec">#exec</msg>
-  <msg name="loading">載入資料中...</msg>
+  <msg name="loading">Loading data ...</msg>
 </messagebundle>

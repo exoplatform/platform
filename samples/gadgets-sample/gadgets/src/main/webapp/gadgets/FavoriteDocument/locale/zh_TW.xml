@@ -20,10 +20,10 @@
 
 -->
 <messagebundle>
-  <msg name="title">最喜歡的文件</msg>
-  <msg name="titleFav">我的最愛</msg>
-  <msg name="titleDoc">我的文件</msg>  
-  <msg name="nofav">你沒有最喜歡的文件</msg>
-  <msg name="nodoc">你沒有文件</msg>
-  <msg name="showall">全部顯示</msg>
+  <msg name="title">Favorite Documents</msg>
+  <msg name="titleFav">My Favorites</msg>
+  <msg name="titleDoc">My Documents</msg>  
+  <msg name="nofav">You have no favorite document</msg>
+  <msg name="nodoc">You have no document</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>

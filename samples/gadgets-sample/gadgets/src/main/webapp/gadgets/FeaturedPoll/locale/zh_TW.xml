@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">熱門的投票</msg>
-  <msg name="setting">查看</msg>
-  <msg name="vote">投票</msg>
-  <msg name="voteAgain">再次投票</msg>
-  <msg name="warning">請至少選擇一個選項</msg>
-  <msg name="option">選項</msg>
-  <msg name="percent">百分比</msg>
-  <msg name="voter">選民</msg>
-  <msg name="total">總計</msg>
-  <msg name="discuss">在論壇中討論</msg>
-  <msg name="nopoll">還沒有投票</msg>  
-  <msg name="createPoll">建立您自己的問卷</msg>    
+  <msg name="title">Featured Poll</msg>
+  <msg name="setting">View</msg>
+  <msg name="vote">Vote</msg>
+  <msg name="voteAgain">Vote Again</msg>
+  <msg name="warning">Please choose at least one option</msg>
+  <msg name="option">Options</msg>
+  <msg name="percent">Percent</msg>
+  <msg name="voter">Voters</msg>
+  <msg name="total">Total</msg>
+  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="nopoll">No Polls Yet</msg>  
+  <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>

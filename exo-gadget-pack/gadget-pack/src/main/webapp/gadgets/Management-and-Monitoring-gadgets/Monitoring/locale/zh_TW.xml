@@ -20,9 +20,9 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">記憶體</msg>
+  <msg name="title_memory">Memory</msg>
   <msg name="used">Used</msg>
-  <msg name="free">有空</msg>
+  <msg name="free">Free</msg>
   <msg name="total">Total</msg>
   <msg name="heap">Heap memory</msg>
   <msg name="non-heap">Non-heap memory</msg>
