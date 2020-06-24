@@ -20,10 +20,10 @@
 
 -->
 <messagebundle>
-  <msg name="title">Sık kullanılan belgeler</msg>
-  <msg name="titleFav">Favorilerim</msg>
-  <msg name="titleDoc">Belgelerim</msg>  
-  <msg name="nofav">Favori belgeniz yok</msg>
-  <msg name="nodoc">Hiçbir belge yok</msg>
-  <msg name="showall">Tümünü Göster</msg>
+  <msg name="title">Favorite Documents</msg>
+  <msg name="titleFav">My Favorites</msg>
+  <msg name="titleDoc">My Documents</msg>  
+  <msg name="nofav">You have no favorite document</msg>
+  <msg name="nodoc">You have no document</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>

@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Yer İmleri</msg>
-  <msg name="customize">Kişiselleştir</msg>
+  <msg name="title">Bookmarks</msg>
+  <msg name="customize">Customize</msg>
   <msg name="save">#{word.save}</msg>
-  <msg name="add">Ekle</msg>
-  <msg name="ok">Tamam</msg>
-  <msg name="name">Ad</msg>
+  <msg name="add">Add</msg>
+  <msg name="ok">OK</msg>
+  <msg name="name">Name</msg>
   <msg name="url">URL</msg>
-  <msg name="delete">Sil</msg>
-  <msg name="edit">Düzenle</msg>
-  <msg name="cancel">İptal</msg>
-  <msg name="emptyBookmarkPre">Herhangi bir yer işareti yok. "Yer İşareti Ekle" butonunu tıklayarak ekleyin.</msg>
-  <msg name="addBookmark">Yer işareti Ekle</msg>
+  <msg name="delete">Delete</msg>
+  <msg name="edit">Edit</msg>
+  <msg name="cancel">Cancel</msg>
+  <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
+  <msg name="addBookmark">Add Bookmark</msg>
 </messagebundle>

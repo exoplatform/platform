@@ -20,20 +20,20 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">Bellek</msg>
-  <msg name="used">Kullanılıyor</msg>
-  <msg name="free">Boş</msg>
-  <msg name="total">Toplam</msg>
-  <msg name="heap">Heap bellek</msg>
-  <msg name="non-heap">Non-heap bellek</msg>
-  <msg name="loading">Veri yükleniyor...</msg>
-  <msg name="title_caches">Önbellek Düzeyleri</msg>
-  <msg name="consumption">Tüketim</msg>
-  <msg name="hit_ratio">Tıklanma oranı</msg>
-  <msg name="details">Ayrıntılar</msg>
-  <msg name="hit">Tıklanma</msg>
-  <msg name="miss">Bayan</msg>
-  <msg name="full">dolu</msg>
-  <msg name="max_size">Maks. Boyut:</msg>
-  <msg name="time_to_live">Yaşama ömrü</msg>
+  <msg name="title_memory">Memory</msg>
+  <msg name="used">Used</msg>
+  <msg name="free">Free</msg>
+  <msg name="total">Total</msg>
+  <msg name="heap">Heap memory</msg>
+  <msg name="non-heap">Non-heap memory</msg>
+  <msg name="loading">Loading data ...</msg>
+  <msg name="title_caches">Cache Levels</msg>
+  <msg name="consumption">Consumption</msg>
+  <msg name="hit_ratio">Hit ratio</msg>
+  <msg name="details">Details</msg>
+  <msg name="hit">Hit</msg>
+  <msg name="miss">Miss</msg>
+  <msg name="full">full</msg>
+  <msg name="max_size">Max size</msg>
+  <msg name="time_to_live">Time to live</msg>
 </messagebundle>

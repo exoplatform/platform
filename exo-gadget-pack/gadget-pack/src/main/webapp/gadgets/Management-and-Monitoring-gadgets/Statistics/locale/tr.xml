@@ -20,15 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title_templates">Şablon İstatistikleri</msg>
-  <msg name="ten_slowest_templates">En yavaş 10 şablon</msg>
-  <msg name="all_templates">Tüm şablonlar</msg>
-  <msg name="title_apps">Uygulama İstatistikleri</msg>
-  <msg name="ten_slowest_apps">En yavaş 10 uygulama</msg>
-  <msg name="all_apps">Tüm uygulamalar</msg>
-  <msg name="avg_exec_time">Ortalama uygulama süresi (ms)</msg>
+  <msg name="title_templates">Template Statistics</msg>
+  <msg name="ten_slowest_templates">10 slowest templates</msg>
+  <msg name="all_templates">All templates</msg>
+  <msg name="title_apps">Application Statistics</msg>
+  <msg name="ten_slowest_apps">10 slowest applications</msg>
+  <msg name="all_apps">All applications</msg>
+  <msg name="avg_exec_time">Average execution time (ms)</msg>
   <msg name="min">min</msg>
-  <msg name="max">maks</msg>
+  <msg name="max">max</msg>
   <msg name="exec">#exec</msg>
-  <msg name="loading">Veri yükleniyor...</msg>
+  <msg name="loading">Loading data ...</msg>
 </messagebundle>
