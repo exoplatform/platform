@@ -22,17 +22,17 @@
 <messagebundle>  
   <msg name="title">Service Management</msg>
   <msg name="services">Services</msg>
-  <msg name="name">Nom</msg>
+  <msg name="name">Name</msg>
   <msg name="description">Description</msg>
-  <msg name="noDescription">Aucune description</msg>
-  <msg name="method">Méthode</msg>
-  <msg name="parameters">Paramètres</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
   <msg name="action">Action</msg>
-  <msg name="value">Valeur</msg>
-  <msg name="services_url">URL de services</msg>
-  <msg name="failManage">Il nous est impossible de gérer les services de l'hôte distant car il requiert le support de oAuth</msg>
-  <msg name="noServices">Aucun service n’est disponible ou vous n’avez pas le droit d'y accéder</msg>
-  <msg name="noMethod">Aucune méthode</msg>
-  <msg name="noProperty">Aucune propriété</msg>
-  <msg name="badURL">Erreur lors de la récupération des données, veuillez vérifier l'URL de Service</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>

@@ -22,30 +22,30 @@
 
 -->
 <messagebundle>
-  <msg name="loginHistory.title">Historique des Connexions</msg>
-  <msg name="loginHistory.user">Utilisateur</msg>
-  <msg name="loginHistory.find">Trouver</msg>
-  <msg name="loginHistory.latest">Réinitialiser</msg>
-  <msg name="loginHistory.lastLogin">Dernière connexion</msg>
-  <msg name="loginHistory.beforeThat">Avant ça</msg>
-  <msg name="loginHistory.more">Plus</msg>
+  <msg name="loginHistory.title">Login History</msg>
+  <msg name="loginHistory.user">User</msg>
+  <msg name="loginHistory.find">Find</msg>
+  <msg name="loginHistory.latest">Reset</msg>
+  <msg name="loginHistory.lastLogin">Last Login</msg>
+  <msg name="loginHistory.beforeThat">Before that</msg>
+  <msg name="loginHistory.more">More</msg>
   <msg name="loginHistory.stats">Stats</msg>
-  <msg name="loginHistory.history">Historique</msg>
+  <msg name="loginHistory.history">History</msg>
   <msg name="loginHistory.global">Global</msg>
-  <msg name="loginHistory.week">Semaine</msg>
-  <msg name="loginHistory.lastLoginsView">Dernières connexions</msg>
-  <msg name="loginHistory.historyView">Historique</msg>
-  <msg name="loginHistory.statisticsView">Statistiques</msg>
-  <msg name="loginHistory.averagePerDay">Moyenne des connexions / jour</msg>
-  <msg name="loginHistory.averagePerWeek">Moyenne des connexions / semaine</msg>
-  <msg name="loginHistory.averagePerMonth">Moyenne des connexions / mois</msg>
-  <msg name="loginHistory.today">Aujourd'hui</msg>
-  <msg name="loginHistory.earlierThisWeek">Plus tôt cette semaine</msg>
-  <msg name="loginHistory.earlierThisMonth">Plus tôt ce mois-ci</msg>
-  <msg name="loginHistory.earlier">Plus tôt</msg>
-  <msg name="loginHistory.allUsers">Tous les Utilisateurs</msg>
-  <msg name="loginHistory.unknow">inconnu</msg>
-  <msg name="loginHistory.next">suivant</msg>
-  <msg name="loginHistory.ago">Il y a</msg>
-  <msg name="loginHistory.search_user">Chercher un utilisateur</msg>
+  <msg name="loginHistory.week">Week</msg>
+  <msg name="loginHistory.lastLoginsView">Last Logins</msg>
+  <msg name="loginHistory.historyView">History</msg>
+  <msg name="loginHistory.statisticsView">Statistics</msg>
+  <msg name="loginHistory.averagePerDay">Average logins / day</msg>
+  <msg name="loginHistory.averagePerWeek">Average logins / week</msg>
+  <msg name="loginHistory.averagePerMonth">Average logins / month</msg>
+  <msg name="loginHistory.today">Today</msg>
+  <msg name="loginHistory.earlierThisWeek">Earlier this week</msg>
+  <msg name="loginHistory.earlierThisMonth">Earlier this month</msg>
+  <msg name="loginHistory.earlier">Earlier</msg>
+  <msg name="loginHistory.allUsers">All Users</msg>
+  <msg name="loginHistory.unknow">Unknow</msg>
+  <msg name="loginHistory.next">Next</msg>
+  <msg name="loginHistory.ago">Ago</msg>
+  <msg name="loginHistory.search_user">Search user</msg>
 </messagebundle>
