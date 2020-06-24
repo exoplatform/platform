@@ -20,17 +20,17 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">内存</msg>
-  <msg name="used">已使用</msg>
-  <msg name="free">免费</msg>
-  <msg name="total">总共</msg>
+  <msg name="title_memory">Memory</msg>
+  <msg name="used">Used</msg>
+  <msg name="free">Free</msg>
+  <msg name="total">Total</msg>
   <msg name="heap">Heap memory</msg>
   <msg name="non-heap">Non-heap memory</msg>
-  <msg name="loading">正载入数据...</msg>
+  <msg name="loading">Loading data ...</msg>
   <msg name="title_caches">Cache Levels</msg>
   <msg name="consumption">Consumption</msg>
   <msg name="hit_ratio">Hit ratio</msg>
-  <msg name="details">详细信息</msg>
+  <msg name="details">Details</msg>
   <msg name="hit">Hit</msg>
   <msg name="miss">Miss</msg>
   <msg name="full">full</msg>

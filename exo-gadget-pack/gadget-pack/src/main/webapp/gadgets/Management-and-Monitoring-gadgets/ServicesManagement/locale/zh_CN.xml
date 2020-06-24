@@ -21,18 +21,18 @@
 -->
 <messagebundle>  
   <msg name="title">Service Management</msg>
-  <msg name="services">服务</msg>
-  <msg name="name">名称</msg>
-  <msg name="description">说明</msg>
-  <msg name="noDescription">无说明</msg>
-  <msg name="method">方法</msg>
-  <msg name="parameters">参数</msg>
-  <msg name="action">操作</msg>
-  <msg name="value">值</msg>
-  <msg name="services_url">服务 URL</msg>
-  <msg name="failManage">暂时不能管理服务从其他主机直到我们支持 OAuth</msg>
+  <msg name="services">Services</msg>
+  <msg name="name">Name</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
   <msg name="noServices">No service is available or you don't have enough permission</msg>
-  <msg name="noMethod">没有方法</msg>
-  <msg name="noProperty">无属性</msg>
-  <msg name="badURL">取得数据时出错。请检查您的链接首选项</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>

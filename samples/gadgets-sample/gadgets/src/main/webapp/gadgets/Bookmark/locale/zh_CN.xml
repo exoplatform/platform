@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">书签</msg>
-  <msg name="customize">自定义</msg>
+  <msg name="title">Bookmarks</msg>
+  <msg name="customize">Customize</msg>
   <msg name="save">#{word.save}</msg>
-  <msg name="add">新增</msg>
-  <msg name="ok">Ok</msg>
-  <msg name="name">名称</msg>
+  <msg name="add">Add</msg>
+  <msg name="ok">OK</msg>
+  <msg name="name">Name</msg>
   <msg name="url">URL</msg>
-  <msg name="delete">删除</msg>
-  <msg name="edit">编辑</msg>
-  <msg name="cancel">取消</msg>
-  <msg name="emptyBookmarkPre">你不要有任何的书签。通过点击"添加书签"按钮添加它们。</msg>
-  <msg name="addBookmark">添加书签</msg>
+  <msg name="delete">Delete</msg>
+  <msg name="edit">Edit</msg>
+  <msg name="cancel">Cancel</msg>
+  <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
+  <msg name="addBookmark">Add Bookmark</msg>
 </messagebundle>

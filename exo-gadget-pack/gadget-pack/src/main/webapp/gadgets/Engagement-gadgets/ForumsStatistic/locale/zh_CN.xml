@@ -22,19 +22,19 @@
 
 -->
 <messagebundle>
-  <msg name="forums.statistic.title">论坛统计</msg>
-  <msg name="forums.statistic.total.topic">主题总数：</msg>
-  <msg name="forums.statistic.total.post">帖子总数：</msg>
-  <msg name="forums.statistic.total.member">会员总数：</msg>
-  <msg name="forums.statistic.active.member">活动成员：</msg>
-  <msg name="forums.statistic.maximum.user">最大在线用户数：</msg>  
-  <msg name="forums.statistic.at">在</msg>  
-  <msg name="forums.weekly.statistic.title">论坛每周统计</msg>
-  <msg name="forums.weekly.statistic.post.open">创建日期</msg>
-  <msg name="forums.weekly.statistic.next">下一个</msg>
-  <msg name="forums.weekly.statistic.prev">上一个</msg>
-  <msg name="forums.weekly.statistic.view.chart">以图表的形式查看</msg>
-  <msg name="forums.weekly.statistic.view.list">以列表的形式查看</msg>
-  <msg name="forums.statistic.see.total.statistic">全局统计数据</msg>
-  <msg name="forums.statistic.see.weekly.statistic">每周统计数字</msg>  
+  <msg name="forums.statistic.title">Forum Statistics</msg>
+  <msg name="forums.statistic.total.topic">Total Topics:</msg>
+  <msg name="forums.statistic.total.post">Total Posts:</msg>
+  <msg name="forums.statistic.total.member">Total Members:</msg>
+  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
+  <msg name="forums.statistic.maximum.user">Maximum number of online users:</msg>  
+  <msg name="forums.statistic.at">at</msg>  
+  <msg name="forums.weekly.statistic.title">Forums Weekly Statistics</msg>
+  <msg name="forums.weekly.statistic.post.open">Post(s) Created</msg>
+  <msg name="forums.weekly.statistic.next">Next</msg>
+  <msg name="forums.weekly.statistic.prev">Previous</msg>
+  <msg name="forums.weekly.statistic.view.chart">View as chart</msg>
+  <msg name="forums.weekly.statistic.view.list">View as list</msg>
+  <msg name="forums.statistic.see.total.statistic">Global Statistics</msg>
+  <msg name="forums.statistic.see.weekly.statistic">Weekly Statistics</msg>  
 </messagebundle>
