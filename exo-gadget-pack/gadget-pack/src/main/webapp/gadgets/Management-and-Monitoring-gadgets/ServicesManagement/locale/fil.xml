@@ -20,19 +20,19 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Pangangasiwa ng Serbisyo</msg>
-  <msg name="services">Mga serbisyo</msg>
-  <msg name="name">Pangalan</msg>
-  <msg name="description">Paglalarawan</msg>
-  <msg name="noDescription">Walang paglalarawan</msg>
-  <msg name="method">Paraan</msg>
-  <msg name="parameters">Mga parameter</msg>
-  <msg name="action">Aksyon</msg>
-  <msg name="value">Halaga</msg>
-  <msg name="services_url">URL ng mga serbisyo</msg>
-  <msg name="failManage">Pansamantalang hindi makapagpamahala ng mga serbisyo mula sa ibang host hanggang sa ma-suportahan namin ang OAuth</msg>
-  <msg name="noServices">Walang serbisyo na magagamit o wala kang sapat na permiso</msg>
-  <msg name="noMethod">Walang paraan</msg>
-  <msg name="noProperty">Walang pag-aari</msg>
-  <msg name="badURL">May problema habang kinukuha ang datos, mangyaring suriin ang iyong URL na preperensya</msg>
+  <msg name="title">Service Management</msg>
+  <msg name="services">Services</msg>
+  <msg name="name">Name</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>

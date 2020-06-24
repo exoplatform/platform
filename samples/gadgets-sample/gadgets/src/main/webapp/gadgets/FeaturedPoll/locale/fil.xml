@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Mga tampok na botohan</msg>
-  <msg name="setting">Ang Tanaw</msg>
-  <msg name="vote">Ang Boto</msg>
-  <msg name="voteAgain">Ang Muling bumoto</msg>
-  <msg name="warning">Mangyaring piliin ang opsyon na hindi bababa sa isang</msg>
-  <msg name="option">Ang mga pagpipilian</msg>
-  <msg name="percent">Ang Porsiyento</msg>
-  <msg name="voter">Ang Mga botante</msg>
-  <msg name="total">Ang kabuuan</msg>
-  <msg name="discuss">Talakayin sa Forum</msg>
-  <msg name="nopoll">Wala pang botohan</msg>  
-  <msg name="createPoll">Gumawa ng iyong botohan</msg>    
+  <msg name="title">Featured Poll</msg>
+  <msg name="setting">View</msg>
+  <msg name="vote">Vote</msg>
+  <msg name="voteAgain">Vote Again</msg>
+  <msg name="warning">Please choose at least one option</msg>
+  <msg name="option">Options</msg>
+  <msg name="percent">Percent</msg>
+  <msg name="voter">Voters</msg>
+  <msg name="total">Total</msg>
+  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="nopoll">No Polls Yet</msg>  
+  <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>

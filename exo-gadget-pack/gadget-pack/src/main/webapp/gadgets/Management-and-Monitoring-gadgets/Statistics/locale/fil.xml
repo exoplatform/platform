@@ -20,15 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title_templates">Ang Istatistika ng Template</msg>
-  <msg name="ten_slowest_templates">10 sa pinakamabagal na mga template</msg>
-  <msg name="all_templates">Ang Lahat ng mga template</msg>
-  <msg name="title_apps">Ang Istatistika ng Aplikasyon</msg>
-  <msg name="ten_slowest_apps">10 sa pinakamabagal na mga aplikasyon</msg>
-  <msg name="all_apps">Lahat ng aplikasyon</msg>
-  <msg name="avg_exec_time">Ang dami ng oras sa pagsasagawa (ms)</msg>
+  <msg name="title_templates">Template Statistics</msg>
+  <msg name="ten_slowest_templates">10 slowest templates</msg>
+  <msg name="all_templates">All templates</msg>
+  <msg name="title_apps">Application Statistics</msg>
+  <msg name="ten_slowest_apps">10 slowest applications</msg>
+  <msg name="all_apps">All applications</msg>
+  <msg name="avg_exec_time">Average execution time (ms)</msg>
   <msg name="min">min</msg>
   <msg name="max">max</msg>
   <msg name="exec">#exec</msg>
-  <msg name="loading">Nag-loload ng mga datos ...</msg>
+  <msg name="loading">Loading data ...</msg>
 </messagebundle>
