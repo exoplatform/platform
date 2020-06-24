@@ -21,18 +21,18 @@
 -->
 <messagebundle>  
   <msg name="title">Service Management</msg>
-  <msg name="services">Услуги</msg>
-  <msg name="name">Название</msg>
-  <msg name="description">Описание</msg>
-  <msg name="noDescription">Нет описания</msg>
-  <msg name="method">Метод</msg>
-  <msg name="parameters">Параметры</msg>
-  <msg name="action">Действие</msg>
-  <msg name="value">Значение</msg>
-  <msg name="services_url">URL-адрес служб</msg>
-  <msg name="failManage">До того времени, пока мы не поддерживает OAuth невозможно управлять службами с другого компьютера</msg>
-  <msg name="noServices">Служба недоступна, либо Вы не имеете достаточно прав</msg>
-  <msg name="noMethod">Методы отсутствуют</msg>
-  <msg name="noProperty">Свойства отсутствуют</msg>
-  <msg name="badURL">Ошибка при извлечении данных, пожалуйста, проверьте настройки URL</msg>
+  <msg name="services">Services</msg>
+  <msg name="name">Name</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>
