@@ -21,18 +21,18 @@
 -->
 <messagebundle>  
   <msg name="title">Service Management</msg>
-  <msg name="services">Tjenester</msg>
-  <msg name="name">Navn</msg>
-  <msg name="description">Beskrivelse</msg>
-  <msg name="noDescription">Ingen beskrivelse</msg>
-  <msg name="method">Metode</msg>
-  <msg name="parameters">Parametere</msg>
-  <msg name="action">Handling</msg>
-  <msg name="value">Verdi</msg>
-  <msg name="services_url">Tjeneste URL'er</msg>
-  <msg name="failManage">Det er ikke mulig å administrere tjenester fra andre maskiner før vi har lagt til støtte for OAuth</msg>
+  <msg name="services">Services</msg>
+  <msg name="name">Name</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
   <msg name="noServices">No service is available or you don't have enough permission</msg>
-  <msg name="noMethod">Ingen metode</msg>
-  <msg name="noProperty">Ingen egenskap</msg>
-  <msg name="badURL">Det oppstod en feil under henting av data. Sjekk URLen som er lagt inn</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>

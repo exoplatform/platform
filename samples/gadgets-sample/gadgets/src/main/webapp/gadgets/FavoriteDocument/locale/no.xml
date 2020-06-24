@@ -20,10 +20,10 @@
 
 -->
 <messagebundle>
-  <msg name="title">Favoritt dokumenter</msg>
-  <msg name="titleFav">Mine favoritter</msg>
-  <msg name="titleDoc">Mine dokumenter</msg>  
-  <msg name="nofav">Du har ingen favoritt dokumenter</msg>
-  <msg name="nodoc">Du har ingen dokumenter</msg>
-  <msg name="showall">Vis alle</msg>
+  <msg name="title">Favorite Documents</msg>
+  <msg name="titleFav">My Favorites</msg>
+  <msg name="titleDoc">My Documents</msg>  
+  <msg name="nofav">You have no favorite document</msg>
+  <msg name="nodoc">You have no document</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>
