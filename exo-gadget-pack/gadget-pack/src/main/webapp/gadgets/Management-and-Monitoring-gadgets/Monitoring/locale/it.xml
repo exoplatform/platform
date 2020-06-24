@@ -20,20 +20,20 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">Memoria</msg>
-  <msg name="used">Usato</msg>
-  <msg name="free">Gratuito</msg>
-  <msg name="total">Totale</msg>
-  <msg name="heap">Memoria heap</msg>
-  <msg name="non-heap">Memoria non-heap</msg>
-  <msg name="loading">Caricamento dati in corso ...</msg>
-  <msg name="title_caches">Livelli cache</msg>
-  <msg name="consumption">Consumo</msg>
-  <msg name="hit_ratio">Indice di impatto</msg>
-  <msg name="details">Dettagli</msg>
-  <msg name="hit">Impatto</msg>
-  <msg name="miss">Mancato</msg>
-  <msg name="full">intero</msg>
-  <msg name="max_size">Dimensioni massime</msg>
-  <msg name="time_to_live">Tempo rimasto</msg>
+  <msg name="title_memory">Memory</msg>
+  <msg name="used">Used</msg>
+  <msg name="free">Free</msg>
+  <msg name="total">Total</msg>
+  <msg name="heap">Heap memory</msg>
+  <msg name="non-heap">Non-heap memory</msg>
+  <msg name="loading">Loading data ...</msg>
+  <msg name="title_caches">Cache Levels</msg>
+  <msg name="consumption">Consumption</msg>
+  <msg name="hit_ratio">Hit ratio</msg>
+  <msg name="details">Details</msg>
+  <msg name="hit">Hit</msg>
+  <msg name="miss">Miss</msg>
+  <msg name="full">full</msg>
+  <msg name="max_size">Max size</msg>
+  <msg name="time_to_live">Time to live</msg>
 </messagebundle>

@@ -22,19 +22,19 @@
 
 -->
 <messagebundle>
-  <msg name="forums.statistic.title">Statistiche Forum</msg>
-  <msg name="forums.statistic.total.topic">Totale Temi:</msg>
-  <msg name="forums.statistic.total.post">Totale post:</msg>
-  <msg name="forums.statistic.total.member">Totale membri:</msg>
-  <msg name="forums.statistic.active.member">Membri attivi di recente</msg>
-  <msg name="forums.statistic.maximum.user">Numero massimo utenti online:</msg>  
-  <msg name="forums.statistic.at">al</msg>  
-  <msg name="forums.weekly.statistic.title">Statistiche Settimanali Forum</msg>
-  <msg name="forums.weekly.statistic.post.open">Post Creato(i)</msg>
-  <msg name="forums.weekly.statistic.next">Prossimo</msg>
-  <msg name="forums.weekly.statistic.prev">Precedente</msg>
-  <msg name="forums.weekly.statistic.view.chart">Visualizza come diagramma</msg>
-  <msg name="forums.weekly.statistic.view.list">Visualizza come lista</msg>
-  <msg name="forums.statistic.see.total.statistic">Statistiche Globali</msg>
-  <msg name="forums.statistic.see.weekly.statistic">Statistiche Settimanali</msg>  
+  <msg name="forums.statistic.title">Forum Statistics</msg>
+  <msg name="forums.statistic.total.topic">Total Topics:</msg>
+  <msg name="forums.statistic.total.post">Total Posts:</msg>
+  <msg name="forums.statistic.total.member">Total Members:</msg>
+  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
+  <msg name="forums.statistic.maximum.user">Maximum number of online users:</msg>  
+  <msg name="forums.statistic.at">at</msg>  
+  <msg name="forums.weekly.statistic.title">Forums Weekly Statistics</msg>
+  <msg name="forums.weekly.statistic.post.open">Post(s) Created</msg>
+  <msg name="forums.weekly.statistic.next">Next</msg>
+  <msg name="forums.weekly.statistic.prev">Previous</msg>
+  <msg name="forums.weekly.statistic.view.chart">View as chart</msg>
+  <msg name="forums.weekly.statistic.view.list">View as list</msg>
+  <msg name="forums.statistic.see.total.statistic">Global Statistics</msg>
+  <msg name="forums.statistic.see.weekly.statistic">Weekly Statistics</msg>  
 </messagebundle>
