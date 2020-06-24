@@ -21,18 +21,18 @@
 -->
 <messagebundle>  
   <msg name="title">Service Management</msg>
-  <msg name="services">Dienste</msg>
+  <msg name="services">Services</msg>
   <msg name="name">Name</msg>
-  <msg name="description">Beschreibung</msg>
-  <msg name="noDescription">Keine Beschreibung</msg>
-  <msg name="method">Methode</msg>
-  <msg name="parameters">Parameter</msg>
-  <msg name="action">Aktion</msg>
-  <msg name="value">Wert</msg>
-  <msg name="services_url">Dienste URL</msg>
-  <msg name="failManage">Temporär können Dienste nicht von einem anderen Host verwaltet werden, bis wir OAuth unterstützen</msg>
-  <msg name="noServices">Es ist kein Service verfügbar oder Sie haben nicht genügend Berechtigungen.</msg>
-  <msg name="noMethod">Keine Methode</msg>
-  <msg name="noProperty">Keine Eigenschaft</msg>
-  <msg name="badURL">Fehler beim Abrufen von Daten, bitte überprüfen Sie Ihre URL Einstellung</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>
