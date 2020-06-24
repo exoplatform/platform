@@ -20,20 +20,20 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">Memòria</msg>
-  <msg name="used">Utilitzat</msg>
-  <msg name="free">Lliure</msg>
+  <msg name="title_memory">Memory</msg>
+  <msg name="used">Used</msg>
+  <msg name="free">Free</msg>
   <msg name="total">Total</msg>
-  <msg name="heap">Memòria Heap</msg>
-  <msg name="non-heap">Memòria no-heap</msg>
-  <msg name="loading">Carregant dades ...</msg>
-  <msg name="title_caches">Nivells de memòria cau</msg>
-  <msg name="consumption">Consum</msg>
+  <msg name="heap">Heap memory</msg>
+  <msg name="non-heap">Non-heap memory</msg>
+  <msg name="loading">Loading data ...</msg>
+  <msg name="title_caches">Cache Levels</msg>
+  <msg name="consumption">Consumption</msg>
   <msg name="hit_ratio">Hit ratio</msg>
-  <msg name="details">Detalls</msg>
+  <msg name="details">Details</msg>
   <msg name="hit">Hit</msg>
-  <msg name="miss">Oblidar</msg>
-  <msg name="full">ple</msg>
-  <msg name="max_size">Mida màxima</msg>
-  <msg name="time_to_live">Temps de vida</msg>
+  <msg name="miss">Miss</msg>
+  <msg name="full">full</msg>
+  <msg name="max_size">Max size</msg>
+  <msg name="time_to_live">Time to live</msg>
 </messagebundle>

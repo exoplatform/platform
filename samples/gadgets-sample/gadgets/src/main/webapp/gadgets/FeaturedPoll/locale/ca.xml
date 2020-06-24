@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Enquestes Destacades</msg>
-  <msg name="setting">Veure</msg>
-  <msg name="vote">Vota</msg>
-  <msg name="voteAgain">Votar una altra vegada</msg>
-  <msg name="warning">Si us plau selecciona almenys una opció</msg>
-  <msg name="option">Opcions</msg>
-  <msg name="percent">Percentatge</msg>
-  <msg name="voter">Votants</msg>
+  <msg name="title">Featured Poll</msg>
+  <msg name="setting">View</msg>
+  <msg name="vote">Vote</msg>
+  <msg name="voteAgain">Vote Again</msg>
+  <msg name="warning">Please choose at least one option</msg>
+  <msg name="option">Options</msg>
+  <msg name="percent">Percent</msg>
+  <msg name="voter">Voters</msg>
   <msg name="total">Total</msg>
-  <msg name="discuss">Discutir en el Fòrum</msg>
-  <msg name="nopoll">Encara no hi ha enquestes</msg>  
-  <msg name="createPoll">Crea la seva pròpia enquesta</msg>    
+  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="nopoll">No Polls Yet</msg>  
+  <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>
