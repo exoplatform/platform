@@ -20,19 +20,19 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Servicemanagement</msg>
-  <msg name="services">Diensten</msg>
-  <msg name="name">Naam</msg>
-  <msg name="description">Beschrijving</msg>
-  <msg name="noDescription">Geen beschrijving</msg>
-  <msg name="method">Methode</msg>
+  <msg name="title">Service Management</msg>
+  <msg name="services">Services</msg>
+  <msg name="name">Name</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
   <msg name="parameters">Parameters</msg>
-  <msg name="action">Actie</msg>
-  <msg name="value">Waarde</msg>
-  <msg name="services_url">Diensten URL</msg>
-  <msg name="failManage">Tijdelijke beheren diensten niet in andere host totdat we OAuth ondersteunen</msg>
-  <msg name="noServices">Er is geen service beschikbaar of u hebt niet genoeg toestemming</msg>
-  <msg name="noMethod">Geen methode</msg>
-  <msg name="noProperty">Geen eigenschap</msg>
-  <msg name="badURL">Fout bij het ophalen van gegevens, controleer uw URL</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>

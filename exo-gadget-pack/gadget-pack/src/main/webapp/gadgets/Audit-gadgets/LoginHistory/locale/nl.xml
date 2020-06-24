@@ -22,30 +22,30 @@
 
 -->
 <messagebundle>
-  <msg name="loginHistory.title">Login geschiedenis</msg>
-  <msg name="loginHistory.user">#{word.user}</msg>
-  <msg name="loginHistory.find">Zoeken</msg>
-  <msg name="loginHistory.latest">#{word.reset}</msg>
-  <msg name="loginHistory.lastLogin">Laatste Login</msg>
-  <msg name="loginHistory.beforeThat">Daarvoor</msg>
-  <msg name="loginHistory.more">Meer</msg>
+  <msg name="loginHistory.title">Login History</msg>
+  <msg name="loginHistory.user">User</msg>
+  <msg name="loginHistory.find">Find</msg>
+  <msg name="loginHistory.latest">Reset</msg>
+  <msg name="loginHistory.lastLogin">Last Login</msg>
+  <msg name="loginHistory.beforeThat">Before that</msg>
+  <msg name="loginHistory.more">More</msg>
   <msg name="loginHistory.stats">Stats</msg>
-  <msg name="loginHistory.history">Geschiedenis</msg>
+  <msg name="loginHistory.history">History</msg>
   <msg name="loginHistory.global">Global</msg>
   <msg name="loginHistory.week">Week</msg>
-  <msg name="loginHistory.lastLoginsView">Laatste Logins</msg>
-  <msg name="loginHistory.historyView">Geschiedenis</msg>
-  <msg name="loginHistory.statisticsView">Statistieken</msg>
-  <msg name="loginHistory.averagePerDay">Gemiddelde aanmeldingen per dag</msg>
-  <msg name="loginHistory.averagePerWeek">Gemiddelde aanmeldingen / week</msg>
-  <msg name="loginHistory.averagePerMonth">Gemiddelde aanmeldingen / maand</msg>
-  <msg name="loginHistory.today">Vandaag</msg>
-  <msg name="loginHistory.earlierThisWeek">Eerder deze week</msg>
-  <msg name="loginHistory.earlierThisMonth">Eerder deze maand</msg>
-  <msg name="loginHistory.earlier">Eerder</msg>
-  <msg name="loginHistory.allUsers">Alle gebruikers</msg>
-  <msg name="loginHistory.unknow">Onbekend</msg>
-  <msg name="loginHistory.next">Volgende</msg>
+  <msg name="loginHistory.lastLoginsView">Last Logins</msg>
+  <msg name="loginHistory.historyView">History</msg>
+  <msg name="loginHistory.statisticsView">Statistics</msg>
+  <msg name="loginHistory.averagePerDay">Average logins / day</msg>
+  <msg name="loginHistory.averagePerWeek">Average logins / week</msg>
+  <msg name="loginHistory.averagePerMonth">Average logins / month</msg>
+  <msg name="loginHistory.today">Today</msg>
+  <msg name="loginHistory.earlierThisWeek">Earlier this week</msg>
+  <msg name="loginHistory.earlierThisMonth">Earlier this month</msg>
+  <msg name="loginHistory.earlier">Earlier</msg>
+  <msg name="loginHistory.allUsers">All Users</msg>
+  <msg name="loginHistory.unknow">Unknow</msg>
+  <msg name="loginHistory.next">Next</msg>
   <msg name="loginHistory.ago">Ago</msg>
-  <msg name="loginHistory.search_user">Zoek gebruiker</msg>
+  <msg name="loginHistory.search_user">Search user</msg>
 </messagebundle>
