@@ -2,26 +2,26 @@
 <bundle>
 <UISetupPlatformToolBarPortlet>
 <label>
-<applications>تطبيقات</applications>
-<content>المحتوى</content>
-<siteExplorer>مُـستكشف المواقع</siteExplorer>
-<wcmAdmin>إدارة المحتوى</wcmAdmin>
-<users>المستخدمون</users>
-<newStaff>إضافة مستخدمين</newStaff>
-<org-management>إدارة المستخدمين</org-management>
-<portal>بوّابة</portal>
-<administration>ادارة</administration>
+<applications>Applications</applications>
+<content>Content</content>
+<siteExplorer>Site Explorer</siteExplorer>
+<wcmAdmin>Content Administration</wcmAdmin>
+<users>Users</users>
+<newStaff>Add Users</newStaff>
+<org-management>Manage Users</org-management>
+<portal>Portal</portal>
+<administration>Administration</administration>
 <system>System</system>
-<groupnavigation>مواقع المجموعات</groupnavigation>
-<pageManagement>صفحات</pageManagement>
-<portalnavigation>مواقع</portalnavigation>
-<servicesManagement>إدارة</servicesManagement>
-<monitoring>المراقبة</monitoring>
-<spaces>المساحات</spaces>
-<Branding>الهوية</Branding>
-      <Notification>الإشعارات</Notification>
-<ide>نظام برمجة متكامل IDE</ide>
-<search>إدارة البحث</search>
+<groupnavigation>Group Sites</groupnavigation>
+<pageManagement>Pages</pageManagement>
+<portalnavigation>Sites</portalnavigation>
+<servicesManagement>Management</servicesManagement>
+<monitoring>Monitoring</monitoring>
+<spaces>Spaces</spaces>
+<Branding>Branding</Branding>
+      <Notification>Notifications</Notification>
+<ide>IDE</ide>
+<search>Search Administration</search>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>
