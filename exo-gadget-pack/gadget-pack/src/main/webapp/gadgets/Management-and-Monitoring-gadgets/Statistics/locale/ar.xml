@@ -20,15 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title_templates">احصائيـّة النّماذج</msg>
-  <msg name="ten_slowest_templates">العشر نماذج البطيئة</msg>
-  <msg name="all_templates">كافة النماذج</msg>
-  <msg name="title_apps">إحصائيات التطبيق</msg>
-  <msg name="ten_slowest_apps">التطبيقات العشرالأكثر بُـطئا</msg>
-  <msg name="all_apps">كافة التطبيقات</msg>
-  <msg name="avg_exec_time">متوسّط وقت التنفيذ (بالملّي ثانية)</msg>
-  <msg name="min">أقل قيمة</msg>
-  <msg name="max">أكبر قيمة</msg>
+  <msg name="title_templates">Template Statistics</msg>
+  <msg name="ten_slowest_templates">10 slowest templates</msg>
+  <msg name="all_templates">All templates</msg>
+  <msg name="title_apps">Application Statistics</msg>
+  <msg name="ten_slowest_apps">10 slowest applications</msg>
+  <msg name="all_apps">All applications</msg>
+  <msg name="avg_exec_time">Average execution time (ms)</msg>
+  <msg name="min">min</msg>
+  <msg name="max">max</msg>
   <msg name="exec">#exec</msg>
-  <msg name="loading">تحميل البيانات ...</msg>
+  <msg name="loading">Loading data ...</msg>
 </messagebundle>

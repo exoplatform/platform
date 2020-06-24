@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">استطلاع</msg>
-  <msg name="setting">الاعدادات</msg>
-  <msg name="vote">تصويت</msg>
-  <msg name="voteAgain">التصويت من جديد</msg>
-  <msg name="warning">يرجى إختيار خيار واحد على الأقل</msg>
-  <msg name="option">خيارات</msg>
-  <msg name="percent">بالمائة</msg>
-  <msg name="voter">المصوّتون</msg>
-  <msg name="total">المجموع</msg>
-  <msg name="discuss">مناقشة في المنتدى</msg>
-  <msg name="nopoll">لا توجد استطلاعات رأي حتى الآن</msg>  
-  <msg name="createPoll">إنشاء استطلاع رأي خاص بك</msg>    
+  <msg name="title">Featured Poll</msg>
+  <msg name="setting">View</msg>
+  <msg name="vote">Vote</msg>
+  <msg name="voteAgain">Vote Again</msg>
+  <msg name="warning">Please choose at least one option</msg>
+  <msg name="option">Options</msg>
+  <msg name="percent">Percent</msg>
+  <msg name="voter">Voters</msg>
+  <msg name="total">Total</msg>
+  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="nopoll">No Polls Yet</msg>  
+  <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>
