@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Doporučená anketa</msg>
-  <msg name="setting">Zobrazit</msg>
-  <msg name="vote">Hlasovat</msg>
-  <msg name="voteAgain">Znovu hlastovat</msg>
-  <msg name="warning">Zvolte alespoň jednu možnost</msg>
-  <msg name="option">Možnosti</msg>
-  <msg name="percent">Procenta</msg>
-  <msg name="voter">Účastníci hlasování</msg>
-  <msg name="total">Celkem</msg>
-  <msg name="discuss">Diskutovat ve fóru</msg>
-  <msg name="nopoll">Zatím žádné ankety</msg>  
-  <msg name="createPoll">Vytvořte si vlastní anketu</msg>    
+  <msg name="title">Featured Poll</msg>
+  <msg name="setting">View</msg>
+  <msg name="vote">Vote</msg>
+  <msg name="voteAgain">Vote Again</msg>
+  <msg name="warning">Please choose at least one option</msg>
+  <msg name="option">Options</msg>
+  <msg name="percent">Percent</msg>
+  <msg name="voter">Voters</msg>
+  <msg name="total">Total</msg>
+  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="nopoll">No Polls Yet</msg>  
+  <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>

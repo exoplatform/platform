@@ -21,7 +21,7 @@
 -->
 <messagebundle>
   <msg name="title_templates">Template Statistics</msg>
-  <msg name="ten_slowest_templates">10 nejpomalejších šablon</msg>
+  <msg name="ten_slowest_templates">10 slowest templates</msg>
   <msg name="all_templates">All templates</msg>
   <msg name="title_apps">Application Statistics</msg>
   <msg name="ten_slowest_apps">10 slowest applications</msg>

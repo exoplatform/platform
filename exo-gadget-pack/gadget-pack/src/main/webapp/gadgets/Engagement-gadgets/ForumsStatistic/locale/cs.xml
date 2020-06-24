@@ -22,19 +22,19 @@
 
 -->
 <messagebundle>
-  <msg name="forums.statistic.title">Statistiky fóra</msg>
-  <msg name="forums.statistic.total.topic">Celkem témat:</msg>
-  <msg name="forums.statistic.total.post">Celkem příspěvků:</msg>
-  <msg name="forums.statistic.total.member">Celkem členů:</msg>
-  <msg name="forums.statistic.active.member">Nedávno aktivní členové:</msg>
-  <msg name="forums.statistic.maximum.user">Maximální počet uživatelů online:</msg>  
-  <msg name="forums.statistic.at">jako</msg>  
-  <msg name="forums.weekly.statistic.title">Týdenní statistiky fóra</msg>
-  <msg name="forums.weekly.statistic.post.open">Příspěvky vytvořeny</msg>
-  <msg name="forums.weekly.statistic.next">Další</msg>
-  <msg name="forums.weekly.statistic.prev">Předchozí</msg>
-  <msg name="forums.weekly.statistic.view.chart">Zobrazit jako graf</msg>
-  <msg name="forums.weekly.statistic.view.list">Zobrazit jako seznam</msg>
-  <msg name="forums.statistic.see.total.statistic">Globální statistiky</msg>
-  <msg name="forums.statistic.see.weekly.statistic">Týdenní statistiky</msg>  
+  <msg name="forums.statistic.title">Forum Statistics</msg>
+  <msg name="forums.statistic.total.topic">Total Topics:</msg>
+  <msg name="forums.statistic.total.post">Total Posts:</msg>
+  <msg name="forums.statistic.total.member">Total Members:</msg>
+  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
+  <msg name="forums.statistic.maximum.user">Maximum number of online users:</msg>  
+  <msg name="forums.statistic.at">at</msg>  
+  <msg name="forums.weekly.statistic.title">Forums Weekly Statistics</msg>
+  <msg name="forums.weekly.statistic.post.open">Post(s) Created</msg>
+  <msg name="forums.weekly.statistic.next">Next</msg>
+  <msg name="forums.weekly.statistic.prev">Previous</msg>
+  <msg name="forums.weekly.statistic.view.chart">View as chart</msg>
+  <msg name="forums.weekly.statistic.view.list">View as list</msg>
+  <msg name="forums.statistic.see.total.statistic">Global Statistics</msg>
+  <msg name="forums.statistic.see.weekly.statistic">Weekly Statistics</msg>  
 </messagebundle>
