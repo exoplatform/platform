@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Zaznamki</msg>
-  <msg name="customize">Prilagodi</msg>
+  <msg name="title">Bookmarks</msg>
+  <msg name="customize">Customize</msg>
   <msg name="save">#{word.save}</msg>
-  <msg name="add">Dodaj</msg>
-  <msg name="ok">V redu</msg>
-  <msg name="name">Ime</msg>
+  <msg name="add">Add</msg>
+  <msg name="ok">OK</msg>
+  <msg name="name">Name</msg>
   <msg name="url">URL</msg>
-  <msg name="delete">Izbriši</msg>
-  <msg name="edit">Uredi</msg>
-  <msg name="cancel">Prekliči</msg>
-  <msg name="emptyBookmarkPre">Nimate zaznamkov. Dodajte jih s klikom na gumb "Dodaj zaznamek".</msg>
-  <msg name="addBookmark">Dodaj zaznamek</msg>
+  <msg name="delete">Delete</msg>
+  <msg name="edit">Edit</msg>
+  <msg name="cancel">Cancel</msg>
+  <msg name="emptyBookmarkPre">You don't have any bookmark. Add them by clicking on the button "Add Bookmark".</msg>
+  <msg name="addBookmark">Add Bookmark</msg>
 </messagebundle>

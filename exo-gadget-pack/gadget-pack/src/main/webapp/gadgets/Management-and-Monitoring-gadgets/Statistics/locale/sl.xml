@@ -20,15 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title_templates">Statistika predlog</msg>
-  <msg name="ten_slowest_templates">10 najpočasnejših predlog</msg>
-  <msg name="all_templates">Vse predloge</msg>
-  <msg name="title_apps">Statistika aplikacij</msg>
-  <msg name="ten_slowest_apps">10 najpočasnejših aplikacij</msg>
-  <msg name="all_apps">Vse aplikacije</msg>
-  <msg name="avg_exec_time">Povprečen čas (ms)</msg>
+  <msg name="title_templates">Template Statistics</msg>
+  <msg name="ten_slowest_templates">10 slowest templates</msg>
+  <msg name="all_templates">All templates</msg>
+  <msg name="title_apps">Application Statistics</msg>
+  <msg name="ten_slowest_apps">10 slowest applications</msg>
+  <msg name="all_apps">All applications</msg>
+  <msg name="avg_exec_time">Average execution time (ms)</msg>
   <msg name="min">min</msg>
   <msg name="max">max</msg>
   <msg name="exec">#exec</msg>
-  <msg name="loading">Prenašanje podatkov ...</msg>
+  <msg name="loading">Loading data ...</msg>
 </messagebundle>

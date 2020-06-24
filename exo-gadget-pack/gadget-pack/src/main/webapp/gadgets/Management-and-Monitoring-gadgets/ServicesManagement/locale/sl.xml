@@ -20,19 +20,19 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Upravljanje storitev</msg>
-  <msg name="services">Storitve</msg>
-  <msg name="name">Ime</msg>
-  <msg name="description">Opis</msg>
-  <msg name="noDescription">Ni opisa</msg>
-  <msg name="method">Metoda</msg>
-  <msg name="parameters">Parametri</msg>
-  <msg name="action">Dejanje</msg>
-  <msg name="value">Vrednost</msg>
-  <msg name="services_url">URL storitve</msg>
-  <msg name="failManage">Začasno ne morete upravljati storitev drugega gostitelja, dokler ne bomo podprli OAuth</msg>
-  <msg name="noServices">Na voljo ni nobene storitve ali pa nimate ustreznega dovoljenja</msg>
-  <msg name="noMethod">Ni metode</msg>
-  <msg name="noProperty">Ni lastnosti</msg>
-  <msg name="badURL">Pri pridobivanju podatkov je prišlo do napake, preverite nastavitve URL</msg>
+  <msg name="title">Service Management</msg>
+  <msg name="services">Services</msg>
+  <msg name="name">Name</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>
