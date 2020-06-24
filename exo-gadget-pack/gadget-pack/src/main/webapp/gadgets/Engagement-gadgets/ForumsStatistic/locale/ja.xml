@@ -22,19 +22,19 @@
 
 -->
 <messagebundle>
-  <msg name="forums.statistic.title">フォーラムの統計情報</msg>
-  <msg name="forums.statistic.total.topic">総トピック数:</msg>
-  <msg name="forums.statistic.total.post">合計投稿数</msg>
-  <msg name="forums.statistic.total.member">合計メンバー数：</msg>
-  <msg name="forums.statistic.active.member">最近のアクティブなメンバー:</msg>
-  <msg name="forums.statistic.maximum.user">オンライン ユーザーの最大数:</msg>  
-  <msg name="forums.statistic.at">で</msg>  
-  <msg name="forums.weekly.statistic.title">フォーラム週間の統計情報</msg>
-  <msg name="forums.weekly.statistic.post.open">作成された投稿数</msg>
-  <msg name="forums.weekly.statistic.next">次へ</msg>
-  <msg name="forums.weekly.statistic.prev">前へ</msg>
-  <msg name="forums.weekly.statistic.view.chart">グラフ表示</msg>
-  <msg name="forums.weekly.statistic.view.list">リスト表示</msg>
-  <msg name="forums.statistic.see.total.statistic">グローバルな統計情報</msg>
-  <msg name="forums.statistic.see.weekly.statistic">週間の統計情報</msg>  
+  <msg name="forums.statistic.title">Forum Statistics</msg>
+  <msg name="forums.statistic.total.topic">Total Topics:</msg>
+  <msg name="forums.statistic.total.post">Total Posts:</msg>
+  <msg name="forums.statistic.total.member">Total Members:</msg>
+  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
+  <msg name="forums.statistic.maximum.user">Maximum number of online users:</msg>  
+  <msg name="forums.statistic.at">at</msg>  
+  <msg name="forums.weekly.statistic.title">Forums Weekly Statistics</msg>
+  <msg name="forums.weekly.statistic.post.open">Post(s) Created</msg>
+  <msg name="forums.weekly.statistic.next">Next</msg>
+  <msg name="forums.weekly.statistic.prev">Previous</msg>
+  <msg name="forums.weekly.statistic.view.chart">View as chart</msg>
+  <msg name="forums.weekly.statistic.view.list">View as list</msg>
+  <msg name="forums.statistic.see.total.statistic">Global Statistics</msg>
+  <msg name="forums.statistic.see.weekly.statistic">Weekly Statistics</msg>  
 </messagebundle>

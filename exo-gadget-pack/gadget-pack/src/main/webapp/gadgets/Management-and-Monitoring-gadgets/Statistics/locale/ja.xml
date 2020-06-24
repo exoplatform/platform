@@ -20,15 +20,15 @@
 
 -->
 <messagebundle>
-  <msg name="title_templates">テンプレート統計情報</msg>
-  <msg name="ten_slowest_templates">最も低速なテンプレート10個</msg>
-  <msg name="all_templates">すべてのテンプレート</msg>
-  <msg name="title_apps">アプリケーション統計情報</msg>
-  <msg name="ten_slowest_apps">最も低速なアプリケーション10個</msg>
-  <msg name="all_apps">すべてのアプリケーション</msg>
-  <msg name="avg_exec_time">平均実行時間 (ミリ秒)</msg>
-  <msg name="min">最小</msg>
-  <msg name="max">最大</msg>
+  <msg name="title_templates">Template Statistics</msg>
+  <msg name="ten_slowest_templates">10 slowest templates</msg>
+  <msg name="all_templates">All templates</msg>
+  <msg name="title_apps">Application Statistics</msg>
+  <msg name="ten_slowest_apps">10 slowest applications</msg>
+  <msg name="all_apps">All applications</msg>
+  <msg name="avg_exec_time">Average execution time (ms)</msg>
+  <msg name="min">min</msg>
+  <msg name="max">max</msg>
   <msg name="exec">#exec</msg>
-  <msg name="loading">データを読み込んでいます...</msg>
+  <msg name="loading">Loading data ...</msg>
 </messagebundle>

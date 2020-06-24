@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">注目のアンケート</msg>
-  <msg name="setting">ビューフォーム</msg>
-  <msg name="vote">投票</msg>
-  <msg name="voteAgain">再投票</msg>
-  <msg name="warning">少なくとも 1 つ以上のオプションを選択してください</msg>
-  <msg name="option">オプション</msg>
-  <msg name="percent">パーセント</msg>
-  <msg name="voter">投票者</msg>
-  <msg name="total">合計</msg>
-  <msg name="discuss">フォーラムで議論する</msg>
-  <msg name="nopoll">まだ投票がありません</msg>  
-  <msg name="createPoll">アンケートを作成する</msg>    
+  <msg name="title">Featured Poll</msg>
+  <msg name="setting">View</msg>
+  <msg name="vote">Vote</msg>
+  <msg name="voteAgain">Vote Again</msg>
+  <msg name="warning">Please choose at least one option</msg>
+  <msg name="option">Options</msg>
+  <msg name="percent">Percent</msg>
+  <msg name="voter">Voters</msg>
+  <msg name="total">Total</msg>
+  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="nopoll">No Polls Yet</msg>  
+  <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>

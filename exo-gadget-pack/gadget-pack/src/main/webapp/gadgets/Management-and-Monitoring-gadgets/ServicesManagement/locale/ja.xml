@@ -21,18 +21,18 @@
 -->
 <messagebundle>  
   <msg name="title">Service Management</msg>
-  <msg name="services">サービス</msg>
-  <msg name="name">名前</msg>
-  <msg name="description">説明</msg>
-  <msg name="noDescription">説明なし</msg>
-  <msg name="method">メソッド</msg>
-  <msg name="parameters">パラメータ</msg>
-  <msg name="action">アクション</msg>
-  <msg name="value">値</msg>
-  <msg name="services_url">サービス URL</msg>
-  <msg name="failManage">OAuth をサポートするまで、一時的に、他のホストからサービスを管理することはできません。</msg>
-  <msg name="noServices">サービスが利用できない、もしくは、十分な権限がありません。</msg>
-  <msg name="noMethod">メソッドがありません</msg>
-  <msg name="noProperty">プロパティがありません。</msg>
-  <msg name="badURL">データ取得中にエラーが発生しました。URLの設定を確認してください。</msg>
+  <msg name="services">Services</msg>
+  <msg name="name">Name</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>
