@@ -20,7 +20,7 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Pamamahala ng serbisyo</msg>
+  <msg name="title">Service Management</msg>
   <msg name="services">Services</msg>
   <msg name="name">Name</msg>
   <msg name="description">Description</msg>
