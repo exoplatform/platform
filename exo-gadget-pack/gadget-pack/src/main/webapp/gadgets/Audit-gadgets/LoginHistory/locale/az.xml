@@ -23,7 +23,7 @@
 -->
 <messagebundle>
   <msg name="loginHistory.title">Login History</msg>
-  <msg name="loginHistory.user">İstifadəçi</msg>
+  <msg name="loginHistory.user">User</msg>
   <msg name="loginHistory.find">Find</msg>
   <msg name="loginHistory.latest">Reset</msg>
   <msg name="loginHistory.lastLogin">Last Login</msg>
@@ -39,7 +39,7 @@
   <msg name="loginHistory.averagePerDay">Average logins / day</msg>
   <msg name="loginHistory.averagePerWeek">Average logins / week</msg>
   <msg name="loginHistory.averagePerMonth">Average logins / month</msg>
-  <msg name="loginHistory.today">Bugün</msg>
+  <msg name="loginHistory.today">Today</msg>
   <msg name="loginHistory.earlierThisWeek">Earlier this week</msg>
   <msg name="loginHistory.earlierThisMonth">Earlier this month</msg>
   <msg name="loginHistory.earlier">Earlier</msg>

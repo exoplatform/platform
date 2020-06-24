@@ -23,7 +23,7 @@
   <msg name="title">Service Management</msg>
   <msg name="services">Services</msg>
   <msg name="name">Name</msg>
-  <msg name="description">Açıqlama</msg>
+  <msg name="description">Description</msg>
   <msg name="noDescription">No description</msg>
   <msg name="method">Method</msg>
   <msg name="parameters">Parameters</msg>

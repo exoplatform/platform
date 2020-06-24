@@ -24,7 +24,7 @@
   <msg name="setting">View</msg>
   <msg name="vote">Vote</msg>
   <msg name="voteAgain">Vote Again</msg>
-  <msg name="warning">Xahiş edirik ən az bir variant seçin</msg>
+  <msg name="warning">Please choose at least one option</msg>
   <msg name="option">Options</msg>
   <msg name="percent">Percent</msg>
   <msg name="voter">Voters</msg>
