@@ -20,10 +20,10 @@
 
 -->
 <messagebundle>
-  <msg name="title">Dokumen Favorit</msg>
-  <msg name="titleFav">Kesukaanku</msg>
-  <msg name="titleDoc">Dokumen-dokumen saya</msg>  
-  <msg name="nofav">Anda tidak memiliki dokumen favorit</msg>
-  <msg name="nodoc">Anda tidak memiliki dokumen</msg>
-  <msg name="showall">Tunjukkan semua</msg>
+  <msg name="title">Favorite Documents</msg>
+  <msg name="titleFav">My Favorites</msg>
+  <msg name="titleDoc">My Documents</msg>  
+  <msg name="nofav">You have no favorite document</msg>
+  <msg name="nodoc">You have no document</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>

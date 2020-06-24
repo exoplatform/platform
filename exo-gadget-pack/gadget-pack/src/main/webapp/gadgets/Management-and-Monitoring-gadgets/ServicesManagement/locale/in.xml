@@ -20,19 +20,19 @@
 
 -->
 <messagebundle>  
-  <msg name="title">Manajemen Pelayanan</msg>
-  <msg name="services">Jasa</msg>
-  <msg name="name">Nama</msg>
-  <msg name="description">Deskripsi</msg>
-  <msg name="noDescription">Tidak ada keterangan</msg>
-  <msg name="method">Metode</msg>
-  <msg name="parameters">Parameter</msg>
-  <msg name="action">Tindakan</msg>
-  <msg name="value">Nilai</msg>
-  <msg name="services_url">Alamat Servis URL</msg>
-  <msg name="failManage">Sementara tidak bisa mengelola layanan dari tuan rumah lain sampai kami mendukung OAuth</msg>
-  <msg name="noServices">Tidak ada layanan ialah yang tersedia, atau anda tidak memiliki cukup izin</msg>
-  <msg name="noMethod">Tidak ada metode</msg>
-  <msg name="noProperty">Tidak ada properti.</msg>
-  <msg name="badURL">Kesalahan saat mengambil data, silahkan periksa pilihan URL anda</msg>
+  <msg name="title">Service Management</msg>
+  <msg name="services">Services</msg>
+  <msg name="name">Name</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
+  <msg name="noServices">No service is available or you don't have enough permission</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>

@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">Fitur Pilihan</msg>
-  <msg name="setting">Tampilkan</msg>
-  <msg name="vote">Memilih</msg>
-  <msg name="voteAgain">Memilih lagi</msg>
-  <msg name="warning">Silahkan pilih setidaknya satu pilihan</msg>
-  <msg name="option">Pilihan</msg>
-  <msg name="percent">Persen</msg>
-  <msg name="voter">Pemilih</msg>
+  <msg name="title">Featured Poll</msg>
+  <msg name="setting">View</msg>
+  <msg name="vote">Vote</msg>
+  <msg name="voteAgain">Vote Again</msg>
+  <msg name="warning">Please choose at least one option</msg>
+  <msg name="option">Options</msg>
+  <msg name="percent">Percent</msg>
+  <msg name="voter">Voters</msg>
   <msg name="total">Total</msg>
-  <msg name="discuss">Diskusikan di dalam Forum</msg>
-  <msg name="nopoll">Belum ada jajak pendapat</msg>  
-  <msg name="createPoll">Buat Jajak Pendapat Anda Sendiri</msg>    
+  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="nopoll">No Polls Yet</msg>  
+  <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>
