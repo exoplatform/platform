@@ -22,19 +22,19 @@
 
 -->
 <messagebundle>
-  <msg name="forums.statistic.title">آمار فروم</msg>
-  <msg name="forums.statistic.total.topic">کل موضوعات:</msg>
-  <msg name="forums.statistic.total.post">مجموع پست ها:</msg>
-  <msg name="forums.statistic.total.member">تعداد کاربران:</msg>
-  <msg name="forums.statistic.active.member">کاربران فعال:</msg>
-  <msg name="forums.statistic.maximum.user">حداکثر تعداد اعضای آنلاین:</msg>  
-  <msg name="forums.statistic.at">در</msg>  
-  <msg name="forums.weekly.statistic.title">آمار هفتگی فروم</msg>
-  <msg name="forums.weekly.statistic.post.open">پست ایجاد کرده است</msg>
-  <msg name="forums.weekly.statistic.next">بعدی</msg>
-  <msg name="forums.weekly.statistic.prev">قبلي</msg>
-  <msg name="forums.weekly.statistic.view.chart">مشاهده به عنوان نمودار</msg>
-  <msg name="forums.weekly.statistic.view.list">مشاهده به عنوان لیست</msg>
-  <msg name="forums.statistic.see.total.statistic">آمار کلی</msg>
-  <msg name="forums.statistic.see.weekly.statistic">آمار هفتگی</msg>  
+  <msg name="forums.statistic.title">Forum Statistics</msg>
+  <msg name="forums.statistic.total.topic">Total Topics:</msg>
+  <msg name="forums.statistic.total.post">Total Posts:</msg>
+  <msg name="forums.statistic.total.member">Total Members:</msg>
+  <msg name="forums.statistic.active.member">Recently Active Members:</msg>
+  <msg name="forums.statistic.maximum.user">Maximum number of online users:</msg>  
+  <msg name="forums.statistic.at">at</msg>  
+  <msg name="forums.weekly.statistic.title">Forums Weekly Statistics</msg>
+  <msg name="forums.weekly.statistic.post.open">Post(s) Created</msg>
+  <msg name="forums.weekly.statistic.next">Next</msg>
+  <msg name="forums.weekly.statistic.prev">Previous</msg>
+  <msg name="forums.weekly.statistic.view.chart">View as chart</msg>
+  <msg name="forums.weekly.statistic.view.list">View as list</msg>
+  <msg name="forums.statistic.see.total.statistic">Global Statistics</msg>
+  <msg name="forums.statistic.see.weekly.statistic">Weekly Statistics</msg>  
 </messagebundle>

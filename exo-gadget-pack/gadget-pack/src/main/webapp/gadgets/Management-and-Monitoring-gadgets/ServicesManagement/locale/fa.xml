@@ -21,18 +21,18 @@
 -->
 <messagebundle>  
   <msg name="title">Service Management</msg>
-  <msg name="services">خدمات</msg>
-  <msg name="name">نام</msg>
-  <msg name="description">شرح</msg>
-  <msg name="noDescription">بدون شرح</msg>
-  <msg name="method">روش</msg>
-  <msg name="parameters">پارامترها</msg>
-  <msg name="action">اقدام</msg>
-  <msg name="value">مقدار</msg>
-  <msg name="services_url">آدرس خدمات</msg>
-  <msg name="failManage">تا زمانی که ما از OAuth پشتیبانی کنیم نمی توانیم خدمات دیگر میزبان ها را مدیریت کنیم</msg>
+  <msg name="services">Services</msg>
+  <msg name="name">Name</msg>
+  <msg name="description">Description</msg>
+  <msg name="noDescription">No description</msg>
+  <msg name="method">Method</msg>
+  <msg name="parameters">Parameters</msg>
+  <msg name="action">Action</msg>
+  <msg name="value">Value</msg>
+  <msg name="services_url">Services URL</msg>
+  <msg name="failManage">Temporary can't manage services from other host until we support OAuth</msg>
   <msg name="noServices">No service is available or you don't have enough permission</msg>
-  <msg name="noMethod">هیچ روشی موجود نیست</msg>
-  <msg name="noProperty">هیچ خصیصه ای موجود نیست</msg>
-  <msg name="badURL">خطا در حین بازیابی داده ها، لطفا آدرس تنظیمات خود را بررسی کنید</msg>
+  <msg name="noMethod">No method</msg>
+  <msg name="noProperty">No property</msg>
+  <msg name="badURL">Error while retrieving data, please check your URL preference</msg>
 </messagebundle>

@@ -20,16 +20,16 @@
 
 -->
 <messagebundle>
-  <msg name="title">نظر سنجی ویژه</msg>
-  <msg name="setting">مشاهده</msg>
-  <msg name="vote">رای</msg>
-  <msg name="voteAgain">رأی دوباره</msg>
-  <msg name="warning">لطفا حداقل یک گزینه را انتخاب کنید</msg>
-  <msg name="option">گزینه ها</msg>
-  <msg name="percent">درصد</msg>
-  <msg name="voter">رأی دهندگان</msg>
-  <msg name="total">مجموع</msg>
-  <msg name="discuss">بحث در فروم</msg>
-  <msg name="nopoll">هنوز هیچ نظرسنجی ای وجود ندارد</msg>  
-  <msg name="createPoll">نظرسنجی خودتان را ایجاد کنید</msg>    
+  <msg name="title">Featured Poll</msg>
+  <msg name="setting">View</msg>
+  <msg name="vote">Vote</msg>
+  <msg name="voteAgain">Vote Again</msg>
+  <msg name="warning">Please choose at least one option</msg>
+  <msg name="option">Options</msg>
+  <msg name="percent">Percent</msg>
+  <msg name="voter">Voters</msg>
+  <msg name="total">Total</msg>
+  <msg name="discuss">Discuss in Forum</msg>
+  <msg name="nopoll">No Polls Yet</msg>  
+  <msg name="createPoll">Create Your Own Poll</msg>    
 </messagebundle>

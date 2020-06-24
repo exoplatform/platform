@@ -20,10 +20,10 @@
 
 -->
 <messagebundle>
-  <msg name="title">اسناد مورد علاقه</msg>
-  <msg name="titleFav">علاقه مندی ها</msg>
-  <msg name="titleDoc">اسناد من</msg>  
-  <msg name="nofav">شما هیچ سند مورد علاقه ای ندارید</msg>
-  <msg name="nodoc">شما هیچ سندی ندارید</msg>
-  <msg name="showall">نمایش همه</msg>
+  <msg name="title">Favorite Documents</msg>
+  <msg name="titleFav">My Favorites</msg>
+  <msg name="titleDoc">My Documents</msg>  
+  <msg name="nofav">You have no favorite document</msg>
+  <msg name="nodoc">You have no document</msg>
+  <msg name="showall">Show All</msg>
 </messagebundle>

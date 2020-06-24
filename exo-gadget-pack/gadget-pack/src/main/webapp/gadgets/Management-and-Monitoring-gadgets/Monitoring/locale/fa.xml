@@ -20,17 +20,17 @@
 
 -->
 <messagebundle>
-  <msg name="title_memory">حافظه</msg>
+  <msg name="title_memory">Memory</msg>
   <msg name="used">Used</msg>
   <msg name="free">Free</msg>
-  <msg name="total">مجموع</msg>
+  <msg name="total">Total</msg>
   <msg name="heap">Heap memory</msg>
   <msg name="non-heap">Non-heap memory</msg>
   <msg name="loading">Loading data ...</msg>
   <msg name="title_caches">Cache Levels</msg>
   <msg name="consumption">Consumption</msg>
   <msg name="hit_ratio">Hit ratio</msg>
-  <msg name="details">جزئیات</msg>
+  <msg name="details">Details</msg>
   <msg name="hit">Hit</msg>
   <msg name="miss">Miss</msg>
   <msg name="full">full</msg>
