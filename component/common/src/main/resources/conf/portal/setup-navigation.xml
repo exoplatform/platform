@@ -108,7 +108,7 @@
         <node>
             <uri>searchIndexing</uri>
             <name>searchIndexing</name>
-            <label>Search Indexing</label>
+            <label>#{UISetupPlatformToolBarPortlet.label.searchIndexing}</label>
             <page-reference>group::/platform/administrators::searchIndexing</page-reference>
         </node>
     </page-nodes>
