@@ -20,6 +20,7 @@
       <Notification>Mga abiso</Notification>
 <ide>IDE</ide>
 <search>Search Administration</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

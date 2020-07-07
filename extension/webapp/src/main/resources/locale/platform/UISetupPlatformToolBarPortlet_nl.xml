@@ -20,6 +20,7 @@
       <Notification>Notificaties</Notification>
 <ide>IDE</ide>
 <search>Zoek</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

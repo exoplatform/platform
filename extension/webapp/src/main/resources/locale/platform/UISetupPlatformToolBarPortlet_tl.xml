@@ -20,6 +20,7 @@
       <Notification>Notifications</Notification>
 <ide>Ang IDE</ide>
 <search>Pagsasaliksik ng Pangangasiwa</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

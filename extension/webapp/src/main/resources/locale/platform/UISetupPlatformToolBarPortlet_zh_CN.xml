@@ -20,6 +20,7 @@
       <Notification>电子邮件通知</Notification>
 <ide>集成开发工具</ide>
 <search>搜索</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

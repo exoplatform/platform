@@ -20,6 +20,7 @@
       <Notification>Pemberitahuan</Notification>
 <ide>IDE</ide>
 <search>Administrasi Pencarian</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

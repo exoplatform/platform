@@ -20,6 +20,7 @@
       <Notification>الإشعارات</Notification>
 <ide>نظام برمجة متكامل IDE</ide>
 <search>إدارة البحث</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

@@ -20,6 +20,7 @@
       <Notification>通知</Notification>
 <ide>IDE</ide>
 <search>管理者を検索</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

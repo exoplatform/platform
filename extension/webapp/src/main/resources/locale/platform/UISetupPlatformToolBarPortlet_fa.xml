@@ -20,6 +20,7 @@
       <Notification>اطلاعیه ها</Notification>
 <ide>محیط نرم افزاری</ide>
 <search>جستجو</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>
