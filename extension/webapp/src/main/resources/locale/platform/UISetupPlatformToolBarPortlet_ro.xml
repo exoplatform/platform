@@ -20,6 +20,7 @@
       <Notification>Notificări</Notification>
 <ide>IDE</ide>
 <search>Căutare administrație</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

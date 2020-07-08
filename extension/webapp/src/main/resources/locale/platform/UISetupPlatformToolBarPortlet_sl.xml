@@ -20,6 +20,7 @@
       <Notification>Obvestila</Notification>
 <ide>IDE</ide>
 <search>Upravljanje iskanja</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

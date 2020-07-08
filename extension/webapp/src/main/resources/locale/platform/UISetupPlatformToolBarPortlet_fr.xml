@@ -20,6 +20,7 @@
       <Notification>Notifications</Notification>
 <ide>IDE</ide>
 <search>Recherche</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

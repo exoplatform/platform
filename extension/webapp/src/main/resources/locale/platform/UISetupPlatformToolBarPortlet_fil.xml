@@ -20,6 +20,7 @@
       <Notification>Mga Notipikasyon</Notification>
 <ide>IDE</ide>
 <search>Saliksikin ang administrasyon</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>

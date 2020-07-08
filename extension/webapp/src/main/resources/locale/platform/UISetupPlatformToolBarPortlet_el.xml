@@ -20,6 +20,7 @@
       <Notification>Ειδοποιήσεις</Notification>
 <ide>Περιβάλλον ολοκληρωμένης ανάπτυξης</ide>
 <search>Αναζήτηση</search>
+<searchIndexing>Search Indexing</searchIndexing>
 </label>
 </UISetupPlatformToolBarPortlet>
 </bundle>
