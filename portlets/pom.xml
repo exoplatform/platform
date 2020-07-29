@@ -22,7 +22,7 @@
   <parent>
     <artifactId>platform</artifactId>
     <groupId>org.exoplatform.platform</groupId>
-    <version>5.3.4</version>
+    <version>5.3.4-patched</version>
   </parent>
   <artifactId>portlets</artifactId>
   <packaging>war</packaging>
