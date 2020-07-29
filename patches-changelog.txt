@@ -1,5 +1,11 @@
               2020-07-29 eXo Support <support@exoplatform.org> 
 
-   # 5.3.4 Patches changelog: 
+   # 5.3.4 Patches changelog:
+* 2020-07-22: Patch-5.3.4:1, Author: Dorra Messabi<dmessaabi@exoplatform.com>
+   -  Task-26955 -> https://github.com/exoplatform/kudos/pull/17
+   -  Task-26915 -> https://github.com/exoplatform/chat-application/pull/162
+
+* 2020-07-29: Patch-5.3.4:2, Author: Jihed Chabbeh<jchabbeh@exoplatform.com>
+   -  Task-27240 -> https://github.com/exoplatform/platform/pull/628 
 
 
