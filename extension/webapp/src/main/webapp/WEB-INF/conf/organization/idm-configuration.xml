@@ -44,7 +44,7 @@
       <properties-param>
         <name>hibernate.properties</name>
         <description>Default Hibernate Service</description>
-        <property name="hibernate.hbm2ddl.auto" value="update"/>
+        <property name="hibernate.hbm2ddl.auto" value="${exo.idm.hibernate.hbm2ddl:update}"/>
         <property name="hibernate.show_sql" value="false" />
         <property name="hibernate.connection.datasource" value="${gatein.idm.datasource.name}${container.name.suffix}" />
         <property name="hibernate.connection.autocommit" value="false" />
